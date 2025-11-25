@@ -1,11 +1,14 @@
 import React from 'react';
 import { FeatureItem } from '../types';
+import { useLanguage } from './LanguageContext';
 
 interface FeatureBlockProps {
   item: FeatureItem;
 }
 
 export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
+  const { t } = useLanguage();
+
   return (
     <div className={`py-16 md:py-24 ${item.reverse ? 'bg-slate-50' : 'bg-white'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -38,7 +41,7 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
               ))}
             </div>
             <button className="mt-4 px-6 py-2 text-blue-500 font-bold border-b-2 border-blue-200 hover:border-blue-500 transition-colors">
-              Read more details &rarr;
+              {t.featureBlock.readMore} &rarr;
             </button>
           </div>
 

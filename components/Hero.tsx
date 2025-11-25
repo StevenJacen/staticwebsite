@@ -1,21 +1,24 @@
 import React from 'react';
+import { useLanguage } from './LanguageContext';
 
 export const Hero: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white pt-16 pb-24 md:pt-32 md:pb-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <h1 className="text-4xl md:text-6xl font-extrabold text-slate-800 tracking-tight mb-6">
-          Technology that <span className="text-blue-400">Warms</span> Your Heart
+          {t.hero.titlePrefix} <span className="text-blue-400">{t.hero.titleHighlight}</span> {t.hero.titleSuffix}
         </h1>
         <p className="mt-4 max-w-2xl mx-auto text-xl text-slate-600 mb-10">
-          Discover a new form of companionship. Inspired by the warmth of life and the precision of modern engineering.
+          {t.hero.description}
         </p>
         <div className="flex justify-center gap-4">
           <button className="px-8 py-4 bg-blue-400 hover:bg-blue-500 text-white font-bold rounded-full shadow-lg transition transform hover:-translate-y-1">
-            Learn More
+            {t.hero.learnMore}
           </button>
           <button className="px-8 py-4 bg-white hover:bg-slate-50 text-blue-400 border-2 border-blue-200 font-bold rounded-full shadow-md transition transform hover:-translate-y-1">
-            View Gallery
+            {t.hero.viewGallery}
           </button>
         </div>
       </div>

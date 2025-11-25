@@ -1,7 +1,10 @@
 import React from 'react';
 import { Heart, Instagram, Twitter, Facebook } from 'lucide-react';
+import { useLanguage } from './LanguageContext';
 
 export const Footer: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-blue-100 pt-16 pb-8 border-t border-blue-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,7 +19,7 @@ export const Footer: React.FC = () => {
                <span className="font-bold text-2xl text-slate-700">HeartMemo</span>
             </div>
             <p className="text-slate-600 mb-6 max-w-sm">
-              Bringing warmth to technology. Our mission is to create interfaces that feel human, gentle, and kind.
+              {t.footer.mission}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="p-2 bg-white rounded-full text-blue-400 hover:text-blue-600 shadow-sm transition-transform hover:-translate-y-1">
@@ -33,33 +36,33 @@ export const Footer: React.FC = () => {
 
           {/* Links Column 1 */}
           <div>
-            <h3 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-sm">Product</h3>
+            <h3 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-sm">{t.footer.product}</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">Features</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">Technology</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">Design</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">Pricing</a></li>
+              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.features}</a></li>
+              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.technology}</a></li>
+              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.design}</a></li>
+              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.pricing}</a></li>
             </ul>
           </div>
 
           {/* Links Column 2 */}
           <div>
-            <h3 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-sm">Company</h3>
+            <h3 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-sm">{t.footer.company}</h3>
             <ul className="space-y-3">
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">About Us</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">Careers</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">News</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">Contact</a></li>
+              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.nav.about}</a></li>
+              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.careers}</a></li>
+              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.nav.news}</a></li>
+              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.contact}</a></li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
         <div className="border-t border-blue-200/60 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>&copy; 2024 HeartMemo Inc. All rights reserved.</p>
+          <p>&copy; 2024 {t.footer.rights}</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-blue-500">Privacy Policy</a>
-            <a href="#" className="hover:text-blue-500">Terms of Service</a>
+            <a href="#" className="hover:text-blue-500">{t.footer.privacy}</a>
+            <a href="#" className="hover:text-blue-500">{t.footer.terms}</a>
           </div>
         </div>
       </div>
