@@ -13,6 +13,7 @@ interface Translations {
     titleHighlight: string;
     titleSuffix: string;
     description: string;
+    disclaimer: string;
     learnMore: string;
     viewGallery: string;
   };
@@ -46,10 +47,11 @@ const enTranslations: Translations = {
     about: 'About Us',
   },
   hero: {
-    titlePrefix: 'Technology that',
-    titleHighlight: 'Warms',
-    titleSuffix: 'Your Heart',
-    description: 'Discover a new form of companionship. Inspired by the warmth of life and the precision of modern engineering.',
+    titlePrefix: 'Our Vision:',
+    titleHighlight: 'Love & Companionship',
+    titleSuffix: 'For Everyone',
+    description: 'An AI life partner that perceives your emotions and responds to your needs.',
+    disclaimer: '* The robot shown in this video is a concept. Actual specifications and behaviors may vary from the final product.',
     learnMore: 'Learn More',
     viewGallery: 'View Gallery',
   },
@@ -58,10 +60,10 @@ const enTranslations: Translations = {
   },
   about: {
     title: 'About HeartMemo',
-    content: 'We believe that the future of technology is not just about intelligence, but about warmth. Inspired by the pure connection found in nature, we strive to build a future where robots and humans coexist in harmony.'
+    content: 'HeartMemo Technology: Letting AI understand emotions, giving companionship warmth.'
   },
   footer: {
-    mission: 'Bringing warmth to technology. Our mission is to create interfaces that feel human, gentle, and kind.',
+    mission: 'HeartMemo Tech. Letting AI understand emotions, letting companionship have warmth.',
     product: 'Product',
     features: 'Features',
     technology: 'Technology',
@@ -83,10 +85,11 @@ const zhTranslations: Translations = {
     about: '关于我们',
   },
   hero: {
-    titlePrefix: '让科技',
-    titleHighlight: '温暖',
-    titleSuffix: '人心',
-    description: '探索全新的陪伴方式。灵感源自生命的温度与现代工程的精准。',
+    titlePrefix: '初心：',
+    titleHighlight: '愿每个人都拥有爱和陪伴',
+    titleSuffix: '',
+    description: '一个能感知你情绪、回应你需求的AI生活伙伴',
+    disclaimer: '*本视频中的心忆机器人是形象概念，一些规格与最终产品不同。它们的一些行为和功能可能与最终产品不同。',
     learnMore: '了解更多',
     viewGallery: '浏览图库',
   },
@@ -95,10 +98,10 @@ const zhTranslations: Translations = {
   },
   about: {
     title: '关于 HeartMemo',
-    content: '我们相信科技的未来不仅在于智能，更在于温度。受自然界纯粹连接的启发，我们致力于构建机器人与人类和谐共存的未来。'
+    content: '心忆科技，让AI理解情绪，让陪伴拥有温度。'
   },
   footer: {
-    mission: '为科技注入温度。我们的使命是创造具有人性、温和且友善的交互体验。',
+    mission: '心忆科技，让AI理解情绪，让陪伴拥有温度。',
     product: '产品',
     features: '功能',
     technology: '技术',

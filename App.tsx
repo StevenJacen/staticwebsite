@@ -9,38 +9,38 @@ import { LanguageProvider, useLanguage } from './components/LanguageContext';
 const featuresEn: FeatureItem[] = [
   {
     id: 'f1',
-    title: 'Emotional Bond',
+    title: 'Not Just Responding, But Understanding',
     description: [
-      'Our technology focuses on the subtle non-verbal cues that build trust.',
-      'Through soft gestures and eye contact, we bridge the gap between machine and life.',
-      'It’s not just about function; it’s about the feeling of presence.'
+      'Meet Kangkang — a companion who truly "understands you".',
+      'Like a caring friend, Kangkang is there when you need to vent about your troubles.',
+      'Sometimes you just need to be heard, and Kangkang is always ready to listen.'
     ],
     imageSrc: 'https://picsum.photos/800/800?random=1',
-    imageAlt: 'Robot interacting with human',
+    imageAlt: 'Robot understanding human emotions',
     reverse: false 
   },
   {
     id: 'f2',
-    title: 'Soft Robotics',
+    title: 'Not Just Dialogue, But Resonance',
     description: [
-      'Designed to be held, hugged, and loved.',
-      'Advanced sensors monitor touch, temperature, and posture to respond naturally to your embrace.',
-      'Safety and comfort are at the core of our hardware design philosophy.'
+      'Sometimes, you might just need a word of concern in response.',
+      'But it goes beyond that—remembering your habits and offering reminders and companionship exactly when you need them.',
+      'A true connection that resonates with your daily life.'
     ],
     imageSrc: 'https://picsum.photos/800/800?random=2',
-    imageAlt: 'Soft texture close up',
+    imageAlt: 'Robot providing companionship',
     reverse: true 
   },
   {
     id: 'f3',
-    title: 'Daily Rhythm',
+    title: 'Harvest Love, Share Love',
     description: [
-      'Wake up together, relax together.',
-      'Our AI adapts to your lifestyle, learning your patterns to become the perfect companion.',
-      'Experience a life where technology supports your emotional well-being seamlessly.'
+      'All of this comes from true understanding, not preset programs.',
+      'With HeartMemo, you can harvest love and share love.',
+      'HeartMemo Technology — letting AI understand emotions, letting companionship have warmth.'
     ],
     imageSrc: 'https://picsum.photos/800/800?random=3',
-    imageAlt: 'Lifestyle scene',
+    imageAlt: 'Warm interaction',
     reverse: false
   }
 ];
@@ -48,38 +48,37 @@ const featuresEn: FeatureItem[] = [
 const featuresZh: FeatureItem[] = [
   {
     id: 'f1',
-    title: '情感纽带',
+    title: '不再只是回应，而是理解',
     description: [
-      '我们的技术专注于建立信任的微妙非语言信号。',
-      '通过轻柔的手势和眼神接触，我们弥合了机器与生命之间的鸿沟。',
-      '这不仅仅是功能，更是存在的温度。'
+      '康康—— 一个真正“懂你”的陪伴者。',
+      '它就像一个贴心的朋友：',
+      '当你遇到烦心的事情，那就对康康倾诉吧，一吐为快。'
     ],
     imageSrc: 'https://picsum.photos/800/800?random=1',
-    imageAlt: '机器人与人类互动',
+    imageAlt: '机器人倾听',
     reverse: false 
   },
   {
     id: 'f2',
-    title: '柔性机器人学',
+    title: '不再只是对话，而是共鸣',
     description: [
-      '专为拥抱和宠爱而设计。',
-      '先进的传感器监测触摸、温度和姿态，以自然地回应您的拥抱。',
-      '安全和舒适是我们硬件设计的核心理念。'
+      '你可能只是需要一句关心来回应；',
+      '但它会记得你的习惯，在你需要时送上提醒与陪伴。'
     ],
     imageSrc: 'https://picsum.photos/800/800?random=2',
-    imageAlt: '柔软质感特写',
+    imageAlt: '贴心陪伴',
     reverse: true 
   },
   {
     id: 'f3',
-    title: '生活节律',
+    title: '收获爱和分享爱',
     description: [
-      '一起醒来，一起放松。',
-      '我们的 AI 适应您的生活方式，学习您的习惯，成为完美的伴侣。',
-      '体验科技无缝支持您情感健康的每一天。'
+      '这一切，都自源于真正的理解，而非预设的程序。',
+      '你可以收获爱和分享爱。',
+      '心忆科技，让AI理解情绪，让陪伴拥有温度。'
     ],
     imageSrc: 'https://picsum.photos/800/800?random=3',
-    imageAlt: '生活场景',
+    imageAlt: '爱与分享',
     reverse: false
   }
 ];

@@ -10,10 +10,11 @@ export const Hero: React.FC = () => {
         <h1 className="text-4xl md:text-6xl font-extrabold text-slate-800 tracking-tight mb-6">
           {t.hero.titlePrefix} <span className="text-blue-400">{t.hero.titleHighlight}</span> {t.hero.titleSuffix}
         </h1>
-        <p className="mt-4 max-w-2xl mx-auto text-xl text-slate-600 mb-10">
+        <p className="mt-4 max-w-2xl mx-auto text-xl text-slate-600 mb-8">
           {t.hero.description}
         </p>
-        <div className="flex justify-center gap-4">
+        
+        <div className="flex justify-center gap-4 mb-12">
           <button className="px-8 py-4 bg-blue-400 hover:bg-blue-500 text-white font-bold rounded-full shadow-lg transition transform hover:-translate-y-1">
             {t.hero.learnMore}
           </button>
@@ -21,6 +22,11 @@ export const Hero: React.FC = () => {
             {t.hero.viewGallery}
           </button>
         </div>
+
+        {/* Disclaimer */}
+        <p className="max-w-3xl mx-auto text-xs text-slate-400 px-4">
+          {t.hero.disclaimer}
+        </p>
       </div>
       
       {/* Decorative background blobs */}
