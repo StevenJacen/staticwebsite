@@ -1,10 +1,14 @@
+export type FeatureTheme = 'gray' | 'teal' | 'beige';
+
 export interface FeatureItem {
   id: string;
   title: string;
   description: string[];
   imageSrc: string;
   imageAlt: string;
-  reverse?: boolean; // If true, image is on the right
+  reverse?: boolean; // If true, image is on the right/left depending on theme
+  theme: FeatureTheme;
+  buttonText?: string;
 }
 
 export interface NavLink {

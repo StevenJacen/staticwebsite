@@ -1,68 +1,59 @@
 import React from 'react';
-import { Heart, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Instagram, Twitter, Facebook, MessageCircle } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <footer className="bg-blue-100 pt-16 pb-8 border-t border-blue-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+    <footer>
+      {/* Black Call to Action Section */}
+      <div className="bg-[#111] text-white py-20 text-center">
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-light uppercase tracking-widest mb-2 text-[#d4af37]">
+            {t.footer.friendsTitle}
+          </h2>
+          <p className="text-gray-400 text-sm mb-12">{t.footer.friendsDesc}</p>
           
-          {/* Brand Column */}
-          <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center mb-4">
-               <div className="bg-blue-500 p-2 rounded-full text-white mr-2">
-                  <Heart className="h-5 w-5 fill-current" />
+          <div className="flex flex-col items-center">
+            <p className="mb-6 font-bold">{t.footer.subscribe}</p>
+            {/* QR Code Placeholder */}
+            <div className="bg-white p-2 rounded-lg mb-4">
+               <div className="w-24 h-24 bg-gray-200 flex items-center justify-center text-black text-xs">
+                 QR Code
                </div>
-               <span className="font-bold text-2xl text-slate-700">HeartMemo</span>
             </div>
-            <p className="text-slate-600 mb-6 max-w-sm">
-              {t.footer.mission}
-            </p>
-            <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-white rounded-full text-blue-400 hover:text-blue-600 shadow-sm transition-transform hover:-translate-y-1">
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a href="#" className="p-2 bg-white rounded-full text-pink-500 hover:text-pink-600 shadow-sm transition-transform hover:-translate-y-1">
-                <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="p-2 bg-white rounded-full text-blue-700 hover:text-blue-800 shadow-sm transition-transform hover:-translate-y-1">
-                <Facebook className="h-5 w-5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Links Column 1 */}
-          <div>
-            <h3 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-sm">{t.footer.product}</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.features}</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.technology}</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.design}</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.pricing}</a></li>
-            </ul>
-          </div>
-
-          {/* Links Column 2 */}
-          <div>
-            <h3 className="font-bold text-slate-800 mb-4 uppercase tracking-wider text-sm">{t.footer.company}</h3>
-            <ul className="space-y-3">
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.nav.about}</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.careers}</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.nav.news}</a></li>
-              <li><a href="#" className="text-slate-600 hover:text-blue-500 transition-colors">{t.footer.contact}</a></li>
-            </ul>
           </div>
         </div>
+      </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-blue-200/60 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
-          <p>&copy; 2024 {t.footer.rights}</p>
-          <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-blue-500">{t.footer.privacy}</a>
-            <a href="#" className="hover:text-blue-500">{t.footer.terms}</a>
+      {/* Main Footer Links */}
+      <div className="bg-[#f0f0f0] pt-16 pb-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col md:flex-row justify-between items-start mb-12 gap-8">
+            
+            <div className="flex items-center gap-4">
+               <span className="font-extrabold text-xl tracking-tighter uppercase">HeartMemo</span>
+               <div className="flex space-x-4 ml-4 border-l border-gray-300 pl-4">
+                 <a href="#" className="text-gray-400 hover:text-black transition-colors"><Twitter size={18} /></a>
+                 <a href="#" className="text-gray-400 hover:text-black transition-colors"><Instagram size={18} /></a>
+                 <a href="#" className="text-gray-400 hover:text-black transition-colors"><Facebook size={18} /></a>
+               </div>
+            </div>
+
+            <div className="text-xs text-gray-500 max-w-md">
+               {t.footer.mission}
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-200 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-gray-400 uppercase tracking-wider">
+             <div className="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
+               <a href="#" className="hover:text-gray-600">{t.footer.faq || 'FAQ'}</a>
+               <a href="#" className="hover:text-gray-600">{t.footer.company}</a>
+               <a href="#" className="hover:text-gray-600">{t.footer.privacy}</a>
+               <a href="#" className="hover:text-gray-600">{t.footer.terms}</a>
+             </div>
+             <p>&copy; {new Date().getFullYear()} {t.footer.rights}</p>
           </div>
         </div>
       </div>

@@ -8,7 +8,7 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: t.nav.technology, href: '#technology' },
-    { label: t.nav.news, href: '#news' },
+    { label: t.nav.features, href: '#fashion' }, // Mapping 'Features' generally
     { label: t.nav.about, href: '#about' },
   ];
 
@@ -17,71 +17,78 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-blue-100/90 backdrop-blur-md sticky top-0 z-50 shadow-sm border-b border-blue-200">
+    <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          {/* Logo Section */}
-          <div className="flex-shrink-0 flex items-center cursor-pointer">
-            <div className="bg-blue-400 p-2 rounded-full text-white mr-2">
-              <Heart className="h-6 w-6 fill-current" />
+        <div className="flex justify-between items-center h-16">
+          
+          {/* Left Side: Logo & Navigation Links */}
+          <div className="flex items-center gap-12">
+            {/* Logo Section */}
+            <div className="flex-shrink-0 flex items-center cursor-pointer">
+              {/* Using text logo to match reference minimalism */}
+              <span className="font-extrabold text-2xl text-black tracking-tighter uppercase">HeartMemo</span>
             </div>
-            <span className="font-bold text-2xl text-slate-700 tracking-tight">HeartMemo</span>
+
+            {/* Desktop Menu - Aligned Left */}
+            <div className="hidden md:flex items-center space-x-6">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-gray-500 hover:text-black font-medium text-xs tracking-widest uppercase transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-slate-600 hover:text-blue-500 font-bold text-lg transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
-            
-            <button 
-              onClick={toggleLanguage}
-              className="flex items-center px-3 py-1 rounded-full border border-blue-300 text-blue-600 hover:bg-blue-200 transition-colors font-bold text-sm"
-            >
-              <Globe className="w-4 h-4 mr-1" />
-              {language === 'en' ? '中文' : 'English'}
-            </button>
-          </div>
+          {/* Right Side: Language Switcher & CTA */}
+          <div className="flex items-center gap-4">
+             {/* Store Button (CTA) */}
+            <a href="#" className="hidden md:block px-4 py-2 bg-black text-white text-xs font-bold rounded-full hover:bg-gray-800 transition-colors">
+              {t.nav.store}
+            </a>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center md:hidden gap-4">
+            {/* Language Toggle */}
              <button 
               onClick={toggleLanguage}
-              className="flex items-center px-2 py-1 rounded-full border border-blue-300 text-blue-600 hover:bg-blue-200 transition-colors font-bold text-xs"
+              className="text-gray-400 hover:text-black transition-colors font-medium text-xs flex items-center gap-1"
             >
-              {language === 'en' ? 'CN' : 'EN'}
+              <Globe className="w-3 h-3" />
+              {language === 'en' ? 'JP/CN' : 'EN'}
             </button>
-            
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-slate-600 hover:text-blue-500 focus:outline-none p-2"
-            >
-              {isOpen ? <X className="h-8 w-8" /> : <Menu className="h-8 w-8" />}
-            </button>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-gray-600 hover:text-black focus:outline-none p-2"
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </button>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-blue-50 border-t border-blue-100">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+        <div className="md:hidden bg-white border-t border-gray-100 absolute w-full">
+          <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-3 rounded-md text-base font-bold text-slate-700 hover:text-blue-600 hover:bg-blue-100 transition-all"
+                className="block px-3 py-3 text-sm font-bold text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all"
               >
                 {link.label}
               </a>
             ))}
+            <a href="#" className="block px-3 py-3 text-sm font-bold text-white bg-black rounded-lg text-center mt-4">
+              {t.nav.store}
+            </a>
           </div>
         </div>
       )}
