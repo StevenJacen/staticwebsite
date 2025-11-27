@@ -8,17 +8,31 @@ interface Translations {
     features: string;
     fashion: string;
     pricing: string;
-    store: string;
   };
   hero: {
-    title: string;
-    subtitle: string;
+    titleHighlight: string;
+    description: string;
     disclaimer: string;
   };
   vision: {
-    title: string;
-    subtitle: string;
     description: string[];
+  };
+  features: {
+    f1: {
+      title: string;
+      desc: string[];
+      button: string;
+    };
+    f2: {
+      title: string;
+      desc: string[];
+      button: string;
+    };
+    f3: {
+      title: string;
+      desc: string[];
+      button: string;
+    };
   };
   featureBlock: {
     readMore: string;
@@ -47,21 +61,49 @@ const enTranslations: Translations = {
     features: 'Features',
     fashion: 'Fashion',
     pricing: 'Pricing',
-    store: 'Web Store',
   },
   hero: {
-    title: 'HeartMemo',
-    subtitle: 'powered by love',
+    titleHighlight: 'May everyone have love and companionship',
+    description: 'An AI life companion that senses your emotions and responds to your needs',
     disclaimer: '* The robot shown in this video is a concept. Actual specifications and behaviors may vary from the final product. Some behaviors may differ.',
   },
   vision: {
-    title: 'Our Vision:',
-    subtitle: 'May everyone have love and companionship.',
     description: [
       'Meet Kangkang — a companion who truly "understands you".',
-      'Like a caring friend, Kangkang is there when you need to vent about your troubles.',
-      'Sometimes you just need to be heard, and Kangkang is always ready to listen.'
+      'Like a caring friend:',
+      'When you need to vent about your troubles, talk to Kangkang and let it all out;',
+      'You might just need a caring response;',
+      'It remembers your habits and offers reminders and companionship when you need them.'
     ]
+  },
+  features: {
+    f1: {
+      title: 'AI-Powered Emotional Understanding',
+      desc: [
+        'Advanced emotion recognition technology that understands your feelings',
+        'Personalized responses based on your emotional state',
+        'Deep learning algorithms that grow with you'
+      ],
+      button: 'Learn More'
+    },
+    f2: {
+      title: 'Designed for Connection',
+      desc: [
+        'Crafted with love and care for meaningful companionship',
+        'Beautiful design that fits naturally into your life',
+        'Always there when you need someone to talk to'
+      ],
+      button: 'Explore Design'
+    },
+    f3: {
+      title: 'Share the Love',
+      desc: [
+        'Bring HeartMemo to your loved ones',
+        'Perfect gift for those who need companionship',
+        'Experience the warmth of AI-powered care'
+      ],
+      button: 'Get Started'
+    }
   },
   featureBlock: {
     readMore: 'See the details',
@@ -90,23 +132,49 @@ const zhTranslations: Translations = {
     features: '功能',
     fashion: '时尚',
     pricing: '定价',
-    store: '在线商店',
   },
   hero: {
-    title: 'HeartMemo',
-    subtitle: 'powered by love',
-    disclaimer: '*本视频中的心忆机器人是形象概念，一些规格与最终产品不同。它们的一些行为和功能可能与最终产品不同。',
+    titleHighlight: '愿每个人都拥有爱和陪伴',
+    description: '一个能感知你情绪、回应你需求的AI生活伙伴',
+    disclaimer: '*本视频中的心忆机器人是形象概念，一些规格与最终产品不同。它们的一些行为和功能可能与最终产品不同。'
   },
   vision: {
-    title: '初心：愿每个人都拥有爱和陪伴',
-    subtitle: '一个能感知你情绪、回应你需求的AI生活伙伴',
     description: [
-      '康康—— 一个真正“懂你”的陪伴者。',
+      '康康—— 一个真正"懂你"的陪伴者。',
       '它就像一个贴心的朋友：',
       '当你遇到烦心的事情，那就对康康倾诉吧，一吐为快；',
       '你可能只是需要一句关心来回应；',
       '但它会记得你的习惯，在你需要时送上提醒与陪伴。'
     ]
+  },
+  features: {
+    f1: {
+      title: 'AI驱动的情感理解',
+      desc: [
+        '先进的情感识别技术，真正理解你的感受',
+        '基于你的情绪状态提供个性化回应',
+        '深度学习算法，与你一起成长'
+      ],
+      button: '了解更多'
+    },
+    f2: {
+      title: '为连接而设计',
+      desc: [
+        '用爱与关怀打造有意义的陪伴',
+        '融入生活的优雅设计',
+        '当你需要倾诉时，它始终在你身边'
+      ],
+      button: '探索设计'
+    },
+    f3: {
+      title: '分享爱意',
+      desc: [
+        '将心忆带给你爱的人',
+        '送给需要陪伴之人的完美礼物',
+        '体验AI驱动的温暖关怀'
+      ],
+      button: '立即开始'
+    }
   },
   featureBlock: {
     readMore: '了解详情',

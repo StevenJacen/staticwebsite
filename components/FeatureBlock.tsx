@@ -13,7 +13,20 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
   if (item.theme === 'teal') {
     // "Fashion" Style - Colored Background Band
     return (
-      <section id={item.id} className="relative py-24 bg-blue-100 overflow-hidden">
+      <section
+        id={item.id}
+        className="relative py-24 bg-blue-100 overflow-hidden"
+        style={item.backgroundImage ? {
+          backgroundImage: `url(${item.backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        } : undefined}
+      >
+        {/* Optional overlay for better text readability when background image is used */}
+        {item.backgroundImage && (
+          <div className="absolute inset-0" />
+        )}
         <div className="max-w-[1400px] mx-auto px-6 sm:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">
              <div className="w-full md:w-5/12 text-left space-y-6">
@@ -29,9 +42,6 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
                   {item.buttonText || t.featureBlock.readMore}
                 </button>
              </div>
-             <div className="w-full md:w-7/12 flex justify-center md:justify-end">
-                <img src={item.imageSrc} alt={item.imageAlt} className="w-full max-w-lg object-contain drop-shadow-2xl" />
-             </div>
           </div>
         </div>
       </section>
@@ -41,7 +51,20 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
   if (item.theme === 'beige') {
     // "Store/Hello" Style - Rising Image
     return (
-      <section id={item.id} className="relative pt-24 bg-slate-50 overflow-hidden min-h-[600px] flex flex-col justify-between">
+      <section
+        id={item.id}
+        className="relative pt-24 bg-slate-50 overflow-hidden min-h-[600px] flex flex-col justify-between"
+        style={item.backgroundImage ? {
+          backgroundImage: `url(${item.backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        } : undefined}
+      >
+        {/* Optional overlay for better text readability when background image is used */}
+        {item.backgroundImage && (
+          <div className="absolute inset-0 bg-slate-50/80 backdrop-blur-sm" />
+        )}
         <div className="text-center px-4 relative z-10 mb-12">
            <h2 className="text-4xl md:text-5xl font-light text-slate-800 uppercase tracking-wide mb-8">
               {item.title}
@@ -52,14 +75,8 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
               ))}
            </div>
            <button className="px-10 py-4 rounded-full border border-slate-400 text-slate-700 text-xs font-bold uppercase tracking-widest hover:bg-slate-800 hover:text-white transition-all bg-transparent">
-              {item.buttonText || t.nav.store}
+              {item.buttonText}
            </button>
-        </div>
-        
-        <div className="w-full flex justify-center items-end mt-auto">
-           <div className="w-full max-w-2xl">
-              <img src={item.imageSrc} alt={item.imageAlt} className="w-full h-auto object-cover" />
-           </div>
         </div>
       </section>
     );
@@ -67,8 +84,21 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
 
   // Default 'gray' / Technology style
   return (
-    <section id={item.id} className="py-24 bg-slate-50/50">
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
+    <section
+      id={item.id}
+      className="relative py-24 bg-slate-50/50"
+      style={item.backgroundImage ? {
+        backgroundImage: `url(${item.backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      } : undefined}
+    >
+      {/* Optional overlay for better text readability when background image is used */}
+      {item.backgroundImage && (
+        <div className="absolute inset-0 " />
+      )}
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 relative z-10">
          <h2 className="text-3xl md:text-4xl font-light text-slate-800 mb-12 uppercase tracking-wider">
             {item.title}
          </h2>
@@ -83,11 +113,6 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
                  <button className="px-8 py-3 rounded-full border border-slate-300 text-slate-600 text-xs font-bold uppercase tracking-widest hover:border-slate-800 hover:text-slate-800 transition-all">
                     {item.buttonText || t.featureBlock.readMore}
                  </button>
-               </div>
-            </div>
-            <div className="w-full md:w-7/12">
-               <div className="rounded-[40px] overflow-hidden shadow-2xl">
-                  <img src={item.imageSrc} alt={item.imageAlt} className="w-full h-full object-cover" />
                </div>
             </div>
          </div>

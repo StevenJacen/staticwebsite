@@ -48,12 +48,6 @@ export const Navbar: React.FC = () => {
 
           {/* Right Side: CTA & Language */}
           <div className="flex items-center gap-4">
-            
-            <button 
-              className="hidden md:block px-6 py-2 bg-slate-900 hover:bg-slate-700 text-white rounded-full text-xs font-bold tracking-widest uppercase transition-all"
-            >
-              {t.nav.store}
-            </button>
 
             {/* Language Switcher */}
             <button 
@@ -91,9 +85,6 @@ export const Navbar: React.FC = () => {
                 {link.label}
               </a>
             ))}
-            <button className="w-full text-center py-3 bg-slate-900 text-white rounded-full text-xs font-bold uppercase tracking-widest mt-4">
-              {t.nav.store}
-            </button>
           </div>
         </div>
       )}
