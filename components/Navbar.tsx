@@ -8,8 +8,9 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { label: t.nav.technology, href: '#technology' },
-    { label: t.nav.features, href: '#fashion' }, // Mapping 'Features' generally
-    { label: t.nav.about, href: '#about' },
+    { label: t.nav.features, href: '#features' },
+    { label: t.nav.fashion, href: '#fashion' },
+    { label: t.nav.pricing, href: '#pricing' },
   ];
 
   const toggleLanguage = () => {
@@ -18,24 +19,26 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8">
+        <div className="flex justify-between items-center h-20">
           
-          {/* Left Side: Logo & Navigation Links */}
+          {/* Left Side: Logo & Navigation */}
           <div className="flex items-center gap-12">
-            {/* Logo Section */}
+            {/* Logo */}
             <div className="flex-shrink-0 flex items-center cursor-pointer">
-              {/* Using text logo to match reference minimalism */}
-              <span className="font-extrabold text-2xl text-black tracking-tighter uppercase">HeartMemo</span>
+              <div className="bg-slate-900 p-1.5 rounded-full text-white mr-2">
+                <Heart className="h-4 w-4 fill-current" />
+              </div>
+              <span className="font-bold text-xl text-slate-900 tracking-widest uppercase font-sans">HeartMemo</span>
             </div>
 
-            {/* Desktop Menu - Aligned Left */}
-            <div className="hidden md:flex items-center space-x-6">
+            {/* Desktop Menu */}
+            <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
-                  className="text-gray-500 hover:text-black font-medium text-xs tracking-widest uppercase transition-colors duration-200"
+                  className="text-slate-500 hover:text-slate-900 font-bold text-xs tracking-widest uppercase transition-colors duration-200"
                 >
                   {link.label}
                 </a>
@@ -43,27 +46,29 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Side: Language Switcher & CTA */}
+          {/* Right Side: CTA & Language */}
           <div className="flex items-center gap-4">
-             {/* Store Button (CTA) */}
-            <a href="#" className="hidden md:block px-4 py-2 bg-black text-white text-xs font-bold rounded-full hover:bg-gray-800 transition-colors">
-              {t.nav.store}
-            </a>
-
-            {/* Language Toggle */}
-             <button 
-              onClick={toggleLanguage}
-              className="text-gray-400 hover:text-black transition-colors font-medium text-xs flex items-center gap-1"
+            
+            <button 
+              className="hidden md:block px-6 py-2 bg-slate-900 hover:bg-slate-700 text-white rounded-full text-xs font-bold tracking-widest uppercase transition-all"
             >
-              <Globe className="w-3 h-3" />
-              {language === 'en' ? 'JP/CN' : 'EN'}
+              {t.nav.store}
             </button>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center">
+            {/* Language Switcher */}
+            <button 
+              onClick={toggleLanguage}
+              className="flex items-center px-2 text-slate-400 hover:text-slate-900 transition-colors"
+            >
+              <Globe className="w-5 h-5" />
+              <span className="ml-1 text-xs font-bold uppercase">{language}</span>
+            </button>
+
+            {/* Mobile Toggle */}
+            <div className="md:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="text-gray-600 hover:text-black focus:outline-none p-2"
+                className="text-slate-900 focus:outline-none p-2"
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -74,21 +79,21 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Menu Dropdown */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t border-gray-100 absolute w-full">
-          <div className="px-4 py-4 space-y-2">
+        <div className="md:hidden bg-white border-t border-slate-100 absolute w-full left-0">
+          <div className="px-6 py-4 space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.label}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block px-3 py-3 text-sm font-bold text-gray-800 hover:text-blue-600 hover:bg-gray-50 rounded-lg transition-all"
+                className="block text-sm font-bold text-slate-600 hover:text-slate-900 uppercase tracking-widest"
               >
                 {link.label}
               </a>
             ))}
-            <a href="#" className="block px-3 py-3 text-sm font-bold text-white bg-black rounded-lg text-center mt-4">
+            <button className="w-full text-center py-3 bg-slate-900 text-white rounded-full text-xs font-bold uppercase tracking-widest mt-4">
               {t.nav.store}
-            </a>
+            </button>
           </div>
         </div>
       )}

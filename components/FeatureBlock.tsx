@@ -1,109 +1,97 @@
 import React from 'react';
 import { FeatureItem } from '../types';
+import { useLanguage } from './LanguageContext';
 
 interface FeatureBlockProps {
   item: FeatureItem;
 }
 
 export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
-  
-  // Theme 1: Tech Style (Gray Background, Clean Layout)
-  if (item.theme === 'gray') {
-    return (
-      <section className="py-24 bg-[#F8F8F8]">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-            <div className="w-full md:w-1/2 space-y-6">
-              <h2 className="text-3xl font-light text-slate-800 uppercase tracking-widest">
-                {item.title}
-              </h2>
-              <div className="space-y-4">
-                {item.description.map((p, i) => (
-                  <p key={i} className="text-gray-600 leading-relaxed font-light">{p}</p>
-                ))}
-              </div>
-              <button className="mt-6 px-8 py-3 rounded-full border border-gray-300 text-gray-700 hover:bg-gray-200 hover:border-gray-400 transition-all text-sm font-bold">
-                {item.buttonText}
-              </button>
-            </div>
-            <div className="w-full md:w-1/2">
-               <img 
-                  src={item.imageSrc} 
-                  alt={item.imageAlt} 
-                  className="w-full h-auto rounded-3xl shadow-sm"
-                />
-            </div>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const { t } = useLanguage();
 
-  // Theme 2: Fashion Style (Teal/Blue Gradient Background)
+  // Render Logic based on Theme
   if (item.theme === 'teal') {
+    // "Fashion" Style - Colored Background Band
     return (
-      <section className="py-24 bg-[#A8D0D5] relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
-          <div className="flex flex-col md:flex-row items-center gap-16">
-             <div className="w-full md:w-1/2 order-2 md:order-1">
-               <img 
-                  src={item.imageSrc} 
-                  alt={item.imageAlt} 
-                  className="w-full max-w-md mx-auto drop-shadow-2xl transform hover:scale-105 transition-transform duration-700"
-                />
-            </div>
-            <div className="w-full md:w-1/2 space-y-6 order-1 md:order-2">
-              <h2 className="text-3xl font-light text-slate-800 uppercase tracking-widest">
-                {item.title}
-              </h2>
-              <div className="space-y-4">
-                 {item.description.map((p, i) => (
-                  <p key={i} className="text-slate-700 leading-relaxed font-medium">{p}</p>
-                ))}
-              </div>
-               <button className="mt-6 px-8 py-3 rounded-full bg-white/40 border border-white/50 text-slate-800 hover:bg-white/60 transition-all text-sm font-bold backdrop-blur-sm">
-                {item.buttonText}
-              </button>
-            </div>
+      <section id={item.id} className="relative py-24 bg-blue-100 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+             <div className="w-full md:w-5/12 text-left space-y-6">
+                <h2 className="text-4xl md:text-5xl font-light text-slate-800 uppercase tracking-wide">
+                  {item.title}
+                </h2>
+                <div className="space-y-4 text-slate-600">
+                  {item.description.map((p, i) => (
+                    <p key={i} className="text-sm font-medium leading-relaxed max-w-md">{p}</p>
+                  ))}
+                </div>
+                <button className="px-8 py-3 rounded-full border border-slate-700 text-slate-800 text-xs font-bold uppercase tracking-widest hover:bg-white hover:border-transparent transition-all mt-4">
+                  {item.buttonText || t.featureBlock.readMore}
+                </button>
+             </div>
+             <div className="w-full md:w-7/12 flex justify-center md:justify-end">
+                <img src={item.imageSrc} alt={item.imageAlt} className="w-full max-w-lg object-contain drop-shadow-2xl" />
+             </div>
           </div>
         </div>
-        {/* Decorative gradient overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-teal-200/20 to-transparent pointer-events-none"></div>
       </section>
     );
   }
 
-  // Theme 3: Beige/Warm Style (Center Focus, Emerging Image)
   if (item.theme === 'beige') {
+    // "Store/Hello" Style - Rising Image
     return (
-      <section className="pt-24 pb-0 bg-[#FFF8E5] relative overflow-hidden min-h-[600px] flex flex-col justify-between">
-        <div className="max-w-7xl mx-auto px-6 text-center lg:text-right relative z-10 w-full">
-          <div className="lg:w-1/2 ml-auto lg:pl-12 pb-12">
-            <h2 className="text-4xl md:text-5xl font-thin text-slate-800 mb-6 uppercase tracking-wider">
+      <section id={item.id} className="relative pt-24 bg-slate-50 overflow-hidden min-h-[600px] flex flex-col justify-between">
+        <div className="text-center px-4 relative z-10 mb-12">
+           <h2 className="text-4xl md:text-5xl font-light text-slate-800 uppercase tracking-wide mb-8">
               {item.title}
-            </h2>
-             <div className="space-y-4 mb-8">
-                 {item.description.map((p, i) => (
-                  <p key={i} className="text-slate-600 text-lg">{p}</p>
-                ))}
-              </div>
-             <button className="px-10 py-4 rounded-full border border-orange-300 text-orange-800 hover:bg-orange-100/50 transition-all text-sm font-bold uppercase tracking-wider">
-                {item.buttonText}
-              </button>
-          </div>
+           </h2>
+           <div className="max-w-2xl mx-auto space-y-4 text-slate-600 mb-8">
+              {item.description.map((p, i) => (
+                <p key={i} className="text-base leading-relaxed">{p}</p>
+              ))}
+           </div>
+           <button className="px-10 py-4 rounded-full border border-slate-400 text-slate-700 text-xs font-bold uppercase tracking-widest hover:bg-slate-800 hover:text-white transition-all bg-transparent">
+              {item.buttonText || t.nav.store}
+           </button>
         </div>
         
-        {/* Image positioned at bottom center/left */}
-        <div className="relative w-full max-w-2xl mx-auto lg:mx-0 lg:absolute lg:bottom-0 lg:left-24">
-           <img 
-              src={item.imageSrc} 
-              alt={item.imageAlt} 
-              className="w-full h-auto object-bottom"
-            />
+        <div className="w-full flex justify-center items-end mt-auto">
+           <div className="w-full max-w-2xl">
+              <img src={item.imageSrc} alt={item.imageAlt} className="w-full h-auto object-cover" />
+           </div>
         </div>
       </section>
     );
   }
 
-  return null;
+  // Default 'gray' / Technology style
+  return (
+    <section id={item.id} className="py-24 bg-slate-50/50">
+      <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
+         <h2 className="text-3xl md:text-4xl font-light text-slate-800 mb-12 uppercase tracking-wider">
+            {item.title}
+         </h2>
+         <div className="flex flex-col md:flex-row gap-12 items-start">
+            <div className="w-full md:w-5/12 space-y-6">
+               {item.description.map((p, i) => (
+                  <p key={i} className="text-sm leading-7 text-slate-600 font-medium">
+                    {p}
+                  </p>
+               ))}
+               <div className="pt-6">
+                 <button className="px-8 py-3 rounded-full border border-slate-300 text-slate-600 text-xs font-bold uppercase tracking-widest hover:border-slate-800 hover:text-slate-800 transition-all">
+                    {item.buttonText || t.featureBlock.readMore}
+                 </button>
+               </div>
+            </div>
+            <div className="w-full md:w-7/12">
+               <div className="rounded-[40px] overflow-hidden shadow-2xl">
+                  <img src={item.imageSrc} alt={item.imageAlt} className="w-full h-full object-cover" />
+               </div>
+            </div>
+         </div>
+      </div>
+    </section>
+  );
 };
