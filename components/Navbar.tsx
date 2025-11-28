@@ -19,8 +19,8 @@ export const Navbar: React.FC = () => {
 
   return (
     <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50">
-      <div className="max-w-[1400px] mx-auto px-6 sm:px-8">
-        <div className="flex justify-between items-center h-20">
+       <div className="w-full px-6 sm:px-8">
+        <div className="flex justify-start items-center h-20 gap-8">
           
           {/* Left Side: Logo & Navigation */}
           <div className="flex items-center gap-12">
@@ -47,7 +47,7 @@ export const Navbar: React.FC = () => {
           </div>
 
           {/* Right Side: CTA & Language */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 ml-auto">
 
             {/* Language Switcher */}
             <button 

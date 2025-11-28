@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Instagram, Twitter, Facebook, QrCode } from 'lucide-react';
+import { Heart, Instagram, Twitter, Facebook } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 export const Footer: React.FC = () => {
@@ -9,14 +9,14 @@ export const Footer: React.FC = () => {
     <footer>
       {/* Black Call-to-Action Section */}
       <div className="bg-[#0a0a0a] py-20 text-center text-white">
-        <h3 className="text-2xl md:text-3xl font-serif italic mb-2 tracking-wide text-white/90">LOVOT FRIENDS</h3>
+        <h3 className="text-2xl md:text-3xl font-serif italic mb-2 tracking-wide text-white/90">HEARTMEMO FRIENDS</h3>
         <p className="text-xs uppercase tracking-widest text-gray-400 mb-8">{t.footer.latestUpdates}</p>
         
         <p className="text-sm font-medium mb-6">{t.footer.receiveViaLine}</p>
         
         <div className="flex justify-center">
-          <div className="bg-white p-2 rounded-lg">
-            <QrCode className="w-16 h-16 text-black" />
+          <div className="bg-white p-1 rounded-lg">
+            <img src="image/qrcode.jpg" alt="QR Code to connect on Line" className="w-16 h-16" />
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@ export const Footer: React.FC = () => {
                <div className="bg-black p-1.5 rounded-full text-white mr-2">
                  <Heart className="h-4 w-4 fill-current" />
                </div>
-               <span className="font-bold text-lg text-slate-900 tracking-widest uppercase">Groove X</span>
+               <span className="font-bold text-lg text-slate-900 tracking-widest uppercase">HeartMemo</span>
              </div>
 
              {/* Socials */}
@@ -57,7 +57,7 @@ export const Footer: React.FC = () => {
                <a href="#" className="hover:text-slate-900">{t.footer.privacy}</a>
                <a href="#" className="hover:text-slate-900">{t.footer.terms}</a>
             </div>
-            <p className="font-normal">&copy; 2024 GROOVE X, Inc.</p>
+            <p className="font-normal">&copy; 2026 HeartMemo, Inc.</p>
           </div>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FeatureItem } from '../types';
 import { useLanguage } from './LanguageContext';
 
@@ -8,6 +8,23 @@ interface FeatureBlockProps {
 
 export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
   const { t } = useLanguage();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Select the appropriate background image based on screen size
+  const backgroundImage = isMobile && item.backgroundImageMobile
+    ? item.backgroundImageMobile
+    : item.backgroundImage;
 
   // Render Logic based on Theme
   if (item.theme === 'teal') {
@@ -16,15 +33,15 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
       <section
         id={item.id}
         className="relative py-24 bg-blue-100 overflow-hidden"
-        style={item.backgroundImage ? {
-          backgroundImage: `url(${item.backgroundImage})`,
+        style={backgroundImage ? {
+          backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         } : undefined}
       >
         {/* Optional overlay for better text readability when background image is used */}
-        {item.backgroundImage && (
+        {backgroundImage && (
           <div className="absolute inset-0" />
         )}
         <div className="max-w-[1400px] mx-auto px-6 sm:px-8 relative z-10">
@@ -54,15 +71,15 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
       <section
         id={item.id}
         className="relative pt-24 bg-slate-50 overflow-hidden min-h-[600px] flex flex-col justify-between"
-        style={item.backgroundImage ? {
-          backgroundImage: `url(${item.backgroundImage})`,
+        style={backgroundImage ? {
+          backgroundImage: `url(${backgroundImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         } : undefined}
       >
         {/* Optional overlay for better text readability when background image is used */}
-        {item.backgroundImage && (
+        {backgroundImage && (
           <div className="absolute inset-0 bg-slate-50/80 backdrop-blur-sm" />
         )}
         <div className="text-center px-4 relative z-10 mb-12">
@@ -87,18 +104,18 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
     <section
       id={item.id}
       className="relative py-24 bg-slate-50/50"
-      style={item.backgroundImage ? {
-        backgroundImage: `url(${item.backgroundImage})`,
+      style={backgroundImage ? {
+        backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       } : undefined}
     >
       {/* Optional overlay for better text readability when background image is used */}
-      {item.backgroundImage && (
+      {backgroundImage && (
         <div className="absolute inset-0 " />
       )}
-      <div className="max-w-[1200px] mx-auto px-6 sm:px-8 relative z-10">
+      <div className="max-w-[800px] mx-auto px-6 sm:px-8 relative z-10">
          <h2 className="text-3xl md:text-4xl font-light text-slate-800 mb-12 uppercase tracking-wider">
             {item.title}
          </h2>

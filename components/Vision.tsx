@@ -16,9 +16,17 @@ export const Vision: React.FC = () => {
         
         <div className="space-y-6">
           {t.vision.description.map((line, index) => (
-            <p key={index} className="text-base md:text-lg text-slate-600 font-medium leading-loose">
-              {line}
-            </p>
+            line === '' ? (
+              <div key={index} className="h-4"></div>
+            ) : index === 0 ? (
+              <p key={index} className="text-xl md:text-2xl text-slate-800 font-bold leading-loose">
+                {line}
+              </p>
+            ) : (
+              <p key={index} className="text-base md:text-lg text-slate-600 font-medium leading-loose">
+                {line}
+              </p>
+            )
           ))}
         </div>
       </div>

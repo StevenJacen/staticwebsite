@@ -7,6 +7,7 @@ export interface FeatureItem {
   theme?: 'gray' | 'teal' | 'beige'; // Layout themes: 'gray' (Tech), 'teal' (Fashion)
   buttonText?: string;
   backgroundImage?: string; // Optional background image URL for the section
+  backgroundImageMobile?: string; // Optional mobile background image URL
 }
 
 export interface NavLink {
