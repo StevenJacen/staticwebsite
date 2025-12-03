@@ -8,6 +8,7 @@ export interface FeatureItem {
   buttonText?: string;
   backgroundImage?: string; // Optional background image URL for the section
   backgroundImageMobile?: string; // Optional mobile background image URL
+  link?: string; // Optional URL to navigate to
 }
 
 export interface NavLink {

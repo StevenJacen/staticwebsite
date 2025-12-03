@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Heart} from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 export const Footer: React.FC = () => {
@@ -8,9 +8,8 @@ export const Footer: React.FC = () => {
   return (
     <footer>
       {/* Black Call-to-Action Section */}
-      <div className="bg-[#0a0a0a] py-20 text-center text-white">
-        <h3 className="text-2xl md:text-3xl font-serif italic mb-2 tracking-wide text-white/90">HEARTMEMO FRIENDS</h3>
-        <p className="text-xs uppercase tracking-widest text-gray-400 mb-8">{t.footer.latestUpdates}</p>
+      <div className="bg-slate-50 py-20 text-center text-gray-900">
+        <p className="text-xs uppercase tracking-widest text-gray-600 mb-8">{t.footer.latestUpdates}</p>
         
         <p className="text-sm font-medium mb-6">{t.footer.receiveViaLine}</p>
         
@@ -29,24 +28,17 @@ export const Footer: React.FC = () => {
              
              {/* Logo */}
              <div className="flex items-center">
-               <div className="bg-black p-1.5 rounded-full text-white mr-2">
+               <div className="bg-blue-400 p-1.5 rounded-full text-white mr-2">
                  <Heart className="h-4 w-4 fill-current" />
                </div>
-               <span className="font-bold text-lg text-slate-900 tracking-widest uppercase">HeartMemo</span>
-             </div>
-
-             {/* Socials */}
-             <div className="flex space-x-6">
-                <a href="#" className="text-slate-800 hover:text-slate-500"><Instagram className="w-5 h-5" /></a>
-                <a href="#" className="text-slate-800 hover:text-slate-500"><Twitter className="w-5 h-5" /></a>
-                <a href="#" className="text-slate-800 hover:text-slate-500"><Facebook className="w-5 h-5" /></a>
+               
+               <span className="font-bold text-2xl text-slate-700 tracking-tight">HeartMemo</span>
              </div>
 
           </div>
 
           <div className="text-xs text-slate-500 space-y-4 max-w-2xl mb-12">
             <p>{t.footer.mission}</p>
-            <p>Some of movies, photos and illustrations on this site are prototypes. If you want to check images of the final product, please click here.</p>
           </div>
           
           {/* Bottom Bar */}

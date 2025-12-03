@@ -16,7 +16,7 @@ export const Hero: React.FC = () => {
           muted
           playsInline
         >
-          <source src="video/banner.mp4" type="video/mp4" />
+          <source src="video/banner.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
 
@@ -28,7 +28,7 @@ export const Hero: React.FC = () => {
           muted
           playsInline
         >
-          <source src="video/banner-m.mp4" type="video/mp4" />
+          <source src="video/banner-m.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
 
@@ -46,11 +46,14 @@ export const Hero: React.FC = () => {
 
           {/* Logo */}
           <div className="mb-6 flex justify-center">
-            <img
+            {/* <img
               src="image/logo.png"
               alt="HeartMemo Logo"
-              className="h-16 md:h-24 w-auto drop-shadow-lg"
-            />
+              className="h-8 md:h-12 w-auto drop-shadow-lg"
+            /> */}
+            <span className="text-5xl md:text-8xl font-extrabold bg-gradient-to-r from-green-400 to-blue-600 text-transparent bg-clip-text">
+              {t.hero.logo}
+            </span>
           </div>
 
           <p className="mt-6 max-w-2xl mx-auto text-xl md:text-2xl text-slate-700 font-medium mb-10 leading-relaxed drop-shadow-sm">

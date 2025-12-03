@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FeatureItem } from '../types';
 import { useLanguage } from './LanguageContext';
+import { Link } from 'react-router-dom';
 
 interface FeatureBlockProps {
   item: FeatureItem;
@@ -25,6 +26,25 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
   const backgroundImage = isMobile && item.backgroundImageMobile
     ? item.backgroundImageMobile
     : item.backgroundImage;
+    
+  const renderButton = () => {
+    const buttonContent = (
+      <button className={`px-8 py-3 rounded-full border text-xs font-bold uppercase tracking-widest transition-all ${
+        item.theme === 'teal' 
+          ? 'border-white text-white hover:bg-white hover:text-black hover:border-transparent'
+          : item.theme === 'beige'
+            ? 'border-slate-400 text-slate-700 hover:bg-slate-800 hover:text-white bg-transparent px-10 py-4'
+            : 'border-cyan-500/50 text-cyan-400 hover:bg-cyan-500 hover:text-slate-900'
+      }`}>
+        {item.buttonText || t.featureBlock.readMore}
+      </button>
+    );
+
+    if (item.link) {
+      return <Link to={item.link}>{buttonContent}</Link>;
+    }
+    return buttonContent;
+  };
 
   // Render Logic based on Theme
   if (item.theme === 'teal') {
@@ -40,24 +60,24 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
           backgroundRepeat: 'no-repeat'
         } : undefined}
       >
-        {/* Optional overlay for better text readability when background image is used */}
+        {/* Overlay for better text readability */}
         {backgroundImage && (
-          <div className="absolute inset-0" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
         )}
         <div className="max-w-[1400px] mx-auto px-6 sm:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">
              <div className="w-full md:w-5/12 text-left space-y-6">
-                <h2 className="text-4xl md:text-5xl font-light text-slate-800 uppercase tracking-wide">
+                <h2 className="text-4xl md:text-5xl font-light text-white uppercase tracking-wide">
                   {item.title}
                 </h2>
-                <div className="space-y-4 text-slate-600">
+                <div className="space-y-4 text-gray-100">
                   {item.description.map((p, i) => (
                     <p key={i} className="text-sm font-medium leading-relaxed max-w-md">{p}</p>
                   ))}
                 </div>
-                <button className="px-8 py-3 rounded-full border border-slate-700 text-slate-800 text-xs font-bold uppercase tracking-widest hover:bg-white hover:border-transparent transition-all mt-4">
-                  {item.buttonText || t.featureBlock.readMore}
-                </button>
+                <div className="mt-4">
+                  {renderButton()}
+                </div>
              </div>
           </div>
         </div>
@@ -91,9 +111,7 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
                 <p key={i} className="text-base leading-relaxed">{p}</p>
               ))}
            </div>
-           <button className="px-10 py-4 rounded-full border border-slate-400 text-slate-700 text-xs font-bold uppercase tracking-widest hover:bg-slate-800 hover:text-white transition-all bg-transparent">
-              {item.buttonText}
-           </button>
+           {renderButton()}
         </div>
       </section>
     );
@@ -103,7 +121,7 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
   return (
     <section
       id={item.id}
-      className="relative py-24 bg-slate-50/50"
+      className="relative py-24 bg-slate-900"
       style={backgroundImage ? {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
@@ -111,25 +129,25 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
         backgroundRepeat: 'no-repeat'
       } : undefined}
     >
-      {/* Optional overlay for better text readability when background image is used */}
+      {/* Dark overlay for tech feel */}
       {backgroundImage && (
-        <div className="absolute inset-0 " />
+        <div className="absolute inset-0 bg-slate-900/80" />
       )}
-      <div className="max-w-[800px] mx-auto px-6 sm:px-8 relative z-10">
-         <h2 className="text-3xl md:text-4xl font-light text-slate-800 mb-12 uppercase tracking-wider">
-            {item.title}
-         </h2>
-         <div className="flex flex-col md:flex-row gap-12 items-start">
-            <div className="w-full md:w-5/12 space-y-6">
-               {item.description.map((p, i) => (
-                  <p key={i} className="text-sm leading-7 text-slate-600 font-medium">
-                    {p}
-                  </p>
-               ))}
-               <div className="pt-6">
-                 <button className="px-8 py-3 rounded-full border border-slate-300 text-slate-600 text-xs font-bold uppercase tracking-widest hover:border-slate-800 hover:text-slate-800 transition-all">
-                    {item.buttonText || t.featureBlock.readMore}
-                 </button>
+      <div className="max-w-[1400px] mx-auto px-6 sm:px-8 relative z-10">
+         <div className="flex flex-col md:flex-row justify-center items-center gap-12">
+            <div className="w-full md:w-5/12 space-y-6 text-left">
+               <h2 className="text-3xl md:text-4xl font-light text-cyan-400 mb-12 uppercase tracking-wider">
+                  {item.title}
+               </h2>
+               <div className="space-y-6">
+                   {item.description.map((p, i) => (
+                      <p key={i} className="text-sm leading-7 text-slate-300 font-medium">
+                        {p}
+                      </p>
+                   ))}
+               </div>
+               <div className="pt-6 flex justify-center">
+                 {renderButton()}
                </div>
             </div>
          </div>
