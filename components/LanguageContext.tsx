@@ -51,6 +51,7 @@ interface Translations {
     rights: string;
     latestUpdates: string;
     receiveViaLine: string;
+    officialAccount: string;
   };
   technologyPage: {
     title: string;
@@ -142,9 +143,10 @@ const enTranslations: Translations = {
     rights: 'HeartMemo Inc. All rights reserved.',
     latestUpdates: 'Latest Updates',
     receiveViaLine: 'Connect with us',
+    officialAccount: 'Official Account',
   },
   technologyPage: {
-    title: 'Core Technology',
+    title: 'Technology',
     subtitle: 'Let AI understand emotions, let companionship have warmth',
     multimodal: {
       title: 'Multimodal Information Processing',
@@ -168,7 +170,7 @@ const enTranslations: Translations = {
 
 const zhTranslations: Translations = {
   nav: {
-    technology: '技术',
+    technology: '科技',
     news: '资讯',
     comingSoon: '敬请期待'
   },
@@ -237,9 +239,10 @@ const zhTranslations: Translations = {
     contact: '联系我们',
     privacy: '隐私政策',
     terms: '服务条款',
-    rights: 'HeartMemo Inc. 保留所有权利。',
+    rights: '心忆科技 保留所有权利。',
     latestUpdates: '最新资讯',
     receiveViaLine: '关注我们',
+    officialAccount: '公众号',
   },
   technologyPage: {
     title: '核心技术',
@@ -260,7 +263,7 @@ const zhTranslations: Translations = {
   newsPage: {
     title: '最新资讯',
     description: '这里记录心忆科技的每一步成长、每一次突破，关注我们如何将心理学与人工智能深度融合，重新定义人机关系，为每一个人带来真正懂情感的智能陪伴，分享技术进展、产品动态与合作成果，致力于让情感计算更有温度，让AI陪伴更具深度。',
-    subtitle: '心忆科技的最新动态与里程碑。'
+    subtitle: '最新动态与里程碑'
   }
 };
 

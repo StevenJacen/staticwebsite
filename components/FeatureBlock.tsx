@@ -31,10 +31,10 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
     const buttonContent = (
       <button className={`px-8 py-3 rounded-full border text-xs font-bold uppercase tracking-widest transition-all ${
         item.theme === 'teal' 
-          ? 'border-white text-white hover:bg-white hover:text-black hover:border-transparent'
+          ? 'border-white text-white hover:bg-white hover:text-white hover:border-transparent'
           : item.theme === 'beige'
-            ? 'border-slate-400 text-slate-700 hover:bg-slate-800 hover:text-white bg-transparent px-10 py-4'
-            : 'border-cyan-500/50 text-cyan-400 hover:bg-cyan-500 hover:text-slate-900'
+            ? 'border-white text-slate-700 hover:bg-slate-800 hover:text-white bg-transparent px-10 py-4'
+            : 'border-cyan-200/50 text-cyan-400 hover:bg-cyan-500 hover:text-white'
       }`}>
         {item.buttonText || t.featureBlock.readMore}
       </button>
@@ -55,14 +55,14 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
         className="relative py-24 bg-blue-100 overflow-hidden"
         style={backgroundImage ? {
           backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: 'cover',
+          backgroundSize: 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         } : undefined}
       >
         {/* Overlay for better text readability */}
         {backgroundImage && (
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-black/10 to-transparent" />
         )}
         <div className="max-w-[1400px] mx-auto px-6 sm:px-8 relative z-10">
           <div className="flex flex-col md:flex-row items-center gap-12">
@@ -76,6 +76,44 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
                   ))}
                 </div>
                 <div className="mt-4">
+                  {renderButton()}
+                </div>
+             </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (item.theme === 'news') {
+    // "News" Style - Background Image with darker text
+    return (
+      <section
+        id={item.id}
+        className="relative py-24 overflow-hidden"
+        style={backgroundImage ? {
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        } : undefined}
+      >
+        {/* Overlay for better text readability */}
+        {backgroundImage && (
+          <div className="absolute inset-0 bg-black/20" />
+        )}
+        <div className="max-w-[1400px] mx-auto px-6 sm:px-8 relative z-10">
+          <div className="flex flex-col md:flex-row justify-left items-center gap-12">
+             <div className="w-full md:w-5/12 space-y-6 text-left">
+                <h2 className="text-3xl md:text-4xl font-light text-white mb-12 uppercase tracking-wider">
+                  {item.title}
+                </h2>
+                <div className="space-y-6">
+                  {item.description.map((p, i) => (
+                    <p key={i} className="text-sm leading-7 text-gray-200 font-medium">{p}</p>
+                  ))}
+                </div>
+                <div className="pt-6 flex justify-center">
                   {renderButton()}
                 </div>
              </div>
@@ -100,7 +138,7 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
       >
         {/* Optional overlay for better text readability when background image is used */}
         {backgroundImage && (
-          <div className="absolute inset-0 bg-slate-50/80 backdrop-blur-sm" />
+          <div className="absolute inset-0 bg-slate-50/20" />
         )}
         <div className="text-center px-4 relative z-10 mb-12">
            <h2 className="text-4xl md:text-5xl font-light text-slate-800 uppercase tracking-wide mb-8">
@@ -131,17 +169,17 @@ export const FeatureBlock: React.FC<FeatureBlockProps> = ({ item }) => {
     >
       {/* Dark overlay for tech feel */}
       {backgroundImage && (
-        <div className="absolute inset-0 bg-slate-900/80" />
+        <div className="absolute inset-0 bg-slate-900/20" />
       )}
       <div className="max-w-[1400px] mx-auto px-6 sm:px-8 relative z-10">
          <div className="flex flex-col md:flex-row justify-center items-center gap-12">
             <div className="w-full md:w-5/12 space-y-6 text-left">
-               <h2 className="text-3xl md:text-4xl font-light text-cyan-400 mb-12 uppercase tracking-wider">
+               <h2 className="text-3xl md:text-4xl font-light text-white mb-12 uppercase tracking-wider">
                   {item.title}
                </h2>
                <div className="space-y-6">
                    {item.description.map((p, i) => (
-                      <p key={i} className="text-sm leading-7 text-slate-300 font-medium">
+                      <p key={i} className="text-sm leading-7 text-white font-medium">
                         {p}
                       </p>
                    ))}

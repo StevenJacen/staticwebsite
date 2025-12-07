@@ -25,7 +25,7 @@ export const TechnologyPage: React.FC = () => {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90"></div>
           
           <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <h1 className="text-4xl md:text-6xl font-light tracking-wider mb-6 text-cyan-400 uppercase">
+            <h1 className="text-4xl md:text-6xl font-light tracking-wider mb-6 text-emerald-400 uppercase">
               {t.technologyPage.title}
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 font-light">

@@ -7,19 +7,6 @@ export const Footer: React.FC = () => {
 
   return (
     <footer>
-      {/* Black Call-to-Action Section */}
-      <div className="bg-slate-50 py-20 text-center text-gray-900">
-        <p className="text-xs uppercase tracking-widest text-gray-600 mb-8">{t.footer.latestUpdates}</p>
-        
-        <p className="text-sm font-medium mb-6">{t.footer.receiveViaLine}</p>
-        
-        <div className="flex justify-center">
-          <div className="bg-white p-1 rounded-lg">
-            <img src="image/qrcode.jpg" alt="QR Code to connect on Line" className="w-16 h-16" />
-          </div>
-        </div>
-      </div>
-
       {/* Main Footer Links */}
       <div className="bg-slate-100 pt-16 pb-8 border-t border-slate-200">
         <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
@@ -34,6 +21,15 @@ export const Footer: React.FC = () => {
                
                <span className="font-bold text-2xl text-slate-700 tracking-tight">HeartMemo</span>
              </div>
+
+            {/* QR Code Section - aligned with Logo */}
+            <div className="flex flex-col items-end text-right space-y-2">
+              <p className="text-sm font-medium text-gray-900">{t.footer.receiveViaLine}</p>
+              <p className="text-[0.65rem] font-medium text-gray-900 text-center mx-auto">{t.footer.officialAccount}</p>
+              <div className="bg-white p-1 rounded-lg">
+                <img src="image/qrcode.jpg" alt="QR Code to connect on Line" className="w-16 h-16" />
+              </div>
+            </div>
 
           </div>
 

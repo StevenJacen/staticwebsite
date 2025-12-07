@@ -20,10 +20,9 @@ export const NewsPage: React.FC = () => {
         <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
           <div className="absolute inset-0 opacity-20">
            <img 
-              src="/image/fashion.png" 
+              src="/image/new.png" 
               alt="News Background" 
               className="w-full h-full object-cover"
-              style={{ objectPosition: 'calc(50% - 60px) center', transform: 'scale(1.1)' }}
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90"></div>

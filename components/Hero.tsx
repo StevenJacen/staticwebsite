@@ -51,7 +51,7 @@ export const Hero: React.FC = () => {
               alt="HeartMemo Logo"
               className="h-8 md:h-12 w-auto drop-shadow-lg"
             /> */}
-            <span className="text-5xl md:text-8xl font-extrabold bg-gradient-to-r from-green-400 to-blue-600 text-transparent bg-clip-text">
+            <span className="text-5xl md:text-8xl font-extrabold bg-gradient-multi-color animate-gradient-x text-transparent bg-clip-text">
               {t.hero.logo}
             </span>
           </div>
