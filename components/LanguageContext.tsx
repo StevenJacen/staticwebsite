@@ -73,6 +73,7 @@ interface Translations {
     title: string;
     description: string;
     subtitle: string;
+    backToNews: string;
   };
 }
 
@@ -164,7 +165,8 @@ const enTranslations: Translations = {
   newsPage: {
     title: 'News & Updates',
     description: 'Here we record every step of growth and every breakthrough of HeartMemo Tech. Follow how we deeply integrate psychology with artificial intelligence to redefine the human-machine relationship, bringing truly emotionally intelligent companionship to everyone. We share technical progress, product updates, and partnership achievements, committed to making affective computing warmer and AI companionship deeper.',
-    subtitle: 'Stay updated with our journey and breakthroughs.'
+    subtitle: 'Stay updated with our journey and breakthroughs.',
+    backToNews: 'Back to News'
   }
 };
 
@@ -184,7 +186,7 @@ const zhTranslations: Translations = {
     description: [
       '康康—— 一个真正"懂你"的陪伴者。',
       '',
-      '它就像一个贴心的朋友：',
+      '它就像一个贴心的朋友:',
       '',
       '当你遇到烦心的事情',
       '那就对康康倾诉吧，一吐为快；',
@@ -263,7 +265,8 @@ const zhTranslations: Translations = {
   newsPage: {
     title: '最新资讯',
     description: '这里记录心忆科技的每一步成长、每一次突破，关注我们如何将心理学与人工智能深度融合，重新定义人机关系，为每一个人带来真正懂情感的智能陪伴，分享技术进展、产品动态与合作成果，致力于让情感计算更有温度，让AI陪伴更具深度。',
-    subtitle: '最新动态与里程碑'
+    subtitle: '最新动态与里程碑',
+    backToNews: '返回资讯列表'
   }
 };
 
