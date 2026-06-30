@@ -1,43 +1,60 @@
 import React, { useEffect } from 'react';
-import { Building, Handshake, Network, PhoneCall } from 'lucide-react';
+import { Building, Handshake, Mail, Network, PhoneCall } from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 
 const entries = [
-  [Handshake, '商务合作', '面向品牌联合、场景共建、项目试点与资源合作。'],
-  [Network, '渠道加盟', '面向区域渠道、养老服务渠道、医疗康养渠道等合作伙伴。'],
-  [Building, '机构部署', '面向养老机构、社区服务中心、康养中心提供部署方案。'],
+  { icon: Handshake, title: '商务合作', desc: '面向品牌联合、场景共建、项目试点与资源合作，适合企业、平台和服务商洽谈。' },
+  { icon: Network, title: '渠道加盟', desc: '面向区域渠道、养老服务渠道、医疗康养渠道等合作伙伴，具体政策待客户补充。' },
+  { icon: Building, title: '机构部署', desc: '面向养老机构、社区服务中心、康养中心，围绕设备、后台、服务流程和家属沟通设计方案。' },
 ];
 
 export const CooperationPage: React.FC = () => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-[#fffaf6] font-sans text-slate-950">
       <Navbar />
-      <main className="flex-grow">
-        <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
-          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <h1 className="text-4xl md:text-6xl font-light tracking-wider mb-6 text-emerald-400 uppercase">商务合作</h1>
-            <p className="text-xl md:text-2xl text-slate-300 font-light">一起把有温度的 AI 陪伴带到更多家庭</p>
+      <main>
+        <section className="bg-slate-950 px-5 py-20 text-white lg:px-8">
+          <div className="mx-auto max-w-7xl">
+            <p className="text-sm font-black text-rose-300">合作入口</p>
+            <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight md:text-6xl">一起把有温度的 AI 陪伴带到更多家庭</h1>
+            <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
+              我们欢迎社区、机构、渠道和产业伙伴共建养老陪伴服务。正式上线前可接入表单、企微或 CRM 接口。
+            </p>
           </div>
-        </div>
+        </section>
 
-        <section className="max-w-6xl mx-auto px-6 py-20">
-          <div className="grid gap-6 md:grid-cols-3 mb-10">
-            {entries.map(([Icon, title, desc]) => (
-              <article key={title as string} className="bg-white rounded-2xl shadow-sm p-8">
-                {React.createElement(Icon as typeof Handshake, { className: 'w-10 h-10 text-blue-500 mb-6' })}
-                <h2 className="text-2xl font-bold text-slate-800">{title}</h2>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{desc}</p>
-              </article>
-            ))}
-          </div>
-          <div className="bg-white rounded-2xl shadow-sm p-8 flex items-start gap-4">
-            <PhoneCall className="w-8 h-8 text-blue-500 flex-shrink-0" />
+        <section className="mx-auto grid max-w-7xl gap-6 px-5 py-20 lg:grid-cols-3 lg:px-8">
+          {entries.map((item) => (
+            <article key={item.title} className="rounded-3xl bg-white p-8 shadow-sm">
+              <item.icon className="mb-6 h-10 w-10 text-rose-500" />
+              <h2 className="text-2xl font-black">{item.title}</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
+            </article>
+          ))}
+        </section>
+
+        <section className="bg-rose-50 px-5 py-20 lg:px-8">
+          <div className="mx-auto grid max-w-7xl gap-8 lg:grid-cols-[0.8fr_1.2fr]">
             <div>
-              <h2 className="text-2xl font-bold text-slate-800">联系心忆科技</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">公司 CEO：18500190368；服务热线：4001023698；地址：北京市海淀区永捷南路 2 号院 2 号楼。</p>
+              <h2 className="text-3xl font-black md:text-4xl">联系我们</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">
+                当前版本先展示合作路径和联系方式。后续如需要收集线索，可补充姓名、机构、城市、电话、合作类型和备注字段。
+              </p>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="rounded-3xl bg-white p-6 shadow-sm">
+                <PhoneCall className="mb-4 h-7 w-7 text-rose-500" />
+                <p className="font-black">商务合作</p>
+                <p className="mt-2 text-sm text-slate-600">18500190368</p>
+              </div>
+              <div className="rounded-3xl bg-white p-6 shadow-sm">
+                <Mail className="mb-4 h-7 w-7 text-rose-500" />
+                <p className="font-black">合作邮箱</p>
+                <p className="mt-2 text-sm text-slate-600">待客户提供</p>
+              </div>
             </div>
           </div>
         </section>

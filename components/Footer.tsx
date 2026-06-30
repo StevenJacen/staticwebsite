@@ -1,61 +1,56 @@
 import React from 'react';
 import { Heart, MapPin, Phone } from 'lucide-react';
-import { useLanguage } from './LanguageContext';
 
 export const Footer: React.FC = () => {
-  const { t } = useLanguage();
-
   return (
-    <footer>
-      <div className="bg-slate-100 pt-16 pb-8 border-t border-slate-200">
-        <div className="max-w-[1200px] mx-auto px-6 sm:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
-            <div>
-              <div className="flex items-center mb-6">
-                <div className="bg-blue-400 p-1.5 rounded-full text-white mr-2">
-                  <Heart className="h-4 w-4 fill-current" />
-                </div>
-                <span className="font-bold text-2xl text-slate-700 tracking-tight">HeartMemo</span>
-              </div>
-              <p className="text-xs text-slate-500 leading-7 max-w-xl">{t.footer.mission}</p>
-            </div>
-
-            <div className="flex flex-col items-end text-right space-y-2">
-              <p className="text-sm font-medium text-gray-900">{t.footer.receiveViaLine}</p>
-              <p className="text-[0.65rem] font-medium text-gray-900 text-center mx-auto">{t.footer.officialAccount}</p>
-              <div className="bg-white p-1 rounded-lg">
-                <img src="/image/qrcode.jpg" alt="HeartMemo official account QR code" className="w-16 h-16" />
+    <footer className="bg-slate-950 text-white">
+      <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]">
+          <div>
+            <div className="mb-5 flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-rose-500">
+                <Heart className="h-5 w-5 fill-current" />
+              </span>
+              <div>
+                <p className="text-xl font-black">HeartMemo 心忆科技</p>
+                <p className="text-xs font-bold text-rose-200">北京心忆科技有限公司</p>
               </div>
             </div>
+            <p className="max-w-lg text-sm leading-7 text-slate-300">
+              专注 AI 家庭情感陪伴机器人与心忆同启 APP，让科技成为亲情沟通和日常关怀的温暖桥梁。
+            </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-6 mb-12 text-sm text-slate-600">
-            <div className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0" />
-              <span>{t.aboutPage.addressValue}</span>
-            </div>
-            <div className="flex items-start gap-2">
-              <Phone className="w-4 h-4 text-slate-400 mt-0.5 flex-shrink-0" />
-              <div className="flex flex-wrap gap-x-4 gap-y-1">
-                {t.aboutPage.phones.map((p) => (
-                  <span key={p.value}>
-                    <span className="text-slate-400">{p.label}：</span>
-                    <a href={`tel:${p.value}`} className="hover:text-slate-900 transition-colors">{p.value}</a>
-                  </span>
-                ))}
+          <div className="space-y-4 text-sm text-slate-300">
+            <p className="font-bold text-white">联系信息</p>
+            <p className="flex items-start gap-2">
+              <MapPin className="mt-0.5 h-4 w-4 text-rose-300" />
+              <span>北京市海淀区永捷南路 2 号院 2 号楼</span>
+            </p>
+            <p className="flex items-start gap-2">
+              <Phone className="mt-0.5 h-4 w-4 text-rose-300" />
+              <span>联系电话：17600222898</span>
+            </p>
+            <p className="pl-6">服务热线：4001023698</p>
+            <p className="pl-6">公司 CEO：18500190368</p>
+          </div>
+
+          <div className="space-y-4">
+            <p className="font-bold">公众号与 APP 下载</p>
+            <div className="flex items-center gap-4">
+              <div className="rounded-2xl bg-white p-2">
+                <img src="/image/qrcode.jpg" alt="心忆科技二维码" className="h-20 w-20 object-cover" />
               </div>
+              <p className="text-sm leading-7 text-slate-300">
+                关注公众号，获取产品动态、心忆同启 APP 下载和客服入口。
+              </p>
             </div>
           </div>
+        </div>
 
-          <div className="border-t border-slate-200 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs text-slate-500 uppercase tracking-wider font-bold">
-            <div className="flex flex-wrap justify-center gap-6 mb-4 md:mb-0">
-              <a href="/support" className="hover:text-slate-900">FAQ</a>
-              <a href="/about" className="hover:text-slate-900">{t.footer.company}</a>
-              <a href="/support" className="hover:text-slate-900">{t.footer.privacy}</a>
-              <a href="/support" className="hover:text-slate-900">{t.footer.terms}</a>
-            </div>
-            <p className="font-normal">&copy; 2026 Beijing HeartMemo Technology Co. Ltd.</p>
-          </div>
+        <div className="mt-12 border-t border-white/10 pt-6 text-xs leading-6 text-slate-400">
+          <p>© 2026 Beijing HeartMemo Technology Co. Ltd. ICP 备案号、公安备案号待客户提供。</p>
+          <p>产品功能受设备版本、网络状态、权限设置和实际交付版本影响；健康、心理与紧急情况请联系家属、社区人员或专业机构。</p>
         </div>
       </div>
     </footer>

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Heart, Menu, X, Globe } from 'lucide-react';
+import { Heart, Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navLinks = [
+  { label: '首页', href: '/' },
   { label: '产品', href: '/products' },
-  { label: '科技', href: '/technology' },
   { label: '场景方案', href: '/solutions' },
-  { label: '资讯', href: '/news' },
   { label: '关于我们', href: '/about' },
   { label: '支持', href: '/support' },
 ];
@@ -16,15 +15,6 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const goHome = () => {
-    setIsOpen(false);
-    if (location.pathname !== '/') {
-      navigate('/');
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
   const goTo = (href: string) => {
     setIsOpen(false);
     navigate(href);
@@ -32,61 +22,55 @@ export const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className="bg-white/95 backdrop-blur-sm sticky top-0 z-50">
-      <div className="w-full px-6 sm:px-8">
-        <div className="flex justify-start items-center h-20 gap-8">
-          <div className="flex items-center gap-12">
-            <button className="flex-shrink-0 flex items-center cursor-pointer" onClick={goHome}>
-              <div className="bg-blue-400 p-1.5 rounded-full text-white mr-2">
-                <Heart className="h-6 w-6 fill-current" />
-              </div>
-              <span className="font-bold text-2xl text-slate-700 tracking-tight">HeartMemo</span>
+    <nav className="sticky top-0 z-50 border-b border-rose-100 bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+        <button onClick={() => goTo('/')} className="flex items-center gap-3 text-left">
+          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-rose-500 text-white">
+            <Heart className="h-5 w-5 fill-current" />
+          </span>
+          <span>
+            <span className="block text-xl font-black tracking-tight text-slate-950">HeartMemo</span>
+            <span className="block text-xs font-bold text-slate-500">心忆科技</span>
+          </span>
+        </button>
+
+        <div className="hidden items-center gap-7 lg:flex">
+          {navLinks.map((link) => (
+            <button
+              key={link.href}
+              onClick={() => goTo(link.href)}
+              className={`text-sm font-bold transition-colors ${
+                location.pathname === link.href ? 'text-rose-600' : 'text-slate-600 hover:text-slate-950'
+              }`}
+            >
+              {link.label}
             </button>
-
-            <div className="hidden lg:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <button
-                  key={link.href}
-                  onClick={() => goTo(link.href)}
-                  className={`text-slate-500 hover:text-slate-900 font-bold text-lg tracking-widest transition-colors duration-200 cursor-pointer ${
-                    location.pathname === link.href ? 'text-slate-900' : ''
-                  }`}
-                >
-                  {link.label}
-                </button>
-              ))}
-              <button
-                onClick={() => goTo('/cooperation')}
-                className="text-slate-500 hover:text-slate-900 font-bold text-lg tracking-widest transition-colors duration-200 cursor-pointer"
-              >
-                商务合作
-              </button>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 ml-auto">
-            <button className="flex items-center px-2 text-slate-400 hover:text-slate-900 transition-colors" aria-label="Language">
-              <Globe className="w-5 h-5" />
-              <span className="ml-1 text-xs font-bold uppercase">EN</span>
-            </button>
-
-            <div className="lg:hidden">
-              <button onClick={() => setIsOpen(!isOpen)} className="text-slate-900 focus:outline-none p-2">
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </button>
-            </div>
-          </div>
+          ))}
+          <button
+            onClick={() => goTo('/cooperation')}
+            className="rounded-full bg-slate-950 px-5 py-2.5 text-sm font-bold text-white transition hover:bg-rose-600"
+          >
+            合作入口
+          </button>
         </div>
+
+        <button
+          onClick={() => setIsOpen((value) => !value)}
+          className="rounded-full p-2 text-slate-700 hover:bg-rose-50 lg:hidden"
+          aria-label="打开导航"
+        >
+          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
 
       {isOpen && (
-        <div className="lg:hidden bg-white border-t border-slate-100 absolute w-full left-0">
-          <div className="px-6 py-4 space-y-4">
-            {[...navLinks, { label: '商务合作', href: '/cooperation' }].map((link) => (
+        <div className="border-t border-rose-100 bg-white px-5 py-4 lg:hidden">
+          <div className="flex flex-col gap-2">
+            {[...navLinks, { label: '合作入口', href: '/cooperation' }].map((link) => (
               <button
                 key={link.href}
                 onClick={() => goTo(link.href)}
-                className="block text-sm font-bold text-slate-600 hover:text-slate-900 uppercase tracking-widest cursor-pointer"
+                className="rounded-xl px-3 py-3 text-left text-sm font-bold text-slate-700 hover:bg-rose-50"
               >
                 {link.label}
               </button>

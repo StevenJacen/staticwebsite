@@ -1,64 +1,10 @@
 import React, { useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Bell, Bot, CheckCircle2, HeartHandshake, ShieldCheck, Smartphone, Users, Cpu, Headphones, ArrowRight } from 'lucide-react';
 import { Navbar } from './Navbar';
-import { Hero } from './Hero';
-import { Vision } from './Vision';
-import { FeatureBlock } from './FeatureBlock';
 import { Footer } from './Footer';
-import { FeatureItem } from '../types';
-import { useLanguage } from './LanguageContext';
-import { useLocation } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import { Bell, HeartHandshake, ShieldCheck, Cpu, Headphones, Smartphone } from 'lucide-react';
 
-const featuresZh: FeatureItem[] = [
-  {
-    id: 'products',
-    title: '产品',
-    description: [
-      '心忆康康守护版是一款 AI 家庭情感陪伴机器人，搭配心忆同启 APP 使用。',
-      '支持主动问候、远程提醒、情绪识别、求助关键词提示、生活简报与家人消息传递。',
-      '硬件采用树脂机身与布艺表面，米白、棕、粉、橘等配色，适合家庭陪伴与安全守护场景。'
-    ],
-    backgroundImage: '/image/fashion.png',
-    backgroundImageMobile: '/image/fashion-m.png',
-    imageAlt: '心忆康康产品',
-    theme: 'teal',
-    buttonText: '查看产品详情',
-    link: '/products'
-  },
-  {
-    id: 'technology',
-    title: '科技',
-    description: [
-      '采用大语言模型，结合心理学知识、BSLA 情感计算模型与机器人感知系统。',
-      '康康能够通过语音、画面和交互内容辅助理解长辈状态，提供更自然的问候、提醒和陪伴。',
-      '产品能力以实际交付版本为准，情绪识别和求助提示均为辅助能力，不构成心理评估或医疗判断。'
-    ],
-    backgroundImage: '/image/technology.png',
-    backgroundImageMobile: '/image/technology-m.png',
-    imageAlt: '机器人技术',
-    theme: 'gray',
-    buttonText: '查看核心能力',
-    link: '/technology'
-  },
-  {
-    id: 'solutions',
-    title: '场景方案',
-    description: [
-      '居家养老：1 台康康机器人 + 家庭成员 APP，帮助完成远程提醒、日常陪伴和家庭信息同步。',
-      '社区康养：多台康康机器人 + 管理后台，辅助巡访和关怀触达。',
-      '机构合作：围绕设备部署、家属沟通与住户体验提供定制化方案。'
-    ],
-    backgroundImage: '/image/new.png',
-    backgroundImageMobile: '/image/new-m.png',
-    imageAlt: '场景方案',
-    theme: 'news',
-    buttonText: '查看场景方案',
-    link: '/solutions'
-  }
-];
-
-const valueItems = [
+const values = [
   {
     icon: HeartHandshake,
     title: '亲情沟通 · 触手可及',
@@ -72,106 +18,156 @@ const valueItems = [
   {
     icon: ShieldCheck,
     title: '隐私保护 · 用心设计',
-    desc: '产品采用权限管理、本地处理、传输加密、最小必要采集和摄像头物理遮挡等措施降低隐私风险。',
+    desc: '产品采用权限管理、本地处理、传输加密、最小必要采集和物理遮挡摄像头等措施降低隐私风险。',
   },
 ];
 
-const trustItems = [
-  {
-    icon: Cpu,
-    title: '可落地硬件能力',
-    desc: '心忆康康守护版配备激光雷达、视觉融合 SLAM、6 麦环形阵列、1080p RGB 摄像头与自动回充能力。',
-  },
-  {
-    icon: Headphones,
-    title: 'AI + 真人管家',
-    desc: 'AI 系统处理基础日常陪伴需求，真人管家团队提供关怀与响应服务，服务范围以上线说明为准。',
-  },
+const products = [
   {
     icon: Smartphone,
-    title: 'APP 与家庭连接',
-    desc: '心忆同启 APP 支持远程提醒、生活简报、家人消息传递和设备联动，帮助牵挂更及时触达。',
+    name: '心忆同启 APP',
+    title: '装在手机里的家庭关怀助手',
+    points: ['远程提醒', '家庭空间', '生活简报', '设备联动'],
   },
+  {
+    icon: Bot,
+    name: 'AI 康康机器人',
+    title: '居家陪伴机器人',
+    points: ['主动问候', '情绪关怀', '求助提示', '日常备忘'],
+  },
+];
+
+const trust = [
+  { icon: Cpu, title: '硬件可交付', desc: '激光雷达、视觉融合 SLAM、6 麦环形阵列、1080p RGB 摄像头、自动回充。' },
+  { icon: Headphones, title: 'AI + 真人管家', desc: 'AI 处理基础陪伴需求，真人服务团队承接更复杂的关怀与响应流程。' },
+  { icon: Users, title: '复合型团队', desc: '创始团队兼具学术、科技与商业背景，科研团队覆盖 AI、嵌入式、心理学与机器人控制。' },
 ];
 
 export const Home: React.FC = () => {
-  const { t } = useLanguage();
   const location = useLocation();
 
   useEffect(() => {
     if (location.hash) {
-      const element = document.getElementById(location.hash.replace('#', ''));
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      document.getElementById(location.hash.replace('#', ''))?.scrollIntoView({ behavior: 'smooth' });
     }
   }, [location]);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col font-sans">
+    <div className="min-h-screen bg-[#fffaf6] font-sans text-slate-950">
       <Navbar />
-      <main className="flex-grow">
-        <Hero />
-        <div className="w-full py-8 text-center bg-gradient-to-b from-white to-blue-50">
-          <p className="text-[10px] md:text-xs text-slate-500 max-w-4xl mx-auto px-4 leading-relaxed font-medium">
-            {t.hero.disclaimer}
-          </p>
-        </div>
-        <Vision />
-
-        <section className="py-20 bg-white">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <p className="text-sm font-bold text-blue-500 tracking-widest uppercase">Core Value</p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-800">不常回家，就选心忆康康</h2>
+      <main>
+        <section className="relative overflow-hidden bg-gradient-to-br from-rose-50 via-amber-50 to-sky-50">
+          <div className="mx-auto grid min-h-[720px] max-w-7xl items-center gap-12 px-5 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
+            <div className="relative z-10">
+              <p className="mb-5 inline-flex rounded-full bg-white px-4 py-2 text-sm font-bold text-rose-600 shadow-sm">
+                AI 养老陪伴 · 家庭关怀助手
+              </p>
+              <h1 className="max-w-4xl text-4xl font-black leading-tight tracking-tight md:text-6xl">
+                愿每个人都拥有爱和陪伴
+              </h1>
+              <p className="mt-6 max-w-2xl text-lg leading-9 text-slate-700 md:text-2xl">
+                做一个能感知你情绪、回应你需求的 AI 生活伙伴。
+              </p>
+              <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <Link to="/products" className="inline-flex items-center justify-center gap-2 rounded-full bg-rose-500 px-7 py-3 text-sm font-bold text-white shadow-lg shadow-rose-200 transition hover:bg-rose-600">
+                  了解产品 <ArrowRight className="h-4 w-4" />
+                </Link>
+                <Link to="/solutions" className="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3 text-sm font-bold text-slate-800 transition hover:border-rose-300 hover:text-rose-600">
+                  查看场景方案
+                </Link>
+              </div>
             </div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {valueItems.map((item) => (
-                <article key={item.title} className="rounded-2xl bg-slate-50 p-7 shadow-sm">
-                  <item.icon className="w-8 h-8 text-blue-500 mb-5" />
-                  <h3 className="text-xl font-bold text-slate-800">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="py-20 bg-blue-50">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <p className="text-sm font-bold text-blue-500 tracking-widest uppercase">Trust</p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold text-slate-800">从硬件、服务到家庭连接的信任参考</h2>
-            </div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {trustItems.map((item) => (
-                <article key={item.title} className="rounded-2xl bg-white p-7 shadow-sm">
-                  <item.icon className="w-8 h-8 text-blue-500 mb-5" />
-                  <h3 className="text-xl font-bold text-slate-800">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
-                </article>
-              ))}
+            <div className="relative">
+              <img src="/image/v3/hero-family.png" alt="老人和家人视频通话，康康机器人在旁陪伴" className="w-full rounded-[2rem] object-cover shadow-2xl shadow-rose-100" />
             </div>
           </div>
         </section>
 
-        <div className="flex flex-col">
-          {featuresZh.map((feature) => (
-            <FeatureBlock key={feature.id} item={feature} />
-          ))}
-        </div>
+        <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+          <div className="mb-10 max-w-3xl">
+            <p className="text-sm font-black text-rose-600">价值主张</p>
+            <h2 className="mt-3 text-3xl font-black md:text-4xl">不常回家，就选心忆康康</h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {values.map((item) => (
+              <article key={item.title} className="rounded-3xl border border-rose-100 bg-white p-7 shadow-sm">
+                <item.icon className="mb-5 h-8 w-8 text-rose-500" />
+                <h3 className="text-xl font-black">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
+              </article>
+            ))}
+          </div>
+        </section>
 
-        <section className="py-16 bg-slate-900 text-white">
-          <div className="max-w-6xl mx-auto px-6 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+        <section className="bg-white">
+          <div className="mx-auto grid max-w-7xl gap-10 px-5 py-20 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
             <div>
-              <h2 className="text-3xl font-bold">想了解更多？</h2>
-              <p className="mt-3 text-slate-300">下载心忆同启 APP，用 AI 连接亲情。</p>
+              <p className="text-sm font-black text-rose-600">产品预览</p>
+              <h2 className="mt-3 text-3xl font-black md:text-4xl">软件连接家人，硬件陪在身边</h2>
+              <p className="mt-5 text-base leading-8 text-slate-600">
+                心忆同启 APP 与 AI 康康机器人共同承接提醒、陪伴、沟通、设备联动与安全辅助提示。
+              </p>
+              <div className="mt-8 grid gap-4">
+                {products.map((item) => (
+                  <article key={item.name} className="rounded-3xl bg-slate-50 p-6">
+                    <div className="flex items-start gap-4">
+                      <item.icon className="mt-1 h-8 w-8 flex-shrink-0 text-rose-500" />
+                      <div>
+                        <h3 className="text-xl font-black">{item.name}</h3>
+                        <p className="mt-1 text-sm font-bold text-slate-500">{item.title}</p>
+                        <div className="mt-4 flex flex-wrap gap-2">
+                          {item.points.map((point) => (
+                            <span key={point} className="rounded-full bg-white px-3 py-1 text-xs font-bold text-slate-600">{point}</span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </div>
+            <img src="/image/v3/product-companion.png" alt="心忆康康机器人和心忆同启 APP" className="h-full min-h-[420px] rounded-[2rem] object-cover shadow-xl shadow-rose-100" />
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
+          <div className="mb-10 max-w-3xl">
+            <p className="text-sm font-black text-rose-600">信任参考</p>
+            <h2 className="mt-3 text-3xl font-black md:text-4xl">从产品能力到团队背景，建立可验证的信任</h2>
+          </div>
+          <div className="grid gap-5 md:grid-cols-3">
+            {trust.map((item) => (
+              <article key={item.title} className="rounded-3xl bg-white p-7 shadow-sm">
+                <item.icon className="mb-5 h-8 w-8 text-rose-500" />
+                <h3 className="text-xl font-black">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
+              </article>
+            ))}
+          </div>
+          <div className="mt-8 rounded-3xl bg-slate-950 p-7 text-white">
+            <p className="text-sm font-bold text-rose-200">合规提示</p>
+            <div className="mt-4 grid gap-3 md:grid-cols-3">
+              {['不替代家属照护', '不构成心理评估或医疗判断', '健康与紧急情况应联系专业机构'].map((item) => (
+                <p key={item} className="flex items-center gap-2 text-sm text-slate-200">
+                  <CheckCircle2 className="h-4 w-4 text-rose-300" />
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-rose-500">
+          <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-5 py-14 text-white lg:flex-row lg:items-center lg:px-8">
+            <div>
+              <h2 className="text-3xl font-black">想了解更多？</h2>
+              <p className="mt-3 text-rose-50">下载心忆同启 APP，用 AI 连接亲情。</p>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row">
-              <Link to="/support" className="rounded-full bg-blue-500 px-7 py-3 text-center text-sm font-bold text-white hover:bg-blue-600 transition">
-                获取下载与客服入口
+              <Link to="/support" className="rounded-full bg-white px-7 py-3 text-center text-sm font-bold text-rose-600 transition hover:bg-rose-50">
+                APP 下载与客服
               </Link>
-              <Link to="/cooperation" className="rounded-full border border-white/30 px-7 py-3 text-center text-sm font-bold text-white hover:bg-white hover:text-slate-900 transition">
+              <Link to="/cooperation" className="rounded-full border border-white/40 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-white hover:text-rose-600">
                 商务合作咨询
               </Link>
             </div>
