@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from './LanguageContext';
+import { assetPath } from './assetPath';
 
 export const Hero: React.FC = () => {
   const { t } = useLanguage();
@@ -16,7 +17,7 @@ export const Hero: React.FC = () => {
           muted
           playsInline
         >
-          <source src="video/banner.webm" type="video/webm" />
+          <source src={assetPath('video/banner.webm')} type="video/webm" />
           Your browser does not support the video tag.
         </video>
 
@@ -28,7 +29,7 @@ export const Hero: React.FC = () => {
           muted
           playsInline
         >
-          <source src="video/banner-m.webm" type="video/webm" />
+          <source src={assetPath('video/banner-m.webm')} type="video/webm" />
           Your browser does not support the video tag.
         </video>
 

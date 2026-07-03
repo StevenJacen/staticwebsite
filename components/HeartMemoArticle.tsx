@@ -1,4 +1,5 @@
 import React from 'react';
+import { assetPath } from './assetPath';
 
 // SVG 图标组件：用于还原设计图中的曲线装饰
 const CurveLine = () => (
@@ -45,7 +46,7 @@ const HeartMemoArticle = () => {
 
         {/* === 图片位 1 === */}
         <div className="w-full aspect-[16/9] bg-gray-200 flex items-center justify-center text-gray-400">
-          <img src="/image/media/media-1.jpg" alt="中欧校友合影 1" className="w-full h-full object-cover" />
+          <img src={assetPath('image/media/media-1.jpg')} alt="中欧校友合影 1" className="w-full h-full object-cover" />
         </div>
 
         {/* === PART 01 === */}
@@ -60,7 +61,7 @@ const HeartMemoArticle = () => {
 
         {/* === 图片位 2 === */}
         <div className="w-full aspect-[16/9] bg-gray-200 flex items-center justify-center text-gray-400">
-           <img src="/image/media/media-2.jpg" alt="会议现场 1" className="w-full h-full object-cover" />
+           <img src={assetPath('image/media/media-2.jpg')} alt="会议现场 1" className="w-full h-full object-cover" />
         </div>
 
         {/* === 蓝色渐变文本块 1 === */}
@@ -148,7 +149,7 @@ const HeartMemoArticle = () => {
         {/* === 图片位 3 === */}
         <div className="w-full px-4 mb-8">
             <div className="w-full aspect-video bg-gray-200 border-4 border-white shadow-lg flex items-center justify-center text-gray-400">
-               <img src="/image/media/media-3.png" alt="产品演示/讨论" className="w-full h-full object-cover" />
+               <img src={assetPath('image/media/media-3.png')} alt="产品演示/讨论" className="w-full h-full object-cover" />
             </div>
         </div>
 

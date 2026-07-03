@@ -3,6 +3,7 @@ import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { Brain, Activity, Users } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
+import { assetPath } from './assetPath';
 
 export const TechnologyPage: React.FC = () => {
   const { t } = useLanguage();
@@ -20,7 +21,7 @@ export const TechnologyPage: React.FC = () => {
         {/* Hero Section */}
         <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
           <div className="absolute inset-0 opacity-20">
-             <img src="/image/technology.png" alt="Technology Background" className="w-full h-full object-cover" />
+             <img src={assetPath('image/technology.png')} alt="Technology Background" className="w-full h-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90"></div>
           
@@ -50,7 +51,7 @@ export const TechnologyPage: React.FC = () => {
               </p>
             </div>
             <div className="md:w-1/2 flex justify-center">
-                <img src="/image/tech_1.png" alt="Multimodal Processing" className="rounded-lg shadow-lg w-full max-w-sm md:max-w-md" />
+                <img src={assetPath('image/tech_1.png')} alt="Multimodal Processing" className="rounded-lg shadow-lg w-full max-w-sm md:max-w-md" />
             </div>
           </div>
 
@@ -67,7 +68,7 @@ export const TechnologyPage: React.FC = () => {
                </p>
             </div>
             <div className="md:w-1/2 flex justify-center">
-                <img src="/image/tech_2.png" alt="Real-time Response" className="rounded-lg shadow-lg w-full max-w-sm md:max-w-md" />
+                <img src={assetPath('image/tech_2.png')} alt="Real-time Response" className="rounded-lg shadow-lg w-full max-w-sm md:max-w-md" />
             </div>
           </div>
 
@@ -84,7 +85,7 @@ export const TechnologyPage: React.FC = () => {
               </p>
             </div>
             <div className="md:w-1/2 flex justify-center">
-                <img src="/image/tech_3.png" alt="Multiple Personalities" className="rounded-lg shadow-lg w-full max-w-sm md:max-w-md" />
+                <img src={assetPath('image/tech_3.png')} alt="Multiple Personalities" className="rounded-lg shadow-lg w-full max-w-sm md:max-w-md" />
             </div>
           </div>
 

@@ -7,6 +7,7 @@ import { Footer } from './Footer';
 import { FeatureItem } from '../types';
 import { useLanguage } from './LanguageContext';
 import { useLocation } from 'react-router-dom';
+import { assetPath } from './assetPath';
 
 const featuresEn: FeatureItem[] = [
   {
@@ -18,8 +19,8 @@ const featuresEn: FeatureItem[] = [
       'It remembers your habits, grows with its environment, and forms its own unique personality.',
       'Providing care and companionship whenever you need it.'
     ],
-    backgroundImage: '/image/technology.png',
-    backgroundImageMobile: '/image/technology-m.png',
+    backgroundImage: assetPath('image/technology.png'),
+    backgroundImageMobile: assetPath('image/technology-m.png'),
     imageAlt: 'Robot Technology',
     theme: 'gray',
     buttonText: 'See the Technology',
@@ -34,8 +35,8 @@ const featuresEn: FeatureItem[] = [
       'bringing truly emotionally intelligent companionship to everyone',
       'We share technical progress, product updates, and partnership achievements, committed to making affective computing warmer and AI companionship deeper.',
     ],
-    backgroundImage: '/image/new.png',
-    backgroundImageMobile: '/image/new-m.png',
+    backgroundImage: assetPath('image/new.png'),
+    backgroundImageMobile: assetPath('image/new-m.png'),
     imageAlt: 'Latest News',
     theme: 'news',
     buttonText: 'Read More',
@@ -53,8 +54,8 @@ const featuresZh: FeatureItem[] = [
       '它会记得你的习惯，根据环境成长，形成自己独一无二的人格',
       '在你需要时送上关心与陪伴。'
     ],
-    backgroundImage: '/image/technology.png',
-    backgroundImageMobile: '/image/technology-m.png',
+    backgroundImage: assetPath('image/technology.png'),
+    backgroundImageMobile: assetPath('image/technology-m.png'),
     imageAlt: '机器人技术',
     theme: 'gray',
     buttonText: '查看技术详情',
@@ -69,8 +70,8 @@ const featuresZh: FeatureItem[] = [
       '为每一个人带来真正懂情感的智能陪伴',
       '分享技术进展、产品动态与合作成果，致力于让情感计算更有温度，让AI陪伴更具深度。'
     ],
-    backgroundImage: '/image/new.png',
-    backgroundImageMobile: '/image/new-m.png',
+    backgroundImage: assetPath('image/new.png'),
+    backgroundImageMobile: assetPath('image/new-m.png'),
     imageAlt: '资讯',
     theme: 'news',
     buttonText: '了解更多',

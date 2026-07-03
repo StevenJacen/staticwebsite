@@ -1,6 +1,7 @@
 import React from 'react';
 import { Heart} from 'lucide-react';
 import { useLanguage } from './LanguageContext';
+import { assetPath } from './assetPath';
 
 export const Footer: React.FC = () => {
   const { t } = useLanguage();
@@ -27,7 +28,7 @@ export const Footer: React.FC = () => {
               <p className="text-sm font-medium text-gray-900">{t.footer.receiveViaLine}</p>
               <p className="text-[0.65rem] font-medium text-gray-900 text-center mx-auto">{t.footer.officialAccount}</p>
               <div className="bg-white p-1 rounded-lg">
-                <img src="image/qrcode.jpg" alt="QR Code to connect on Line" className="w-16 h-16" />
+                <img src={assetPath('image/qrcode.jpg')} alt="QR Code to connect on Line" className="w-16 h-16" />
               </div>
             </div>
 

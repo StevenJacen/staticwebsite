@@ -3,6 +3,7 @@ import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 import { useLanguage } from './LanguageContext';
 import HeartMemoArticle from './HeartMemoArticle';
+import { assetPath } from './assetPath';
 
 export const NewsPage: React.FC = () => {
   const { t } = useLanguage();
@@ -50,7 +51,7 @@ export const NewsPage: React.FC = () => {
         <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
           <div className="absolute inset-0 opacity-20">
            <img 
-              src="/image/new.png" 
+              src={assetPath('image/new.png')} 
               alt="News Background" 
               className="w-full h-full object-cover"
             />
@@ -82,7 +83,7 @@ export const NewsPage: React.FC = () => {
               onClick={() => setSelectedArticle('heartmemo-ceibs')}
             >
               <div className="h-48 relative overflow-hidden">
-                 <img src="/image/media/media-1.jpg" alt="心忆科技携手中欧创协团" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                 <img src={assetPath('image/media/media-1.jpg')} alt="HeartMemo and CEIBS alumni" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
               </div>
               <div className="p-6">
                 <div className="text-sm text-blue-500 font-semibold mb-2">2025.12.02</div>
