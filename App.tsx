@@ -8,7 +8,7 @@ import { NewsPage } from './components/NewsPage';
 const App: React.FC = () => {
   return (
     <LanguageProvider>
-      <Router>
+      <Router basename={import.meta.env.BASE_URL}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/technology" element={<TechnologyPage />} />
