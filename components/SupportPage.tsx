@@ -50,6 +50,17 @@ export const SupportPage: React.FC = () => {
           ))}
         </section>
 
+        <section className="mx-auto max-w-7xl px-5 pb-20 lg:px-8">
+          <a
+            href="/legal-text.html"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-bold text-slate-800 shadow-sm transition hover:border-rose-300 hover:text-rose-600"
+          >
+            隐私政策与第三方信息共享清单（文本审核页）
+          </a>
+        </section>
+
         <section className="bg-white">
           <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
             <div className="mb-8 flex items-center gap-3">

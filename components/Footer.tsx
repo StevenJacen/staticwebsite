@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone } from 'lucide-react';
 
 export const Footer: React.FC = () => {
   return (
@@ -7,14 +7,9 @@ export const Footer: React.FC = () => {
       <div className="mx-auto max-w-7xl px-5 py-14 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]">
           <div>
-            <div className="mb-5 flex items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-rose-500">
-                <Heart className="h-5 w-5 fill-current" />
-              </span>
-              <div>
-                <p className="text-xl font-black">HeartMemo 心忆科技</p>
-                <p className="text-xs font-bold text-rose-200">北京心忆科技有限公司</p>
-              </div>
+            <div className="mb-5">
+              <img src="/image/brand-logo.svg" alt="HeartMemo 心忆科技" className="h-16 w-auto brightness-0 invert" />
+              <p className="mt-3 text-xs font-bold text-rose-200">北京心忆科技有限公司</p>
             </div>
             <p className="max-w-lg text-sm leading-7 text-slate-300">
               专注 AI 家庭情感陪伴机器人与心忆同启 APP，让科技成为亲情沟通和日常关怀的温暖桥梁。

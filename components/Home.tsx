@@ -78,7 +78,7 @@ export const Home: React.FC = () => {
               </div>
             </div>
             <div className="relative">
-              <img src="/image/v3/hero-family.png" alt="老人和家人视频通话，康康机器人在旁陪伴" className="w-full rounded-[2rem] object-cover shadow-2xl shadow-rose-100" />
+              <img src="/image/kangkang/home-remote-care.webp" alt="老人和家人视频通话，康康机器人在旁陪伴" className="w-full rounded-[2rem] object-cover shadow-2xl shadow-rose-100" />
             </div>
           </div>
         </section>
@@ -126,7 +126,7 @@ export const Home: React.FC = () => {
                 ))}
               </div>
             </div>
-            <img src="/image/v3/product-companion.png" alt="心忆康康机器人和心忆同启 APP" className="h-full min-h-[420px] rounded-[2rem] object-cover shadow-xl shadow-rose-100" />
+            <img src="/image/kangkang/product-family.webp" alt="心忆康康机器人和心忆同启 APP" className="h-full min-h-[420px] rounded-[2rem] object-cover shadow-xl shadow-rose-100" />
           </div>
         </section>
 

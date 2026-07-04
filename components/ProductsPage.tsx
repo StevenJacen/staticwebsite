@@ -59,7 +59,7 @@ export const ProductsPage: React.FC = () => {
                 一个装在手机里的家庭关怀助手，一个放在家里的居家陪伴机器人，共同承接提醒、陪伴、沟通和设备联动场景。
               </p>
             </div>
-            <img src="/image/v3/product-companion.png" alt="心忆同启 APP 与 AI 康康机器人" className="rounded-[2rem] object-cover shadow-2xl shadow-black/30" />
+            <img src="/image/kangkang/product-family.webp" alt="心忆同启 APP 与 AI 康康机器人" className="rounded-[2rem] object-cover shadow-2xl shadow-black/30" />
           </div>
         </section>
 
@@ -126,10 +126,13 @@ export const ProductsPage: React.FC = () => {
           <div className="mx-auto max-w-7xl px-5 py-20 lg:px-8">
             <p className="text-sm font-black text-rose-300">硬件参数</p>
             <h2 className="mt-3 text-3xl font-black md:text-4xl">心忆康康守护版</h2>
-            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {specs.map((item) => (
-                <p key={item} className="rounded-2xl bg-white/10 p-4 text-sm font-bold text-slate-200">{item}</p>
-              ))}
+            <div className="mt-10 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+              <img src="/image/kangkang/robot-three-view.webp" alt="AI 康康机器人三视图" className="w-full rounded-[2rem] bg-white object-cover p-3 shadow-2xl shadow-black/20" />
+              <div className="grid gap-4 sm:grid-cols-2">
+                {specs.map((item) => (
+                  <p key={item} className="rounded-2xl bg-white/10 p-4 text-sm font-bold text-slate-200">{item}</p>
+                ))}
+              </div>
             </div>
           </div>
         </section>

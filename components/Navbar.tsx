@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Heart, Menu, X } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const navLinks = [
@@ -24,14 +24,8 @@ export const Navbar: React.FC = () => {
   return (
     <nav className="sticky top-0 z-50 border-b border-rose-100 bg-white/90 backdrop-blur-xl">
       <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
-        <button onClick={() => goTo('/')} className="flex items-center gap-3 text-left">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-rose-500 text-white">
-            <Heart className="h-5 w-5 fill-current" />
-          </span>
-          <span>
-            <span className="block text-xl font-black tracking-tight text-slate-950">HeartMemo</span>
-            <span className="block text-xs font-bold text-slate-500">心忆科技</span>
-          </span>
+        <button onClick={() => goTo('/')} className="flex items-center text-left">
+          <img src="/image/brand-logo.svg" alt="HeartMemo 心忆科技" className="h-12 w-auto" />
         </button>
 
         <div className="hidden items-center gap-7 lg:flex">

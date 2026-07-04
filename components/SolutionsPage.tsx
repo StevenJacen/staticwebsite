@@ -50,7 +50,7 @@ export const SolutionsPage: React.FC = () => {
                 面向家庭、社区和机构，心忆科技提供从硬件设备到 APP 连接的组合方案，帮助照护关系更及时、更清晰。
               </p>
             </div>
-            <img src="/image/v3/solutions-triptych.png" alt="居家养老、社区康养、机构合作三类场景" className="rounded-[2rem] object-cover shadow-2xl shadow-rose-100" />
+            <img src="/image/kangkang/scene-daily-care.webp" alt="居家养老、社区康养、机构合作三类场景" className="rounded-[2rem] object-cover shadow-2xl shadow-rose-100" />
           </div>
         </section>
 
