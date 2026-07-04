@@ -72,7 +72,7 @@ export const ProductsPage: React.FC = () => {
       <main className="flex-grow">
         <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
           <div className="absolute inset-0 opacity-20">
-            <img src="/image/technology.png" alt="HeartMemo product" className="w-full h-full object-cover" />
+            <img src="/image/kangkang/product-family.webp" alt="HeartMemo product" className="w-full h-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90" />
           <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
@@ -117,10 +117,13 @@ export const ProductsPage: React.FC = () => {
               <Wifi className="w-7 h-7 text-blue-500" />
               <h2 className="text-2xl font-bold text-slate-800">硬件参数</h2>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {specs.map((item) => (
-                <p key={item} className="rounded-xl bg-blue-50 p-4 text-sm font-medium text-slate-700">{item}</p>
-              ))}
+            <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
+              <img src="/image/kangkang/robot-three-view.webp" alt="AI 康康机器人三视图" className="w-full rounded-2xl bg-slate-50 object-cover p-3" />
+              <div className="grid gap-4 sm:grid-cols-2">
+                {specs.map((item) => (
+                  <p key={item} className="rounded-xl bg-blue-50 p-4 text-sm font-medium text-slate-700">{item}</p>
+                ))}
+              </div>
             </div>
             <p className="mt-6 text-xs leading-6 text-slate-500">求助、跌倒检测、远程查看、情绪反馈等功能均为辅助提示，不替代家属照护、社区服务、医疗诊断或急救服务。</p>
           </div>

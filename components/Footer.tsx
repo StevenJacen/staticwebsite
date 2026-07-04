@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, MapPin, Phone } from 'lucide-react';
+import { MapPin, Phone } from 'lucide-react';
 import { useLanguage } from './LanguageContext';
 
 export const Footer: React.FC = () => {
@@ -12,10 +12,7 @@ export const Footer: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
             <div>
               <div className="flex items-center mb-6">
-                <div className="bg-blue-400 p-1.5 rounded-full text-white mr-2">
-                  <Heart className="h-4 w-4 fill-current" />
-                </div>
-                <span className="font-bold text-2xl text-slate-700 tracking-tight">HeartMemo</span>
+                <img src="/image/brand-logo.svg" alt="HeartMemo 心忆科技" className="h-14 w-auto" />
               </div>
               <p className="text-xs text-slate-500 leading-7 max-w-xl">{t.footer.mission}</p>
             </div>

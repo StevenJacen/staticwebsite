@@ -19,8 +19,8 @@ const featuresZh: FeatureItem[] = [
       '支持主动问候、远程提醒、情绪识别、求助关键词提示、生活简报与家人消息传递。',
       '硬件采用树脂机身与布艺表面，米白、棕、粉、橘等配色，适合家庭陪伴与安全守护场景。'
     ],
-    backgroundImage: '/image/fashion.png',
-    backgroundImageMobile: '/image/fashion-m.png',
+    backgroundImage: '/image/kangkang/product-family.webp',
+    backgroundImageMobile: '/image/kangkang/product-family.webp',
     imageAlt: '心忆康康产品',
     theme: 'teal',
     buttonText: '查看产品详情',
@@ -34,8 +34,8 @@ const featuresZh: FeatureItem[] = [
       '康康能够通过语音、画面和交互内容辅助理解长辈状态，提供更自然的问候、提醒和陪伴。',
       '产品能力以实际交付版本为准，情绪识别和求助提示均为辅助能力，不构成心理评估或医疗判断。'
     ],
-    backgroundImage: '/image/technology.png',
-    backgroundImageMobile: '/image/technology-m.png',
+    backgroundImage: '/image/kangkang/robot-three-view.webp',
+    backgroundImageMobile: '/image/kangkang/robot-three-view.webp',
     imageAlt: '机器人技术',
     theme: 'gray',
     buttonText: '查看核心能力',
@@ -49,8 +49,8 @@ const featuresZh: FeatureItem[] = [
       '社区康养：多台康康机器人 + 管理后台，辅助巡访和关怀触达。',
       '机构合作：围绕设备部署、家属沟通与住户体验提供定制化方案。'
     ],
-    backgroundImage: '/image/new.png',
-    backgroundImageMobile: '/image/new-m.png',
+    backgroundImage: '/image/kangkang/scene-daily-care.webp',
+    backgroundImageMobile: '/image/kangkang/scene-daily-care.webp',
     imageAlt: '场景方案',
     theme: 'news',
     buttonText: '查看场景方案',

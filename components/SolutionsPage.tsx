@@ -18,7 +18,7 @@ export const SolutionsPage: React.FC = () => {
       <main className="flex-grow">
         <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
           <div className="absolute inset-0 opacity-20">
-            <img src="/image/new.png" alt="Solutions" className="w-full h-full object-cover" />
+            <img src="/image/kangkang/scene-daily-care.webp" alt="Solutions" className="w-full h-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90" />
           <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">

@@ -47,6 +47,15 @@ export const SupportPage: React.FC = () => {
             ))}
           </div>
 
+          <a
+            href="/legal-text.html"
+            target="_blank"
+            rel="noreferrer"
+            className="mb-12 inline-flex rounded-2xl border border-slate-200 bg-white px-5 py-4 text-sm font-bold text-slate-800 shadow-sm transition hover:border-blue-300 hover:text-blue-600"
+          >
+            隐私政策与第三方信息共享清单（文本审核页）
+          </a>
+
           <div className="bg-white rounded-2xl shadow-sm p-8">
             <div className="flex items-center gap-3 mb-6">
               <HelpCircle className="w-8 h-8 text-blue-500" />
