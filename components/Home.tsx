@@ -6,38 +6,12 @@ import {
   CheckCircle2,
   HeartHandshake,
   MessageCircle,
-  Newspaper,
-  ShieldCheck,
   Smartphone,
   Sparkles,
 } from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Hero } from './Hero';
 import { Footer } from './Footer';
-
-const exposureCards = [
-  {
-    image: '/image/events/shanghai-booth.webp',
-    tag: '上海老博会',
-    title: '心忆康康亮相养老科技场景',
-    desc: '在真实展会现场展示产品形态与互动体验，让家庭用户和合作方更直观地了解康康。',
-    href: '/news',
-  },
-  {
-    image: '/image/events/yabuli-stage.webp',
-    tag: '创新大赛',
-    title: '在创新舞台分享 AI 陪伴价值',
-    desc: '面向行业与投资人讲述心忆科技的产品方向，持续拓展养老科技的市场认知。',
-    href: '/news',
-  },
-  {
-    image: '/image/events/ceibs-forum.webp',
-    tag: '中欧国际论坛',
-    title: '进入高质量行业交流场域',
-    desc: '通过论坛、路演和嘉宾交流，让心忆的家庭关怀产品被更多专业人群看见。',
-    href: '/news',
-  },
-];
 
 const newsItems = [
   {
@@ -157,32 +131,7 @@ export const Home: React.FC = () => {
 
         <section className="bg-white px-5 py-14 sm:px-8 md:py-20">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
-              <div>
-                <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-600">Highlights</p>
-                <h1 className="mt-4 text-4xl font-black leading-tight text-slate-950 md:text-6xl">康康的每一次亮相，都让关怀更具体</h1>
-              </div>
-              <p className="text-base leading-8 text-slate-600">
-                心忆官网首页沉淀产品展示、活动曝光和市场交流中的精选内容，让用户、家属、合作方和投资人快速看到公司的真实进展。
-              </p>
-            </div>
-
-            <div className="mt-10 grid gap-5 lg:grid-cols-3">
-              {exposureCards.map((item) => (
-                <Link key={item.title} to={item.href} className="group overflow-hidden rounded-lg border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                  <div className="aspect-[4/3] bg-slate-100">
-                    <img src={item.image} alt={item.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-                  </div>
-                  <div className="p-6">
-                    <p className="text-sm font-black text-blue-600">{item.tag}</p>
-                    <h2 className="mt-3 text-2xl font-black leading-8 text-slate-950">{item.title}</h2>
-                    <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            <div className="mt-12">
+            <div>
               <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p className="text-sm font-black uppercase tracking-[0.24em] text-slate-500">Rolling Moments</p>

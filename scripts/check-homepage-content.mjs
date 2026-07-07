@@ -17,7 +17,6 @@ const files = {
 
 const required = {
   home: [
-    '康康的每一次亮相，都让关怀更具体',
     '活动影像持续滚动',
     'Rolling Moments',
     '精选资讯与公众号动态',
@@ -90,6 +89,7 @@ const required = {
 };
 
 const forbidden = {
+  home: ['康康的每一次亮相，都让关怀更具体'],
   navbar: ['<button className="flex flex-shrink-0 items-center" onClick={goHome}', '服务与支持'],
   products: [
     'V1.0 基础必做能力',
