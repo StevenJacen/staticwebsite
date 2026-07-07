@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import {
   Bell,
   CheckCircle2,
+  Film,
   HeartHandshake,
   Lock,
   MessageCircle,
@@ -17,17 +18,17 @@ const productLine = [
   {
     title: '心忆康康',
     desc: '陪在父母身边的 AI 生活伙伴，承担问候、提醒、陪伴和家庭连接入口。',
-    href: '#kangkang',
+    href: '/products/kangkang',
   },
   {
     title: '心忆同启 APP',
     desc: '装在子女手机里的家庭关心入口，用来绑定设备、设置提醒和接收简报。',
-    href: '#app',
+    href: '/products/app',
   },
   {
     title: '未来产品预留',
     desc: '后续家庭智能产品会继续放在产品体系下，保持官网结构可扩展。',
-    href: '#future',
+    href: '/products/future',
   },
 ];
 
@@ -63,8 +64,25 @@ const appFeatures = [
   '查看隐私与授权设置',
 ];
 
+const routeSection: Record<string, string> = {
+  '/products/kangkang': 'kangkang',
+  '/products/app': 'app',
+  '/products/future': 'future',
+};
+
 export const ProductsPage: React.FC = () => {
-  useEffect(() => window.scrollTo(0, 0), []);
+  const location = useLocation();
+
+  useEffect(() => {
+    const target = routeSection[location.pathname];
+    window.setTimeout(() => {
+      if (target) {
+        document.getElementById(target)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo(0, 0);
+      }
+    }, 0);
+  }, [location.pathname]);
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
@@ -82,12 +100,12 @@ export const ProductsPage: React.FC = () => {
               先看清楚产品如何帮你照顾“不常在身边”的父母，再决定是否下载、咨询或购买。心忆康康不是替代亲情，而是让关心更稳定地抵达家里。
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <a href="#kangkang" className="rounded-full bg-blue-600 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700">
+              <Link to="/products/kangkang" className="rounded-full bg-blue-600 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700">
                 了解心忆康康
-              </a>
-              <a href="#app" className="rounded-full border border-white/40 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-white hover:text-slate-950">
+              </Link>
+              <Link to="/products/app" className="rounded-full border border-white/40 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-white hover:text-slate-950">
                 下载心忆同启 APP
-              </a>
+              </Link>
             </div>
           </div>
         </section>
@@ -95,19 +113,31 @@ export const ProductsPage: React.FC = () => {
         <section className="bg-white px-5 py-14 sm:px-8">
           <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
             {productLine.map((item) => (
-              <a key={item.title} href={item.href} className="rounded-2xl border border-slate-100 bg-slate-50 p-7 transition hover:border-blue-200 hover:bg-blue-50">
+              <Link key={item.title} to={item.href} className="rounded-lg border border-slate-100 bg-slate-50 p-7 transition hover:border-blue-200 hover:bg-blue-50">
                 <Sparkles className="h-8 w-8 text-blue-500" />
                 <h2 className="mt-5 text-2xl font-black text-slate-950">{item.title}</h2>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
-              </a>
+              </Link>
             ))}
           </div>
         </section>
 
         <section id="kangkang" className="scroll-mt-28 bg-blue-50 px-5 py-16 sm:px-8 md:py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm">
-              <img src="/image/kangkang/home-remote-care.webp" alt="心忆康康居家关心场景" className="h-full min-h-[420px] w-full object-cover" />
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+            <div className="overflow-hidden rounded-lg bg-white shadow-sm">
+              <div className="grid min-h-[430px] grid-cols-5 bg-slate-100">
+                {['01', '02', '03', '04', '05'].map((item) => (
+                  <div key={item} className="flex items-end border-r border-white/70 bg-gradient-to-b from-slate-200 to-white p-4 last:border-r-0">
+                    <div>
+                      <p className="text-xs font-black text-blue-500">五娃娃长图素材占位</p>
+                      <p className="mt-2 text-3xl font-black text-slate-300">{item}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="bg-white px-6 py-4 text-sm leading-7 text-slate-500">
+                等拿到“五个娃娃长图”正式素材后，替换这里的占位网格即可，右侧文案结构不需要重做。
+              </p>
             </div>
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-500">HeartMemo Kangkang</p>
@@ -117,7 +147,7 @@ export const ProductsPage: React.FC = () => {
               </p>
               <div className="mt-8 grid gap-4 sm:grid-cols-2">
                 {kangkangValues.map((item) => (
-                  <article key={item.title} className="rounded-2xl bg-white p-5 shadow-sm">
+                  <article key={item.title} className="rounded-lg bg-white p-5 shadow-sm">
                     <item.icon className="h-7 w-7 text-blue-500" />
                     <h3 className="mt-4 font-black text-slate-950">{item.title}</h3>
                     <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
@@ -137,7 +167,7 @@ export const ProductsPage: React.FC = () => {
                 官网展示会使用面向家庭的语言表达能力边界，避免把研发阶段、内部版本表或“必做能力”直接放给用户看。
               </p>
             </div>
-            <div className="overflow-hidden rounded-[2rem] bg-slate-100 shadow-sm">
+            <div className="overflow-hidden rounded-lg bg-slate-100 shadow-sm">
               <video className="aspect-video w-full object-cover" autoPlay loop muted playsInline>
                 <source src="/video/banner-1.webm" type="video/webm" />
                 <source src="/video/banner.mp4" type="video/mp4" />
@@ -147,7 +177,26 @@ export const ProductsPage: React.FC = () => {
         </section>
 
         <section id="app" className="scroll-mt-28 bg-slate-950 px-5 py-16 text-white sm:px-8 md:py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+            <div className="mx-auto w-full max-w-sm rounded-[2.2rem] border border-white/15 bg-slate-900 p-4 shadow-2xl">
+              <div className="rounded-[1.65rem] bg-white p-5 text-slate-950">
+                <div className="mx-auto h-1.5 w-16 rounded-full bg-slate-200" />
+                <div className="mt-6 rounded-lg bg-blue-600 p-5 text-white">
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-blue-100">App Preview</p>
+                  <h3 className="mt-3 text-2xl font-black">手机界面素材占位</h3>
+                  <p className="mt-3 text-sm leading-6 text-blue-50">后续替换为心忆同启 APP 截图。</p>
+                </div>
+                <div className="mt-5 space-y-3">
+                  {appFeatures.slice(0, 4).map((item) => (
+                    <div key={item} className="flex items-center gap-3 rounded-lg bg-slate-50 p-3">
+                      <CheckCircle2 className="h-5 w-5 text-emerald-500" />
+                      <span className="text-sm font-bold text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             <div>
               <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">HeartMemo App</p>
               <h2 className="mt-4 text-3xl font-black leading-tight md:text-5xl">心忆同启 APP：子女手机里的关心入口</h2>
@@ -156,29 +205,43 @@ export const ProductsPage: React.FC = () => {
               </p>
               <div className="mt-8 grid gap-3 sm:grid-cols-2">
                 {appFeatures.map((item) => (
-                  <p key={item} className="flex items-start gap-3 rounded-2xl bg-white/10 p-4 text-sm font-medium text-slate-100 ring-1 ring-white/10">
+                  <p key={item} className="flex items-start gap-3 rounded-lg bg-white/10 p-4 text-sm font-medium text-slate-100 ring-1 ring-white/10">
                     <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-300" />
                     {item}
                   </p>
                 ))}
               </div>
-            </div>
-            <div className="rounded-[2rem] bg-white p-8 text-slate-950">
-              <Smartphone className="h-10 w-10 text-blue-500" />
-              <h3 className="mt-5 text-2xl font-black">下载心忆同启 APP</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600">扫码查看下载入口。Android 下载二维码可先使用，iOS 版本入口根据上线节奏更新。</p>
-              <div className="mt-6 flex items-center gap-6">
-                <img src="/image/qrcode.jpg" alt="心忆同启 APP 下载二维码" className="h-32 w-32 rounded-2xl border border-slate-100 object-cover p-2" />
-                <Link to="/support" className="rounded-full bg-blue-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
-                  查看下载与客服
-                </Link>
+              <div className="mt-8 grid gap-5 rounded-lg bg-white p-6 text-slate-950 md:grid-cols-[auto_1fr] md:items-center">
+                <img src="/image/qrcode.jpg" alt="心忆同启 APP 下载二维码" className="h-32 w-32 rounded-lg border border-slate-100 object-cover p-2" />
+                <div>
+                  <Smartphone className="h-8 w-8 text-blue-500" />
+                  <h3 className="mt-3 text-2xl font-black">下载心忆同启 APP</h3>
+                  <p className="mt-2 text-sm leading-7 text-slate-600">
+                    Android 下载二维码可先使用，iOS 版本入口根据上线节奏更新。
+                  </p>
+                  <Link to="/support" className="mt-4 inline-flex rounded-full bg-blue-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
+                    查看下载与客服
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
         </section>
 
+        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 rounded-lg bg-slate-100 p-8 md:grid-cols-[0.8fr_1.2fr] md:p-12">
+            <div>
+              <Film className="h-10 w-10 text-blue-500" />
+              <h2 className="mt-5 text-3xl font-black text-slate-950">APP 演示视频占位</h2>
+            </div>
+            <p className="text-base leading-8 text-slate-600">
+              PDF 中提到可展示 APP 视频。当前先保留视频说明区，等确认横版/竖版、时长和文件大小后替换为正式演示视频，避免上线文件过大影响加载。
+            </p>
+          </div>
+        </section>
+
         <section id="future" className="scroll-mt-28 bg-white px-5 py-16 sm:px-8 md:py-24">
-          <div className="mx-auto grid max-w-7xl gap-10 rounded-[2rem] bg-slate-100 p-8 md:grid-cols-[0.8fr_1.2fr] md:p-12">
+          <div className="mx-auto grid max-w-7xl gap-10 rounded-lg bg-slate-100 p-8 md:grid-cols-[0.8fr_1.2fr] md:p-12">
             <div>
               <Lock className="h-10 w-10 text-blue-500" />
               <h2 className="mt-5 text-3xl font-black text-slate-950">未来产品预留</h2>

@@ -6,9 +6,9 @@ const footerGroups = [
   {
     title: '产品',
     links: [
-      ['心忆康康', '/products#kangkang'],
-      ['心忆同启 APP', '/products#app'],
-      ['未来产品预留', '/products#future'],
+      ['心忆康康', '/products/kangkang'],
+      ['心忆同启 APP', '/products/app'],
+      ['未来产品预留', '/products/future'],
     ],
   },
   {
@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
             <div className="mt-6 space-y-3 text-sm text-slate-300">
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-300" />
-                北京市海淀区中关村创业大街相关办公地址
+                真实办公地址待补充：北京市海淀区永捷南路 2 号院 2 号楼，最终以工商/合同信息为准。
               </p>
               <p className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-300" />
@@ -75,7 +75,7 @@ export const Footer: React.FC = () => {
           <div className="lg:text-right">
             <p className="text-sm font-black text-white">公众号同步</p>
             <p className="mt-3 text-sm leading-7 text-slate-400">扫码查看产品动态、活动曝光和下载入口。</p>
-            <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="mt-5 h-24 w-24 rounded-2xl bg-white object-cover p-2 lg:ml-auto" />
+            <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="mt-5 h-24 w-24 rounded-lg bg-white object-cover p-2 lg:ml-auto" />
           </div>
         </div>
 
