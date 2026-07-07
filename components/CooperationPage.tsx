@@ -1,43 +1,76 @@
 import React, { useEffect } from 'react';
-import { Building, Handshake, Network, PhoneCall } from 'lucide-react';
+import { Building2, Handshake, MessageCircle, Store, UsersRound } from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 
-const entries = [
-  [Handshake, '商务合作', '面向品牌联合、场景共建、项目试点与资源合作。'],
-  [Network, '渠道加盟', '面向区域渠道、养老服务渠道、医疗康养渠道等合作伙伴。'],
-  [Building, '机构部署', '面向养老机构、社区服务中心、康养中心提供部署方案。'],
+const cooperationTypes = [
+  {
+    icon: Store,
+    title: '渠道合作',
+    desc: '面向家庭用户购买咨询、产品展示、渠道销售和区域服务协同。',
+  },
+  {
+    icon: Building2,
+    title: '机构落地',
+    desc: '面向社区康养、养老机构、康复服务和相关照护场景，评估设备部署与服务流程。',
+  },
+  {
+    icon: UsersRound,
+    title: '联合推广',
+    desc: '围绕活动曝光、用户教育、公众号内容和产品体验进行联合传播。',
+  },
 ];
 
 export const CooperationPage: React.FC = () => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-white font-sans text-slate-900">
       <Navbar />
-      <main className="flex-grow">
-        <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
-          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <h1 className="text-4xl md:text-6xl font-light tracking-wider mb-6 text-emerald-400 uppercase">商务合作</h1>
-            <p className="text-xl md:text-2xl text-slate-300 font-light">一起把有温度的 AI 陪伴带到更多家庭</p>
+      <main>
+        <section className="bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">Cooperation</p>
+              <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">商务合作咨询</h1>
+              <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
+                如果你关注家庭照护、康养服务、渠道销售或机构落地，可以通过这里了解合作方向，并与心忆团队进一步沟通。
+              </p>
+            </div>
+            <div className="rounded-[2rem] bg-white p-8 text-slate-950">
+              <MessageCircle className="h-10 w-10 text-blue-500" />
+              <h2 className="mt-5 text-2xl font-black">联系心忆</h2>
+              <p className="mt-4 text-sm leading-7 text-slate-600">咨询电话：17600222898</p>
+              <p className="mt-2 text-sm leading-7 text-slate-600">服务热线：4001023698</p>
+              <img src="/image/qrcode.jpg" alt="商务合作二维码" className="mt-6 h-28 w-28 rounded-2xl border border-slate-100 object-cover p-2" />
+            </div>
           </div>
-        </div>
+        </section>
 
-        <section className="max-w-6xl mx-auto px-6 py-20">
-          <div className="grid gap-6 md:grid-cols-3 mb-10">
-            {entries.map(([Icon, title, desc]) => (
-              <article key={title as string} className="bg-white rounded-2xl shadow-sm p-8">
-                {React.createElement(Icon as typeof Handshake, { className: 'w-10 h-10 text-blue-500 mb-6' })}
-                <h2 className="text-2xl font-bold text-slate-800">{title}</h2>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{desc}</p>
+        <section className="bg-blue-50 px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
+            {cooperationTypes.map((item) => (
+              <article key={item.title} className="rounded-2xl bg-white p-7 shadow-sm">
+                <item.icon className="h-10 w-10 text-blue-500" />
+                <h2 className="mt-6 text-2xl font-black text-slate-950">{item.title}</h2>
+                <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
               </article>
             ))}
           </div>
-          <div className="bg-white rounded-2xl shadow-sm p-8 flex items-start gap-4">
-            <PhoneCall className="w-8 h-8 text-blue-500 flex-shrink-0" />
+        </section>
+
+        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
             <div>
-              <h2 className="text-2xl font-bold text-slate-800">联系心忆科技</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">公司 CEO：18500190368；服务热线：4001023698；地址：北京市海淀区永捷南路 2 号院 2 号楼。</p>
+              <Handshake className="h-10 w-10 text-blue-500" />
+              <h2 className="mt-5 text-3xl font-black text-slate-950 md:text-5xl">沟通前可以先准备这些信息</h2>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {['合作场景与目标用户', '预计采购或服务规模', '需要产品展示、试用还是部署方案'].map((item) => (
+                <p key={item} className="rounded-2xl bg-slate-50 p-6 text-sm font-medium leading-7 text-slate-700">
+                  {item}
+                </p>
+              ))}
             </div>
           </div>
         </section>

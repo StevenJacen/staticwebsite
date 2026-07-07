@@ -1,151 +1,191 @@
 import React, { useEffect } from 'react';
-import { Bell, Bot, Brain, Lock, MessageCircle, Smartphone, Wifi, AlertTriangle, HeartPulse, Music, TextCursorInput } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import {
+  Bell,
+  CheckCircle2,
+  HeartHandshake,
+  Lock,
+  MessageCircle,
+  ShieldCheck,
+  Smartphone,
+  Sparkles,
+} from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 
-const appFeatures = [
-  ['远程提醒', '关心，不会被距离挡住', '支持设置作息、饮水、活动等生活提醒。提醒触达受网络和设备状态影响，建议结合实际确认。'],
-  ['AI 聊天', '能聊天，也能陪伴', '支持语音与文字交互，可用于日常闲聊、生活百科查询、饮食与养生科普信息获取。'],
-  ['家庭空间', '一扇门，一家人', '通过邀请码或链接邀请家人加入，共享提醒、设备状态和相关记录。数据访问以用户授权和隐私政策为准。'],
-  ['生活简报', '每天一份，了解近况', '基于互动记录和提醒信息生成日报或周报，帮助家人了解大致使用情况。'],
-  ['设备联动', '软件连硬件，关怀更到位', '绑定康康机器人后，可在授权范围内接收设备提示并远程配置提醒内容。'],
-];
-
-const robotFeatures = [
-  { icon: MessageCircle, title: '语音交互', desc: '普通话远场唤醒、基础指令、单轮闲聊识别，支持语速和音量调节。' },
-  { icon: Brain, title: '情绪关怀', desc: '基于语音、画面和交互内容提供基础情绪表情、声音提示及求助关键词提示。' },
-  { icon: Lock, title: '隐私保护', desc: '支持权限管理、传输加密、最小必要采集和摄像头物理遮挡等隐私保护设计。' },
-  { icon: Bot, title: '硬件互动', desc: '基础行走、物理避障、防止碰撞、手臂动作、声源方向响应和自动回充。' },
-  { icon: Bell, title: '日常备忘', desc: '支持通过语音或 APP 设置生活备忘、周期提醒和亲情消息播报。' },
-];
-
-const specs = [
-  '尺寸：435 x 245 x 245 mm',
-  '重量：4.6kg',
-  '续航：5-7 小时',
-  '联网：Wi-Fi 6、蓝牙 5.4',
-  '摄像头：1080p RGB，对角 120 度',
-  '麦克风：6 麦环形阵列，5m 拾音',
-  '屏幕：2.1 英寸圆形 LCD',
-  '配色：米白 / 棕 / 粉 / 橘',
-];
-
-const v1Groups = [
+const productLine = [
   {
-    icon: AlertTriangle,
-    title: '安全保障',
-    items: ['一键紧急求助：文字消息 + 辅助拨打电话', '跌倒风险辅助提示', '隐私模式一键开关：摄像头 / 麦克风', '设备断网 / 断电告警', '预警消息分级强推送'],
+    title: '心忆康康',
+    desc: '陪在父母身边的 AI 生活伙伴，承担问候、提醒、陪伴和家庭连接入口。',
+    href: '#kangkang',
   },
   {
-    icon: Smartphone,
-    title: '代际情感链接',
-    items: ['手机 APP 远程查看授权画面', '一键 480P 视频', '接收子女文字消息'],
+    title: '心忆同启 APP',
+    desc: '装在子女手机里的家庭关心入口，用来绑定设备、设置提醒和接收简报。',
+    href: '#app',
   },
   {
-    icon: HeartPulse,
-    title: '健康管理',
-    items: ['每日定时主动询问血压 / 血糖并支持语音录入', '健康数据超标双向预警', '通用健康常识播报，仅供日常参考'],
+    title: '未来产品预留',
+    desc: '后续家庭智能产品会继续放在产品体系下，保持官网结构可扩展。',
+    href: '#future',
+  },
+];
+
+const kangkangValues = [
+  {
+    icon: HeartHandshake,
+    title: '主动陪伴',
+    desc: '围绕日常问候、闲聊和情绪回应，让父母独处时多一个可以互动的对象。',
   },
   {
     icon: Bell,
-    title: '基础生活辅助',
-    items: ['单组定时用药提醒，可超时同步子女', '每日播报天气 / 日期 / 农历', '基础语音指令识别', '基础自动避障'],
+    title: '生活提醒',
+    desc: '通过 APP 设置饮水、作息、活动等提醒，减少子女反复电话叮嘱的压力。',
   },
   {
-    icon: TextCursorInput,
-    title: '适老化操作',
-    items: ['屏幕字体不小于 21px，高对比度显示', '大尺寸凸起物理按键：求助 / 通话', '菜单层级不超过 2 级，仅保留核心入口', '基础声光反馈'],
+    icon: MessageCircle,
+    title: '家庭消息',
+    desc: '支持家人消息传递和生活简报，让关心不只停留在“想起来再问”。',
   },
   {
-    icon: Music,
-    title: '情感陪伴与娱乐',
-    items: ['开机入户欢迎', '本地戏曲 / 音乐播放和轻互动', '基础肢体动作与情绪表情配合', '每日定时主动问候或特定场景问候', '情绪低落迹象下的话题转移与陪伴引导'],
+    icon: ShieldCheck,
+    title: '安全边界',
+    desc: '求助、提醒、远程查看等能力均为辅助提示，不替代家属照护、医疗诊断或急救服务。',
   },
+];
+
+const appFeatures = [
+  '绑定心忆康康设备',
+  '远程设置生活提醒',
+  '接收生活简报与设备状态',
+  '管理家庭成员与权限',
+  '传递文字消息和关心',
+  '查看隐私与授权设置',
 ];
 
 export const ProductsPage: React.FC = () => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-white font-sans text-slate-900">
       <Navbar />
-      <main className="flex-grow">
-        <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <img src="/image/kangkang/product-family.webp" alt="HeartMemo product" className="w-full h-full object-cover" />
+      <main>
+        <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
+          <div className="absolute inset-0 opacity-25">
+            <img src="/image/kangkang/product-family.webp" alt="心忆产品家族" className="h-full w-full object-cover" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90" />
-          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <h1 className="text-4xl md:text-6xl font-light tracking-wider mb-6 text-emerald-400 uppercase">产品</h1>
-            <p className="text-xl md:text-2xl text-slate-300 font-light">心忆同启 APP 与心忆康康守护版</p>
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/30" />
+          <div className="relative z-10 mx-auto max-w-7xl">
+            <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">Products</p>
+            <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">给子女看的产品说明</h1>
+            <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-200">
+              先看清楚产品如何帮你照顾“不常在身边”的父母，再决定是否下载、咨询或购买。心忆康康不是替代亲情，而是让关心更稳定地抵达家里。
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <a href="#kangkang" className="rounded-full bg-blue-600 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700">
+                了解心忆康康
+              </a>
+              <a href="#app" className="rounded-full border border-white/40 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-white hover:text-slate-950">
+                下载心忆同启 APP
+              </a>
+            </div>
           </div>
-        </div>
+        </section>
 
-        <section className="max-w-6xl mx-auto px-6 py-20 space-y-20">
-          <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
-            <div className="bg-white rounded-2xl shadow-sm p-8">
-              <Smartphone className="w-10 h-10 text-blue-500 mb-6" />
-              <h2 className="text-3xl font-bold text-slate-800">心忆同启 APP</h2>
-              <p className="mt-4 text-slate-600 leading-loose">装在手机里的家庭关怀助手，帮助家人远程设置提醒、查看设备状态和接收生活简报。</p>
-            </div>
-            <div className="grid gap-4">
-              {appFeatures.map(([label, title, desc]) => (
-                <article key={label} className="bg-white rounded-2xl shadow-sm p-6">
-                  <p className="text-sm font-bold text-blue-500">{label}</p>
-                  <h3 className="mt-2 text-xl font-bold text-slate-800">{title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">{desc}</p>
-                </article>
-              ))}
-            </div>
+        <section className="bg-white px-5 py-14 sm:px-8">
+          <div className="mx-auto grid max-w-7xl gap-5 md:grid-cols-3">
+            {productLine.map((item) => (
+              <a key={item.title} href={item.href} className="rounded-2xl border border-slate-100 bg-slate-50 p-7 transition hover:border-blue-200 hover:bg-blue-50">
+                <Sparkles className="h-8 w-8 text-blue-500" />
+                <h2 className="mt-5 text-2xl font-black text-slate-950">{item.title}</h2>
+                <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
+              </a>
+            ))}
           </div>
+        </section>
 
-          <div>
-            <h2 className="text-3xl font-bold text-slate-800 mb-8">AI 康康机器人</h2>
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {robotFeatures.map((item) => (
-                <article key={item.title} className="bg-white rounded-2xl shadow-sm p-7">
-                  <item.icon className="w-8 h-8 text-blue-500 mb-5" />
-                  <h3 className="text-lg font-bold text-slate-800">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
-                </article>
-              ))}
+        <section id="kangkang" className="scroll-mt-28 bg-blue-50 px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="overflow-hidden rounded-[2rem] bg-white shadow-sm">
+              <img src="/image/kangkang/home-remote-care.webp" alt="心忆康康居家关心场景" className="h-full min-h-[420px] w-full object-cover" />
             </div>
-          </div>
-
-          <div className="bg-white rounded-2xl shadow-sm p-8">
-            <div className="flex items-center gap-3 mb-6">
-              <Wifi className="w-7 h-7 text-blue-500" />
-              <h2 className="text-2xl font-bold text-slate-800">硬件参数</h2>
-            </div>
-            <div className="grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-              <img src="/image/kangkang/robot-three-view.webp" alt="AI 康康机器人三视图" className="w-full rounded-2xl bg-slate-50 object-cover p-3" />
-              <div className="grid gap-4 sm:grid-cols-2">
-                {specs.map((item) => (
-                  <p key={item} className="rounded-xl bg-blue-50 p-4 text-sm font-medium text-slate-700">{item}</p>
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-500">HeartMemo Kangkang</p>
+              <h2 className="mt-4 text-3xl font-black leading-tight text-slate-950 md:text-5xl">心忆康康：把日常关心放在父母身边</h2>
+              <p className="mt-6 text-base leading-8 text-slate-600">
+                它更像一个家里的陪伴入口：能问候、能提醒、能互动，也能和子女手机里的心忆同启 APP 配合，让照护从零散电话变成更连续的家庭连接。
+              </p>
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                {kangkangValues.map((item) => (
+                  <article key={item.title} className="rounded-2xl bg-white p-5 shadow-sm">
+                    <item.icon className="h-7 w-7 text-blue-500" />
+                    <h3 className="mt-4 font-black text-slate-950">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">{item.desc}</p>
+                  </article>
                 ))}
               </div>
             </div>
-            <p className="mt-6 text-xs leading-6 text-slate-500">求助、跌倒检测、远程查看、情绪反馈等功能均为辅助提示，不替代家属照护、社区服务、医疗诊断或急救服务。</p>
           </div>
+        </section>
 
-          <div>
-            <h2 className="text-3xl font-bold text-slate-800 mb-3">V1.0 基础必做能力</h2>
-            <p className="text-sm leading-7 text-slate-500 mb-8">
-              以下能力来自客户提供的 V1.0 需求表，官网表达按辅助功能呈现，实际效果受设备版本、网络状态、权限设置和部署环境影响。
-            </p>
-            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-              {v1Groups.map((group) => (
-                <article key={group.title} className="bg-white rounded-2xl shadow-sm p-7">
-                  <group.icon className="w-8 h-8 text-blue-500 mb-5" />
-                  <h3 className="text-lg font-bold text-slate-800">{group.title}</h3>
-                  <ul className="mt-4 space-y-2">
-                    {group.items.map((item) => (
-                      <li key={item} className="text-sm leading-7 text-slate-600">· {item}</li>
-                    ))}
-                  </ul>
-                </article>
-              ))}
+        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-500">Product Video</p>
+              <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">用真实画面理解产品，而不是读一张能力表</h2>
+              <p className="mt-6 text-base leading-8 text-slate-600">
+                官网展示会使用面向家庭的语言表达能力边界，避免把研发阶段、内部版本表或“必做能力”直接放给用户看。
+              </p>
             </div>
+            <div className="overflow-hidden rounded-[2rem] bg-slate-100 shadow-sm">
+              <video className="aspect-video w-full object-cover" autoPlay loop muted playsInline>
+                <source src="/video/banner-1.webm" type="video/webm" />
+                <source src="/video/banner.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </section>
+
+        <section id="app" className="scroll-mt-28 bg-slate-950 px-5 py-16 text-white sm:px-8 md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1fr_0.9fr] lg:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">HeartMemo App</p>
+              <h2 className="mt-4 text-3xl font-black leading-tight md:text-5xl">心忆同启 APP：子女手机里的关心入口</h2>
+              <p className="mt-6 text-base leading-8 text-slate-300">
+                购买前可以先理解 APP 的作用：它负责把家人、提醒、设备状态和服务入口连接起来，是子女持续使用产品的核心入口。
+              </p>
+              <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                {appFeatures.map((item) => (
+                  <p key={item} className="flex items-start gap-3 rounded-2xl bg-white/10 p-4 text-sm font-medium text-slate-100 ring-1 ring-white/10">
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-blue-300" />
+                    {item}
+                  </p>
+                ))}
+              </div>
+            </div>
+            <div className="rounded-[2rem] bg-white p-8 text-slate-950">
+              <Smartphone className="h-10 w-10 text-blue-500" />
+              <h3 className="mt-5 text-2xl font-black">下载心忆同启 APP</h3>
+              <p className="mt-3 text-sm leading-7 text-slate-600">扫码查看下载入口。Android 下载二维码可先使用，iOS 版本入口根据上线节奏更新。</p>
+              <div className="mt-6 flex items-center gap-6">
+                <img src="/image/qrcode.jpg" alt="心忆同启 APP 下载二维码" className="h-32 w-32 rounded-2xl border border-slate-100 object-cover p-2" />
+                <Link to="/support" className="rounded-full bg-blue-600 px-6 py-3 text-sm font-bold text-white transition hover:bg-blue-700">
+                  查看下载与客服
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="future" className="scroll-mt-28 bg-white px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 rounded-[2rem] bg-slate-100 p-8 md:grid-cols-[0.8fr_1.2fr] md:p-12">
+            <div>
+              <Lock className="h-10 w-10 text-blue-500" />
+              <h2 className="mt-5 text-3xl font-black text-slate-950">未来产品预留</h2>
+            </div>
+            <p className="text-base leading-8 text-slate-600">
+              产品栏目不再只承载单个滚动页面。后续第二款、第三款家庭智能产品可以继续作为同级入口加入，避免每次扩展都重做整站结构。
+            </p>
           </div>
         </section>
       </main>

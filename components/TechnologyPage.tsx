@@ -1,57 +1,82 @@
 import React, { useEffect } from 'react';
-import { Activity, Brain, Cpu, Eye, Lock, UserCheck } from 'lucide-react';
+import { Brain, Lock, MessageCircle, Radar, ShieldCheck, Sparkles } from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
-import { useLanguage } from './LanguageContext';
 
-const pillars = [
-  [Eye, '多模态感知', '通过语音、画面、肢体动作和交互内容等信息，辅助理解长辈状态。'],
-  [Brain, 'BSLA 情感计算模型', '结合心理学研究和情感计算方法，为基础情绪识别、回应策略和陪伴交互提供理论支撑。'],
-  [Activity, '主动陪伴策略', '在老人独处、生日祝福、情绪低落等场景中触发问候或提醒。'],
-  [Cpu, '机器人系统工程', '覆盖嵌入式、计算机视觉、自然语言处理、机器人控制和硬件交互。'],
-  [UserCheck, 'AI + 真人管家', 'AI 系统处理基础陪伴需求，真人服务团队承接更复杂的关怀与响应流程。'],
-  [Lock, '权限与隐私保护', '通过权限管理、传输加密、最小必要采集和摄像头物理遮挡等措施降低隐私风险。'],
+const techCards = [
+  {
+    icon: MessageCircle,
+    title: '自然对话',
+    desc: '围绕问候、闲聊、提醒和日常百科进行表达，让父母更容易接受这个“家里的小伙伴”。',
+  },
+  {
+    icon: Brain,
+    title: '辅助判断',
+    desc: '通过语音、交互和使用记录提供辅助提示，帮助家人了解大致状态，但不替代医疗或心理评估。',
+  },
+  {
+    icon: Radar,
+    title: '机器人感知',
+    desc: '结合基础传感、语音交互和设备状态，让陪伴、提醒与家庭连接有更稳定的硬件承载。',
+  },
+  {
+    icon: Lock,
+    title: '隐私优先',
+    desc: '远程查看、消息同步和数据使用都应建立在授权、权限管理和明确告知之上。',
+  },
 ];
 
 export const TechnologyPage: React.FC = () => {
-  const { t } = useLanguage();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  useEffect(() => window.scrollTo(0, 0), []);
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col font-sans">
+    <div className="min-h-screen bg-white font-sans text-slate-900">
       <Navbar />
-      <main className="flex-grow">
-        <div className="relative bg-slate-900 text-white py-24 overflow-hidden">
-          <div className="absolute inset-0 opacity-20">
-            <img src="/image/technology.png" alt="Technology Background" className="w-full h-full object-cover" />
+      <main>
+        <section className="bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">Technology</p>
+              <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">让陪伴更自然，也让边界更清楚</h1>
+              <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
+                心忆的技术表达不追求堆参数，而是回答子女真正关心的问题：父母是否容易使用、家人是否能连接、隐私是否说清楚、能力边界是否可靠。
+              </p>
+            </div>
+            <div className="overflow-hidden rounded-[2rem] bg-white/10 ring-1 ring-white/10">
+              <img src="/image/kangkang/robot-three-view.webp" alt="心忆康康机器人技术展示" className="h-full min-h-[360px] w-full object-cover" />
+            </div>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900/90" />
-          <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
-            <h1 className="text-4xl md:text-6xl font-light tracking-wider mb-6 text-emerald-400 uppercase">
-              {t.technologyPage.title}
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-300 font-light">
-              {t.technologyPage.subtitle}
-            </p>
-          </div>
-        </div>
+        </section>
 
-        <section className="max-w-6xl mx-auto px-6 py-20">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {pillars.map(([Icon, title, desc]) => (
-              <article key={title as string} className="bg-white rounded-2xl shadow-sm p-7">
-                {React.createElement(Icon as typeof Eye, { className: 'w-9 h-9 text-blue-500 mb-6' })}
-                <h2 className="text-xl font-bold text-slate-800">{title}</h2>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{desc}</p>
-              </article>
-            ))}
+        <section className="bg-blue-50 px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+              {techCards.map((item) => (
+                <article key={item.title} className="rounded-2xl bg-white p-7 shadow-sm">
+                  <item.icon className="h-9 w-9 text-blue-500" />
+                  <h2 className="mt-6 text-xl font-black text-slate-950">{item.title}</h2>
+                  <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
+                </article>
+              ))}
+            </div>
           </div>
-          <p className="mt-8 rounded-2xl bg-white p-6 text-xs leading-6 text-slate-500 shadow-sm">
-            情绪识别、跌倒检测、求助提示和远程查看均为辅助能力，不构成心理评估、医疗判断或急救承诺。
-          </p>
+        </section>
+
+        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+            <div>
+              <ShieldCheck className="h-10 w-10 text-blue-500" />
+              <h2 className="mt-5 text-3xl font-black text-slate-950 md:text-5xl">官网上的技术，要让家属更放心</h2>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {['不夸大医疗能力', '不暴露内部研发阶段', '用家庭可理解的话说清楚价值'].map((item) => (
+                <p key={item} className="rounded-2xl bg-slate-50 p-6 text-sm font-medium leading-7 text-slate-700">
+                  <Sparkles className="mb-4 h-6 w-6 text-blue-500" />
+                  {item}
+                </p>
+              ))}
+            </div>
+          </div>
         </section>
       </main>
       <Footer />

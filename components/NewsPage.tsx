@@ -1,24 +1,33 @@
 import React, { useEffect } from 'react';
-import { CalendarDays, Newspaper } from 'lucide-react';
+import { CalendarDays, MessageCircle, Newspaper, Radio, Sparkles } from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 
-const news = [
+const newsCards = [
   {
-    date: '2025.12.02',
-    title: '心忆科技携手中欧创协，共同探索 AI 养老陪伴新场景',
-    desc: '围绕 AI、心理学与机器人产品落地，心忆科技持续推进技术、产品和产业合作。',
+    tag: '产品动态',
+    title: '心忆康康与心忆同启 APP 持续完善家庭连接体验',
+    desc: '围绕提醒、陪伴、消息传递和生活简报等核心体验，持续打磨更适合子女购买决策的产品表达。',
+    date: '持续更新',
   },
   {
-    date: '待更新',
-    title: '产品动态',
-    desc: '心忆同启 APP 与 AI 康康机器人后续版本进展可在此发布。',
+    tag: '合作进展',
+    title: '面向居家、社区和机构场景开放咨询合作',
+    desc: '针对不同照护场景提供产品介绍、部署建议和商务沟通入口，帮助合作方快速了解落地方式。',
+    date: '持续更新',
   },
   {
-    date: '待更新',
-    title: '合作进展',
-    desc: '社区康养、机构合作、渠道项目等动态可在此集中展示。',
+    tag: '活动曝光',
+    title: '更多公司活动与产品露出将通过公众号同步',
+    desc: '官网保留精选内容，日常活动、产品照片和阶段性动态优先通过公众号发布。',
+    date: '公众号同步',
   },
+];
+
+const updateRules = [
+  '官网展示精选资讯，避免页面被过多日常消息淹没。',
+  '公众号承担更高频的内容更新和活动露出。',
+  '重要产品动态、合作进展和媒体信息再同步到官网。',
 ];
 
 export const NewsPage: React.FC = () => {
@@ -28,29 +37,60 @@ export const NewsPage: React.FC = () => {
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <Navbar />
       <main>
-        <section className="bg-slate-950 px-5 py-20 text-white sm:px-8">
-          <div className="mx-auto max-w-7xl">
-            <p className="text-sm font-bold text-orange-300">新闻动态</p>
-            <h1 className="mt-4 max-w-4xl text-4xl font-black leading-tight md:text-6xl">记录心忆科技的每一步成长</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
-              分享技术进展、产品更新与合作成果，让外界了解心忆科技如何把 AI 陪伴带入真实生活。
-            </p>
+        <section className="bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-end">
+            <div>
+              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">News</p>
+              <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">精选资讯</h1>
+              <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
+                官网保留适合用户和合作方快速了解公司的精选内容，日常更新与活动曝光通过公众号同步，让信息维护更轻、更稳定。
+              </p>
+            </div>
+            <div className="rounded-[2rem] bg-white p-7 text-slate-950">
+              <MessageCircle className="h-9 w-9 text-blue-500" />
+              <h2 className="mt-5 text-2xl font-black">公众号同步</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-600">扫码关注，查看最新产品照片、活动动态和服务通知。</p>
+              <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="mt-6 h-32 w-32 rounded-2xl border border-slate-100 object-cover p-2" />
+            </div>
           </div>
         </section>
 
-        <section className="mx-auto max-w-7xl px-5 py-20 sm:px-8">
-          <div className="grid gap-5 md:grid-cols-3">
-            {news.map((item) => (
-              <article key={item.title} className="rounded-3xl border border-slate-100 p-7 shadow-sm">
-                <Newspaper className="mb-5 h-8 w-8 text-orange-500" />
-                <p className="flex items-center gap-2 text-sm font-bold text-orange-600">
-                  <CalendarDays className="h-4 w-4" />
-                  {item.date}
+        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto max-w-7xl">
+            <div className="grid gap-5 md:grid-cols-3">
+              {newsCards.map((item) => (
+                <article key={item.title} className="rounded-2xl border border-slate-100 bg-slate-50 p-7 transition hover:border-blue-200 hover:bg-blue-50">
+                  <Newspaper className="h-8 w-8 text-blue-500" />
+                  <p className="mt-5 flex items-center gap-2 text-sm font-bold text-blue-600">
+                    <CalendarDays className="h-4 w-4" />
+                    {item.date}
+                  </p>
+                  <p className="mt-4 text-sm font-bold text-slate-500">{item.tag}</p>
+                  <h2 className="mt-3 text-xl font-black text-slate-950">{item.title}</h2>
+                  <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-blue-50 px-5 py-16 sm:px-8 md:py-24">
+          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
+            <div>
+              <Radio className="h-10 w-10 text-blue-500" />
+              <h2 className="mt-5 text-3xl font-black text-slate-950 md:text-5xl">资讯维护方式</h2>
+              <p className="mt-5 text-base leading-8 text-slate-600">
+                静态官网不强行做高频动态流，先用公众号承接更新，再把重要内容沉淀为官网精选。
+              </p>
+            </div>
+            <div className="grid gap-4 md:grid-cols-3">
+              {updateRules.map((item) => (
+                <p key={item} className="rounded-2xl bg-white p-6 text-sm font-medium leading-7 text-slate-700 shadow-sm">
+                  <Sparkles className="mb-4 h-6 w-6 text-blue-500" />
+                  {item}
                 </p>
-                <h2 className="mt-4 text-xl font-black">{item.title}</h2>
-                <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
-              </article>
-            ))}
+              ))}
+            </div>
           </div>
         </section>
       </main>
