@@ -1,113 +1,146 @@
 import React, { useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import {
-  Bell,
-  Building2,
-  Camera,
+  ArrowRight,
+  CalendarDays,
   CheckCircle2,
   HeartHandshake,
   MessageCircle,
   Newspaper,
   ShieldCheck,
   Smartphone,
+  Sparkles,
 } from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Hero } from './Hero';
 import { Footer } from './Footer';
 
-const purchaseReasons = [
+const exposureCards = [
   {
-    icon: HeartHandshake,
-    title: '独处时多一份陪伴',
-    desc: '主动问候、日常闲聊和情绪回应，让父母一个人在家时，也能有被看见、被回应的时刻。',
+    image: '/image/events/shanghai-booth.webp',
+    tag: '上海老博会',
+    title: '心忆康康亮相养老科技场景',
+    desc: '在真实展会现场展示产品形态与互动体验，让家庭用户和合作方更直观地了解康康。',
+    href: '/news',
   },
   {
-    icon: Bell,
-    title: '提醒不再只靠电话',
-    desc: '饮水、作息、活动等提醒可以通过 APP 设置，把反复叮嘱变成更稳定的日常触达。',
+    image: '/image/events/yabuli-stage.webp',
+    tag: '创新大赛',
+    title: '在创新舞台分享 AI 陪伴价值',
+    desc: '面向行业与投资人讲述心忆科技的产品方向，持续拓展养老科技的市场认知。',
+    href: '/news',
   },
   {
-    icon: Smartphone,
-    title: '家人关心有入口',
-    desc: '心忆同启 APP 连接家人与设备，帮助子女查看状态、接收简报、传递消息和远程设置提醒。',
+    image: '/image/events/ceibs-forum.webp',
+    tag: '中欧国际论坛',
+    title: '进入高质量行业交流场域',
+    desc: '通过论坛、路演和嘉宾交流，让心忆的家庭关怀产品被更多专业人群看见。',
+    href: '/news',
   },
 ];
 
-const familyScenarios = [
-  '父母独居，子女不在同城',
-  '上班忙，想把提醒和问候安排得更稳定',
-  '多个家人一起照护，需要统一了解近况',
-  '希望先了解产品，再决定购买或合作',
+const newsItems = [
+  {
+    image: '/image/events/shanghai-demo.webp',
+    tag: '展会现场',
+    title: '观众现场了解康康机器人',
+    desc: '产品展示、现场讲解与互动体验共同构成更真实的产品印象。',
+  },
+  {
+    image: '/image/events/shanghai-users.webp',
+    tag: '用户互动',
+    title: '康康被更多家庭用户看见',
+    desc: '从展会体验到家庭咨询，心忆持续收集真实场景里的使用反馈。',
+  },
+  {
+    image: '/image/events/delegation-visit.webp',
+    tag: '商务参观',
+    title: '接待商业访团交流',
+    desc: '围绕产品落地、服务场景和合作方式，与合作伙伴展开更具体的沟通。',
+  },
+  {
+    image: '/image/events/ceibs-scene.webp',
+    tag: '场景体验',
+    title: '在交流现场演示产品互动',
+    desc: '康康不仅是展示品，也可以在实际交流中呈现陪伴与互动方式。',
+  },
+  {
+    image: '/image/events/yabuli-group.webp',
+    tag: '创新活动',
+    title: '参与青年创新赛事',
+    desc: '通过公开活动展示团队思考，让品牌动态与产品方向持续沉淀。',
+  },
+  {
+    image: '/image/events/ceibs-group.webp',
+    tag: '品牌露出',
+    title: '论坛活动中的产品合影',
+    desc: '用真实图片记录阶段性进展，官网沉淀精选内容，公众号同步更多动态。',
+  },
 ];
 
-const productCards = [
+const rollingHighlights = [
   {
+    image: '/image/events/shanghai-booth.webp',
+    title: '上海老博会产品展示',
+    tag: '展会曝光',
+  },
+  {
+    image: '/image/events/shanghai-users.webp',
+    title: '观众现场体验康康',
+    tag: '用户互动',
+  },
+  {
+    image: '/image/events/delegation-visit.webp',
+    title: '商业访团参观交流',
+    tag: '商务交流',
+  },
+  {
+    image: '/image/events/yabuli-stage.webp',
+    title: '亚布力创新大赛路演',
+    tag: '创新活动',
+  },
+  {
+    image: '/image/events/ceibs-forum.webp',
+    title: '中欧国际论坛现场',
+    tag: '行业论坛',
+  },
+  {
+    image: '/image/events/ceibs-scene.webp',
+    title: '论坛现场产品互动',
+    tag: '场景体验',
+  },
+];
+
+const productEntrances = [
+  {
+    icon: Sparkles,
     title: '心忆康康',
-    subtitle: '放在父母身边的 AI 陪伴机器人',
-    desc: '面向居家陪伴、生活提醒和家庭连接，让关心不只停留在电话里。',
-    image: '/image/kangkang/product-family.webp',
+    desc: '陪在父母身边的 AI 生活伙伴。',
     href: '/products/kangkang',
   },
   {
+    icon: Smartphone,
     title: '心忆同启 APP',
-    subtitle: '装在子女手机里的家庭关心入口',
-    desc: '用于绑定设备、设置提醒、接收简报和连接家人，是子女理解产品价值的关键入口。',
-    image: '/image/kangkang/scene-daily-care.webp',
+    desc: '装在手机里的家庭关怀助手。',
     href: '/products/app',
   },
-];
-
-const exposureCards = [
   {
-    icon: Camera,
-    title: '活动照片',
-    label: '宣传素材占位',
-    desc: '用于放置展会、路演、产品试用或合作活动照片。',
-    image: '/image/media/media-1.jpg',
-  },
-  {
-    icon: Building2,
-    title: '合作场景',
-    label: '机构展示占位',
-    desc: '用于展示社区、康养、渠道伙伴等真实合作场景。',
-    image: '/image/media/media-2.jpg',
-  },
-  {
-    icon: Newspaper,
-    title: '媒体/公众号',
-    label: '近期动态占位',
-    desc: '用于承接公众号文章、产品动态、媒体报道和阶段性进展。',
-    image: '/image/media/media-3.png',
-  },
-  {
-    icon: MessageCircle,
-    title: '用户咨询',
-    label: '咨询素材占位',
-    desc: '用于放置客服二维码、活动报名、购买咨询或试用招募入口。',
-    image: '',
+    icon: HeartHandshake,
+    title: '场景方案',
+    desc: '面向居家、社区与机构合作。',
+    href: '/solutions',
   },
 ];
 
-const proofItems = [
-  {
-    icon: ShieldCheck,
-    title: '隐私与权限',
-    desc: '远程查看、消息、提醒等能力以授权和实际设备设置为准，强调必要采集与权限管理。',
-  },
-  {
-    icon: CheckCircle2,
-    title: '辅助而非替代',
-    desc: '产品提供陪伴、提醒和辅助提示，不替代家属照护、医疗诊断或紧急救援服务。',
-  },
-  {
-    icon: MessageCircle,
-    title: '咨询与服务',
-    desc: '提供 APP 下载、客服咨询和商务合作入口，方便进一步了解购买与落地方式。',
-  },
+const trustPoints = [
+  '活动、展会与论坛动态持续沉淀',
+  '产品能力以实际版本和授权设置为准',
+  '陪伴、提醒和辅助提示不替代医疗或急救服务',
 ];
 
 export const Home: React.FC = () => {
   const location = useLocation();
+  const rollingItems = [...rollingHighlights, ...rollingHighlights];
 
   useEffect(() => {
     if (location.hash) {
@@ -122,180 +155,156 @@ export const Home: React.FC = () => {
       <main className="flex-grow">
         <Hero />
 
-        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-500">For Family Care</p>
-              <h1 className="mt-5 text-4xl font-black leading-tight text-slate-950 md:text-6xl">
-                给不常在父母身边的你，把关心留在爸妈身边
-              </h1>
-              <p className="mt-6 max-w-2xl text-lg leading-9 text-slate-600">
-                心忆康康不是替代亲情，而是帮子女把日常问候、生活提醒和家庭连接变得更及时。父母在家有人回应，子女在外也能多一份安心。
-              </p>
-              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link
-                  to="/products/kangkang"
-                  className="rounded-full bg-blue-600 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-blue-700"
-                >
-                  查看心忆康康
-                </Link>
-                <Link
-                  to="/support"
-                  className="rounded-full border border-slate-300 px-7 py-3 text-center text-sm font-bold text-slate-900 transition hover:border-blue-500 hover:text-blue-600"
-                >
-                  下载 APP
-                </Link>
-                <Link
-                  to="/cooperation"
-                  className="rounded-full border border-slate-300 px-7 py-3 text-center text-sm font-bold text-slate-900 transition hover:border-blue-500 hover:text-blue-600"
-                >
-                  咨询购买
-                </Link>
-              </div>
-            </div>
-            <div className="overflow-hidden rounded-lg bg-slate-100 shadow-sm">
-              <img
-                src="/image/kangkang/home-remote-care.webp"
-                alt="子女通过心忆产品远程关心父母"
-                className="h-full min-h-[360px] w-full object-cover"
-              />
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-blue-50 px-5 py-16 sm:px-8 md:py-24">
+        <section className="bg-white px-5 py-14 sm:px-8 md:py-20">
           <div className="mx-auto max-w-7xl">
-            <div className="max-w-3xl">
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-500">Why HeartMemo</p>
-              <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">为什么子女会选择心忆康康</h2>
-            </div>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {purchaseReasons.map((item) => (
-                <article key={item.title} className="rounded-lg bg-white p-7 shadow-sm">
-                  <item.icon className="h-9 w-9 text-blue-500" />
-                  <h3 className="mt-6 text-xl font-black text-slate-900">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
-          <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:items-start">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-500">Product System</p>
-              <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">心忆康康 + 心忆同启 APP</h2>
-              <p className="mt-6 text-base leading-8 text-slate-600">
-                一个在父母身边，一个在子女手机里。硬件负责陪伴和提醒，APP 负责连接家人和管理设置，共同组成家庭关心的入口。
+            <div className="grid gap-8 lg:grid-cols-[0.78fr_1.22fr] lg:items-end">
+              <div>
+                <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-600">Highlights</p>
+                <h1 className="mt-4 text-4xl font-black leading-tight text-slate-950 md:text-6xl">康康的每一次亮相，都让关怀更具体</h1>
+              </div>
+              <p className="text-base leading-8 text-slate-600">
+                心忆官网首页沉淀产品展示、活动曝光和市场交流中的精选内容，让用户、家属、合作方和投资人快速看到公司的真实进展。
               </p>
-              <ul className="mt-8 space-y-3">
-                {familyScenarios.map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-sm font-medium leading-7 text-slate-700">
-                    <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-emerald-500" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
             </div>
-            <div className="grid gap-5 md:grid-cols-2">
-              {productCards.map((item) => (
-                <Link
-                  key={item.title}
-                  to={item.href}
-                  className="group overflow-hidden rounded-lg border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg"
-                >
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              {exposureCards.map((item) => (
+                <Link key={item.title} to={item.href} className="group overflow-hidden rounded-lg border border-slate-100 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
                   <div className="aspect-[4/3] bg-slate-100">
-                    <img src={item.image} alt={item.title} className="h-full w-full object-cover transition group-hover:scale-105" />
+                    <img src={item.image} alt={item.title} className="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
                   </div>
                   <div className="p-6">
-                    <p className="text-sm font-bold text-blue-500">{item.subtitle}</p>
-                    <h3 className="mt-3 text-2xl font-black text-slate-950">{item.title}</h3>
+                    <p className="text-sm font-black text-blue-600">{item.tag}</p>
+                    <h2 className="mt-3 text-2xl font-black leading-8 text-slate-950">{item.title}</h2>
                     <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
                   </div>
                 </Link>
               ))}
             </div>
+
+            <div className="mt-12">
+              <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="text-sm font-black uppercase tracking-[0.24em] text-slate-500">Rolling Moments</p>
+                  <h2 className="mt-2 text-2xl font-black text-slate-950 md:text-4xl">活动影像持续滚动</h2>
+                </div>
+                <Link to="/news" className="inline-flex items-center gap-2 text-sm font-black text-blue-700 transition hover:text-blue-900">
+                  查看更多动态
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              </div>
+              <div className="hm-marquee">
+                <div className="hm-marquee-track flex gap-5">
+                  {rollingItems.map((item, index) => (
+                    <Link
+                      key={`${item.title}-${index}`}
+                      to="/news"
+                      className="group relative h-[260px] w-[280px] flex-none overflow-hidden rounded-lg bg-slate-900 shadow-sm md:h-[320px] md:w-[420px]"
+                      aria-hidden={index >= rollingHighlights.length}
+                    >
+                      <img src={item.image} alt={item.title} className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
+                      <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                        <p className="text-xs font-black uppercase tracking-[0.18em] text-amber-200">{item.tag}</p>
+                        <h3 className="mt-2 text-xl font-black">{item.title}</h3>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section className="bg-slate-950 px-5 py-16 text-white sm:px-8 md:py-24">
+        <section className="bg-slate-50 px-5 py-16 sm:px-8 md:py-24">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
               <div>
-                <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">Updates</p>
-                <h2 className="mt-4 text-3xl font-black md:text-5xl">品牌动态与活动曝光</h2>
+                <p className="text-sm font-black uppercase tracking-[0.24em] text-emerald-600">Updates</p>
+                <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">精选资讯与公众号动态</h2>
               </div>
-              <p className="text-base leading-8 text-slate-300">
-                这里用于补足官网的公司可信度：活动照片、合作场景、公众号内容和咨询入口先以可替换占位呈现，后续有素材后直接替换图片与标题。
+              <p className="text-base leading-8 text-slate-600">
+                官网保留更适合首次访问者浏览的精选内容，公众号同步更多活动照片、产品动态和服务通知。
               </p>
             </div>
 
-            <div className="mt-10 overflow-x-auto pb-4">
-              <div className="grid auto-cols-[minmax(260px,360px)] grid-flow-col gap-5">
-                {exposureCards.map((item) => (
-                  <article key={item.title} className="group relative h-[360px] overflow-hidden rounded-lg bg-slate-800">
-                    {item.image ? (
-                      <img src={item.image} alt={item.title} className="h-full w-full object-cover opacity-80 transition duration-500 group-hover:scale-105" />
-                    ) : (
-                      <div className="flex h-full w-full items-center justify-center bg-slate-800">
-                        <item.icon className="h-16 w-16 text-slate-500" />
-                      </div>
-                    )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/45 to-transparent" />
-                    <div className="absolute inset-x-0 bottom-0 p-6">
-                      <p className="inline-flex rounded-full bg-white/90 px-3 py-1 text-xs font-black text-slate-950">{item.label}</p>
-                      <h3 className="mt-4 text-2xl font-black">{item.title}</h3>
-                      <p className="mt-3 text-sm leading-7 text-slate-200">{item.desc}</p>
-                    </div>
-                  </article>
-                ))}
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {newsItems.map((item) => (
+                <article key={item.title} className="overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-100">
+                  <div className="aspect-[4/3] bg-slate-100">
+                    <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                  </div>
+                  <div className="p-6">
+                    <p className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700">
+                      <CalendarDays className="h-4 w-4" />
+                      {item.tag}
+                    </p>
+                    <h3 className="mt-3 text-xl font-black leading-7 text-slate-950">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            <div className="mt-10 grid gap-6 rounded-lg bg-white p-6 shadow-sm ring-1 ring-slate-100 lg:grid-cols-[auto_1fr_auto] lg:items-center">
+              <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="h-28 w-28 rounded-lg border border-slate-100 object-cover p-2" />
+              <div>
+                <MessageCircle className="h-8 w-8 text-emerald-600" />
+                <h3 className="mt-3 text-2xl font-black text-slate-950">关注公众号，查看更完整的动态</h3>
+                <p className="mt-2 text-sm leading-7 text-slate-600">产品照片、活动报道、服务通知和下载入口会通过公众号持续同步。</p>
               </div>
+              <Link to="/news" className="inline-flex items-center justify-center gap-2 rounded-md bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800">
+                查看精选资讯
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </section>
 
         <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
+            <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
               <div>
-                <p className="text-sm font-bold uppercase tracking-[0.25em] text-emerald-600">Trust</p>
-                <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">让家人放心了解，再决定下一步</h2>
+                <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-600">Products</p>
+                <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">从产品开始了解心忆</h2>
               </div>
               <p className="text-base leading-8 text-slate-600">
-                官网表达会避免内部研发口径，更多使用面向家庭的辅助能力说明，让产品价值清楚，同时把隐私、安全和服务边界说清楚。
+                心忆康康在父母身边，心忆同启 APP 在子女手机里。两者配合，让家庭关怀更容易开始，也更容易持续。
               </p>
             </div>
-            <div className="mt-10 grid gap-5 md:grid-cols-3">
-              {proofItems.map((item) => (
-                <article key={item.title} className="rounded-lg bg-slate-50 p-7 ring-1 ring-slate-100">
-                  <item.icon className="h-9 w-9 text-emerald-600" />
-                  <h3 className="mt-6 text-xl font-black text-slate-950">{item.title}</h3>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
-                </article>
+
+            <div className="mt-10 grid gap-5 lg:grid-cols-3">
+              {productEntrances.map((item) => (
+                <Link key={item.title} to={item.href} className="rounded-lg border border-slate-100 bg-slate-50 p-7 transition hover:border-blue-200 hover:bg-blue-50">
+                  <item.icon className="h-9 w-9 text-blue-600" />
+                  <h3 className="mt-5 text-2xl font-black text-slate-950">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
+                </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
-          <div className="mx-auto grid max-w-7xl gap-8 rounded-lg bg-blue-600 p-8 text-white md:grid-cols-[1fr_auto] md:items-center md:p-12">
+        <section className="bg-white px-5 pb-16 sm:px-8 md:pb-24">
+          <div className="mx-auto grid max-w-7xl gap-8 rounded-lg bg-slate-950 p-8 text-white md:grid-cols-[1fr_auto] md:items-center md:p-12">
             <div>
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-100">Next Step</p>
-              <h2 className="mt-4 text-3xl font-black md:text-5xl">想先看看父母是否适合？</h2>
-              <p className="mt-5 max-w-3xl text-base leading-8 text-blue-50">
-                可以先查看产品介绍、下载心忆同启 APP，或直接咨询购买与服务方式。
-              </p>
+              <p className="text-sm font-black uppercase tracking-[0.24em] text-amber-300">Contact</p>
+              <h2 className="mt-4 text-3xl font-black md:text-5xl">想进一步了解心忆？</h2>
+              <div className="mt-6 grid gap-3 md:grid-cols-3">
+                {trustPoints.map((item) => (
+                  <p key={item} className="flex items-start gap-3 text-sm leading-7 text-slate-200">
+                    <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-emerald-300" />
+                    {item}
+                  </p>
+                ))}
+              </div>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-              <Link to="/products/kangkang" className="rounded-full bg-white px-7 py-3 text-center text-sm font-bold text-blue-700 transition hover:bg-blue-50">
+              <Link to="/products" className="rounded-md bg-white px-6 py-3 text-center text-sm font-bold text-slate-950 transition hover:bg-slate-100">
                 查看产品
               </Link>
-              <Link to="/support" className="rounded-full border border-white/50 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-white hover:text-blue-700">
-                下载 APP
-              </Link>
-              <Link to="/cooperation" className="rounded-full border border-white/50 px-7 py-3 text-center text-sm font-bold text-white transition hover:bg-white hover:text-blue-700">
-                咨询购买
+              <Link to="/cooperation" className="rounded-md border border-white/40 px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-white hover:text-slate-950">
+                商务咨询
               </Link>
             </div>
           </div>

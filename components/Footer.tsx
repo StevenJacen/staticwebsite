@@ -42,7 +42,7 @@ export const Footer: React.FC = () => {
             <div className="mt-6 space-y-3 text-sm text-slate-300">
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-300" />
-                真实办公地址待补充：北京市海淀区永捷南路 2 号院 2 号楼，最终以工商/合同信息为准。
+                北京市海淀区永捷南路 2 号院 2 号楼
               </p>
               <p className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-blue-300" />
@@ -58,11 +58,11 @@ export const Footer: React.FC = () => {
                 <div className="mt-4 space-y-3">
                   {group.links.map(([label, href]) => (
                     href.endsWith('.html') ? (
-                      <a key={href} href={href} target="_blank" rel="noreferrer" className="block text-sm text-slate-400 transition hover:text-white">
+                      <a key={`${group.title}-${label}-${href}`} href={href} target="_blank" rel="noreferrer" className="block text-sm text-slate-400 transition hover:text-white">
                         {label}
                       </a>
                     ) : (
-                      <Link key={href} to={href} className="block text-sm text-slate-400 transition hover:text-white">
+                      <Link key={`${group.title}-${label}-${href}`} to={href} className="block text-sm text-slate-400 transition hover:text-white">
                         {label}
                       </Link>
                     )

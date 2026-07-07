@@ -5,22 +5,25 @@ import { Footer } from './Footer';
 
 const newsCards = [
   {
-    tag: '产品动态',
-    title: '心忆康康与心忆同启 APP 持续完善家庭连接体验',
-    desc: '围绕提醒、陪伴、消息传递和生活简报等核心体验，持续打磨更适合子女购买决策的产品表达。',
-    date: '持续更新',
+    tag: '展会曝光',
+    title: '心忆康康亮相上海老博会',
+    desc: '通过现场展示和观众互动，让更多家庭用户、合作方了解 AI 陪伴机器人在养老科技场景中的价值。',
+    date: '上海老博会',
+    image: '/image/events/shanghai-demo.webp',
   },
   {
-    tag: '合作进展',
-    title: '面向居家、社区和机构场景开放咨询合作',
-    desc: '针对不同照护场景提供产品介绍、部署建议和商务沟通入口，帮助合作方快速了解落地方式。',
-    date: '持续更新',
+    tag: '创新活动',
+    title: '参与亚布力创新大赛',
+    desc: '面向行业舞台介绍心忆科技的产品方向和家庭关怀价值，持续补充品牌与市场曝光。',
+    date: '创新大赛',
+    image: '/image/events/yabuli-group.webp',
   },
   {
-    tag: '活动曝光',
-    title: '更多公司活动与产品露出将通过公众号同步',
-    desc: '官网保留精选内容，日常活动、产品照片和阶段性动态优先通过公众号发布。',
-    date: '公众号同步',
+    tag: '行业交流',
+    title: '中欧国际论坛活动交流',
+    desc: '论坛现场、产品展示和嘉宾交流素材将沉淀到官网精选资讯，同时通过公众号持续更新。',
+    date: '中欧国际论坛',
+    image: '/image/events/ceibs-group.webp',
   },
 ];
 
@@ -59,15 +62,20 @@ export const NewsPage: React.FC = () => {
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-5 md:grid-cols-3">
               {newsCards.map((item) => (
-                <article key={item.title} className="rounded-2xl border border-slate-100 bg-slate-50 p-7 transition hover:border-blue-200 hover:bg-blue-50">
-                  <Newspaper className="h-8 w-8 text-blue-500" />
-                  <p className="mt-5 flex items-center gap-2 text-sm font-bold text-blue-600">
-                    <CalendarDays className="h-4 w-4" />
-                    {item.date}
-                  </p>
-                  <p className="mt-4 text-sm font-bold text-slate-500">{item.tag}</p>
-                  <h2 className="mt-3 text-xl font-black text-slate-950">{item.title}</h2>
-                  <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
+                <article key={item.title} className="overflow-hidden rounded-lg border border-slate-100 bg-slate-50 transition hover:border-blue-200 hover:bg-blue-50">
+                  <div className="aspect-[4/3] bg-slate-100">
+                    <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
+                  </div>
+                  <div className="p-7">
+                    <Newspaper className="h-8 w-8 text-blue-500" />
+                    <p className="mt-5 flex items-center gap-2 text-sm font-bold text-blue-600">
+                      <CalendarDays className="h-4 w-4" />
+                      {item.date}
+                    </p>
+                    <p className="mt-4 text-sm font-bold text-slate-500">{item.tag}</p>
+                    <h2 className="mt-3 text-xl font-black text-slate-950">{item.title}</h2>
+                    <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
+                  </div>
                 </article>
               ))}
             </div>
