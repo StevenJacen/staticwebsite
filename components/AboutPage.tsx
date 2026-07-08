@@ -29,16 +29,16 @@ export const AboutPage: React.FC = () => {
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <Navbar />
       <main>
-        <section className="bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">About HeartMemo</p>
-              <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">北京心忆科技有限公司，让 AI 陪伴拥有温度</h1>
-              <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
+        <section className="hm-page-hero">
+          <div className="hm-page-hero-inner">
+            <div className="hm-page-hero-copy">
+              <p className="hm-page-kicker">About HeartMemo</p>
+              <h1 className="hm-page-title">北京心忆科技有限公司，让 AI 陪伴拥有温度</h1>
+              <p className="hm-page-lead">
                 我们关注的是年轻家属和父母之间真实存在的距离：不常回家、提醒不及时、想关心却没有稳定入口。心忆希望用 AI 与机器人产品，把这些关心变得更容易触达。
               </p>
             </div>
-            <div className="rounded-[2rem] bg-white p-8 text-slate-950">
+            <div className="hm-page-card">
               <Building2 className="h-10 w-10 text-blue-500" />
               <h2 className="mt-5 text-2xl font-black">公司定位</h2>
               <p className="mt-4 text-sm leading-7 text-slate-600">

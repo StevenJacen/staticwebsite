@@ -32,17 +32,19 @@ export const SolutionsPage: React.FC = () => {
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <Navbar />
       <main>
-        <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
+        <section className="hm-page-hero">
           <div className="absolute inset-0 opacity-25">
             <img src="/image/kangkang/scene-daily-care.webp" alt="家庭照护场景" className="h-full w-full object-cover" />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-950/40" />
-          <div className="relative z-10 mx-auto max-w-7xl">
-            <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">Solutions</p>
-            <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">给不同家庭和机构的落地方式</h1>
-            <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
-              从异地子女购买，到社区康养和机构合作，官网需要让不同角色快速判断：这个产品能放在哪、怎么用、下一步找谁咨询。
-            </p>
+          <div className="hm-page-hero-inner">
+            <div className="hm-page-hero-copy">
+              <p className="hm-page-kicker">Solutions</p>
+              <h1 className="hm-page-title">给不同家庭和机构的落地方式</h1>
+              <p className="hm-page-lead">
+                从异地子女购买，到社区康养和机构合作，官网需要让不同角色快速判断：这个产品能放在哪、怎么用、下一步找谁咨询。
+              </p>
+            </div>
           </div>
         </section>
 

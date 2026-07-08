@@ -33,16 +33,16 @@ export const TechnologyPage: React.FC = () => {
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <Navbar />
       <main>
-        <section className="bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.8fr] lg:items-center">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">Technology</p>
-              <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">让陪伴更自然，也让边界更清楚</h1>
-              <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
+        <section className="hm-page-hero">
+          <div className="hm-page-hero-inner">
+            <div className="hm-page-hero-copy">
+              <p className="hm-page-kicker">Technology</p>
+              <h1 className="hm-page-title">让陪伴更自然，也让边界更清楚</h1>
+              <p className="hm-page-lead">
                 心忆的技术表达不追求堆参数，而是回答子女真正关心的问题：父母是否容易使用、家人是否能连接、隐私是否说清楚、能力边界是否可靠。
               </p>
             </div>
-            <div className="overflow-hidden rounded-[2rem] bg-white/10 ring-1 ring-white/10">
+            <div className="hm-page-visual">
               <img src="/image/kangkang/robot-three-view.webp" alt="心忆康康机器人技术展示" className="h-full min-h-[360px] w-full object-cover" />
             </div>
           </div>

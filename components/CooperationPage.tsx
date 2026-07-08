@@ -28,21 +28,21 @@ export const CooperationPage: React.FC = () => {
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <Navbar />
       <main>
-        <section className="bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-center">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">Cooperation</p>
-              <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">商务合作咨询</h1>
-              <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
+        <section className="hm-page-hero">
+          <div className="hm-page-hero-inner">
+            <div className="hm-page-hero-copy">
+              <p className="hm-page-kicker">Cooperation</p>
+              <h1 className="hm-page-title">商务合作咨询</h1>
+              <p className="hm-page-lead">
                 如果你关注家庭照护、康养服务、渠道销售或机构落地，可以通过这里了解合作方向，并与心忆团队进一步沟通。
               </p>
             </div>
-            <div className="rounded-[2rem] bg-white p-8 text-slate-950">
+            <div className="hm-page-card">
               <MessageCircle className="h-10 w-10 text-blue-500" />
               <h2 className="mt-5 text-2xl font-black">联系心忆</h2>
               <p className="mt-4 text-sm leading-7 text-slate-600">咨询电话：17600222898</p>
               <p className="mt-2 text-sm leading-7 text-slate-600">服务热线：4001023698</p>
-              <img src="/image/qrcode.jpg" alt="商务合作二维码" className="mt-6 h-28 w-28 rounded-2xl border border-slate-100 object-cover p-2" />
+              <img src="/image/qrcode.jpg" alt="商务合作二维码" className="mt-5 h-24 w-24 rounded-[8px] border border-slate-100 object-cover p-2" />
             </div>
           </div>
         </section>

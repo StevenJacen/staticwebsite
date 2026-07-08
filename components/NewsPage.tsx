@@ -40,20 +40,20 @@ export const NewsPage: React.FC = () => {
     <div className="min-h-screen bg-white font-sans text-slate-900">
       <Navbar />
       <main>
-        <section className="bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_0.75fr] lg:items-end">
-            <div>
-              <p className="text-sm font-bold uppercase tracking-[0.25em] text-blue-300">News</p>
-              <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">精选资讯</h1>
-              <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-300">
+        <section className="hm-page-hero">
+          <div className="hm-page-hero-inner">
+            <div className="hm-page-hero-copy">
+              <p className="hm-page-kicker">News</p>
+              <h1 className="hm-page-title">精选资讯</h1>
+              <p className="hm-page-lead">
                 官网保留适合用户和合作方快速了解公司的精选内容，日常更新与活动曝光通过公众号同步，让信息维护更轻、更稳定。
               </p>
             </div>
-            <div className="rounded-[2rem] bg-white p-7 text-slate-950">
+            <div className="hm-page-card">
               <MessageCircle className="h-9 w-9 text-blue-500" />
               <h2 className="mt-5 text-2xl font-black">公众号同步</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600">扫码关注，查看最新产品照片、活动动态和服务通知。</p>
-              <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="mt-6 h-32 w-32 rounded-2xl border border-slate-100 object-cover p-2" />
+              <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="mt-5 h-24 w-24 rounded-[8px] border border-slate-100 object-cover p-2" />
             </div>
           </div>
         </section>

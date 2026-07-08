@@ -6,27 +6,28 @@ export const Hero: React.FC = () => {
     <section className="relative overflow-hidden bg-[linear-gradient(90deg,rgba(217,74,56,0.06),transparent_28%),radial-gradient(circle_at_78%_28%,rgba(20,184,200,0.12),transparent_24%),radial-gradient(circle_at_50%_78%,rgba(217,155,69,0.13),transparent_34%),linear-gradient(135deg,#ffffff_0%,#fbfaf7_46%,#eef7f8_100%)]">
       <div className="mx-auto grid min-h-[calc(100vh-72px)] max-w-[1440px] items-center gap-[clamp(28px,5vw,72px)] px-[clamp(20px,6vw,88px)] py-[clamp(54px,8vw,96px)] lg:grid-cols-[0.92fr_1.08fr]">
         <div>
-          <p className="hm-eyebrow">居家陪伴机器人场景标准定义者</p>
-          <h1 className="hm-title mt-4 max-w-[720px] text-[clamp(46px,6vw,82px)] font-black leading-[1.03]">
-            让陪伴，主动走到家人身边
+          <p className="hm-eyebrow">心忆康康｜居家主动陪伴机器人专家</p>
+          <h1 className="hm-title mt-4 max-w-[720px] text-[clamp(34px,5vw,64px)] font-black leading-[1.12]">
+            心忆康康
+            <span className="block text-[0.7em] leading-[1.22] text-[#17334a]">居家陪伴机器人场景标准定义者</span>
           </h1>
-          <p className="mt-6 text-[clamp(22px,3vw,34px)] font-bold text-[#17334a]">
-            心忆康康，不是等人唤醒的设备。
+          <p className="mt-6 text-[clamp(20px,2.4vw,28px)] font-bold leading-[1.45] text-[#17334a]">
+            能进家、会说话、会主动、会记住、能进化。
           </p>
           <p className="mt-5 max-w-xl text-lg leading-[1.75] text-[#667085]">
-            它可以在家里移动、主动开口问候、提醒日常事项，也能把子女的关心传递给父母。官网从年轻家属、合作方和投资人视角出发，展示一个更清晰的 AI 家庭关怀入口。
+            为长辈提供全屋移动的日常陪伴，也让子女多一份安心。它能在家里主动走到老人身边，陪聊天、做提醒，让子女少一点担心。
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link to="/products/kangkang" className="hm-primary px-6">
-              查看心忆康康
+            <Link to="/cooperation" className="hm-primary px-6">
+              预约产品演示
             </Link>
-            <Link to="/cooperation" className="hm-secondary px-6">
-              预约沟通
+            <Link to="/products/kangkang#pricing" className="hm-secondary px-6">
+              查看版本价格
             </Link>
           </div>
           <div className="mt-6 flex flex-wrap gap-2">
-            {['年轻家属决策', '真实活动曝光', '产品能力边界清晰'].map((item) => (
-              <span key={item} className="rounded-full border border-[#14b8c8]/25 bg-white/75 px-3 py-2 text-sm font-black text-[#17334a]">
+            {['能走到老人身边', '不是桌面音箱', '预约一次产品演示'].map((item) => (
+              <span key={item} className="rounded-full border border-[#14b8c8]/25 bg-white/75 px-3 py-2 text-sm font-bold text-[#17334a]">
                 {item}
               </span>
             ))}
