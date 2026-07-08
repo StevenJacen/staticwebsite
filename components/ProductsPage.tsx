@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import {
   ArrowRight,
@@ -158,6 +158,67 @@ const appSteps = [
   },
 ];
 
+const kangkangTimeline = [
+  {
+    time: '08:00',
+    title: '主动问候',
+    scene: '早上好，昨晚睡得怎么样？',
+  },
+  {
+    time: '10:30',
+    title: '喝水活动',
+    scene: '起来活动一下，喝点水吧。',
+  },
+  {
+    time: '15:00',
+    title: '兴趣陪伴',
+    scene: '要不要听一段喜欢的戏曲？',
+  },
+  {
+    time: '19:30',
+    title: '家人连接',
+    scene: '孩子给您留了一句话。',
+  },
+];
+
+const kangkangStandards = [
+  {
+    title: '技术路径',
+    desc: '先进入真实家庭空间，再理解家庭习惯，最后把提醒、问候和消息稳定落到日常。',
+  },
+  {
+    title: '场景定义',
+    desc: '以全屋移动、主动说话、家庭连接和子女安心，定义居家陪伴机器人的核心场景。',
+  },
+  {
+    title: '产品路线',
+    desc: '从主动陪伴开始，逐步扩展家庭记忆、生活协助和更多居家关怀能力。',
+  },
+  {
+    title: '隐私态度',
+    desc: '远程能力与数据访问以用户授权、设备设置和隐私政策为准，可逐项说明边界。',
+  },
+];
+
+const kangkangFaqs = [
+  {
+    question: '心忆康康和普通摄像头有什么区别？',
+    answer: '摄像头主要是被动查看，心忆康康可以在家中移动，主动和长辈说话、陪伴、提醒。',
+  },
+  {
+    question: '父母不会用智能设备怎么办？',
+    answer: '使用前会完成联网、绑定和基础演示，子女也可以通过心忆同启 APP 协助设置日常提醒。',
+  },
+  {
+    question: '家里户型复杂能不能用？',
+    answer: '实际可用性会受到门槛、地面、网络和设备状态影响，建议先沟通家庭环境再安排演示或部署。',
+  },
+  {
+    question: '能不能先看演示再决定？',
+    answer: '可以从商务合作或公众号入口提交咨询，工作人员会联系安排产品介绍或演示方式。',
+  },
+];
+
 const PageShell: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <div className="min-h-screen bg-white font-sans text-slate-900">
     <Navbar />
@@ -275,83 +336,155 @@ const ProductIndex: React.FC = () => (
   </PageShell>
 );
 
-const KangkangProduct: React.FC = () => (
-  <PageShell>
-    <section className="relative overflow-hidden bg-slate-950 px-5 py-20 text-white sm:px-8 md:py-28">
-      <div className="absolute inset-0 opacity-30">
-        <img src="/image/kangkang/robot-three-view.webp" alt="心忆康康机器人" className="h-full w-full object-cover" />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-950/35" />
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <p className="text-sm font-black uppercase tracking-[0.24em] text-amber-300">HeartMemo Kangkang</p>
-        <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">心忆康康：居家陪伴机器人</h1>
-        <p className="mt-6 max-w-3xl text-lg leading-9 text-slate-200">
-          可问候、可提醒、可陪伴。它不是替代亲情，而是把子女的关心更稳定地放在父母身边。
-        </p>
-      </div>
-    </section>
+const KangkangProduct: React.FC = () => {
+  const [activeScene, setActiveScene] = useState(0);
+  const scene = kangkangTimeline[activeScene];
 
-    <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
-      <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[1.06fr_0.94fr] lg:items-center">
-        <div className="overflow-hidden rounded-lg border border-slate-100 bg-slate-50 shadow-sm">
-          <img src="/image/kangkang/product-family.webp" alt="心忆康康产品形象" className="h-full min-h-[420px] w-full object-cover" />
+  return (
+    <PageShell>
+      <section className="relative overflow-hidden bg-[linear-gradient(135deg,#102033,#17334a)] px-[clamp(20px,6vw,88px)] py-[clamp(76px,9vw,128px)] text-white">
+        <div className="absolute inset-0 opacity-20">
+          <img src="/image/kangkang/robot-three-view.webp" alt="心忆康康机器人" className="h-full w-full object-cover" />
         </div>
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <p className="hm-eyebrow text-white before:bg-[#d99b45]">HeartMemo Kangkang</p>
+          <h1 className="mt-5 max-w-4xl text-4xl font-black leading-tight md:text-6xl">心忆康康：居家陪伴机器人</h1>
+          <p className="mt-6 max-w-3xl text-lg leading-9 text-white/75">
+            可问候、可提醒、可陪伴。它不是替代亲情，而是把子女的关心更稳定地放在父母身边。
+          </p>
+        </div>
+      </section>
+
+      <section className="hm-section hm-definition-section bg-white">
         <div>
-          <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-600">Care Companion</p>
-          <h2 className="mt-4 text-3xl font-black leading-tight text-slate-950 md:text-5xl">陪在父母身边的 AI 生活伙伴</h2>
-          <p className="mt-6 text-base leading-8 text-slate-600">
+          <p className="hm-eyebrow">品类定义</p>
+          <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">陪在父母身边的 AI 生活伙伴</h2>
+          <p className="mt-6 text-base leading-8 text-[#667085]">
             心忆康康把日常问候、生活提醒和家庭消息放在家里。父母可以自然互动，子女也能通过 APP 参与设置和了解大致近况。
           </p>
-          <div className="mt-8 grid gap-3 sm:grid-cols-3">
-            {['日常陪伴', '生活提醒', '家庭连接'].map((item) => (
-              <p key={item} className="rounded-lg bg-blue-50 px-4 py-4 text-center text-sm font-black text-blue-700">
-                {item}
-              </p>
+        </div>
+        <div className="hm-compare-list">
+          <div><span>第一步</span><strong>进入真实家庭空间</strong></div>
+          <div><span>第二步</span><strong>主动问候与自然对话</strong></div>
+          <div><span>第三步</span><strong>连接子女的日常关心</strong></div>
+          <div><span>最终</span><strong>成为家庭关怀的长期入口</strong></div>
+        </div>
+      </section>
+
+      <section className="hm-section hm-capability-section">
+        <div className="hm-section-heading">
+          <p className="hm-eyebrow">产品能力</p>
+          <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">能进家、会说话、会主动、能连接</h2>
+        </div>
+        <div className="mx-auto max-w-7xl">
+          <div className="hm-capability-grid">
+            {kangkangFeatures.slice(0, 4).map((item) => (
+              <article key={item.title}>
+                <item.icon className="mb-5 h-9 w-9 text-[#14b8c8]" />
+                <h3 className="text-xl font-black text-[#111827]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#667085]">{item.desc}</p>
+              </article>
             ))}
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="bg-slate-50 px-5 py-16 sm:px-8 md:py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.24em] text-emerald-600">In Real Life</p>
-            <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">看见康康在家庭里的陪伴方式</h2>
+      <section className="hm-section hm-product-proof-section">
+        <div className="hm-proof-image">
+          <img src="/image/kangkang/product-family.webp" alt="心忆康康产品形象" />
+        </div>
+        <div>
+          <p className="hm-eyebrow">真实产品</p>
+          <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">看见康康在家庭里的陪伴方式</h2>
+          <p className="mt-6 text-base leading-8 text-[#667085]">
+            通过真实画面了解康康的外观、互动方式和使用氛围。它提供的是日常陪伴与提醒辅助，不替代家属照护和专业服务。
+          </p>
+          <div className="hm-proof-points">
+            <span>日常陪伴</span>
+            <span>生活提醒</span>
+            <span>家庭连接</span>
           </div>
-          <p className="text-base leading-8 text-slate-600">
-            通过实拍画面了解康康的外观、互动方式和使用氛围。它提供的是日常陪伴与提醒辅助，不替代家属照护和专业服务。
+        </div>
+      </section>
+
+      <section className="hm-section bg-white">
+        <div className="hm-section-heading">
+          <p className="hm-eyebrow">一天的陪伴</p>
+          <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">从早到晚，主动陪在家里</h2>
+        </div>
+        <div className="mx-auto max-w-7xl">
+          <div className="hm-timeline">
+            {kangkangTimeline.map((item, index) => (
+              <button
+                key={item.time}
+                type="button"
+                onClick={() => setActiveScene(index)}
+                className={`hm-time-card ${activeScene === index ? 'hm-time-card-active' : ''}`}
+              >
+                <span>{item.time}</span>
+                <strong>{item.title}</strong>
+              </button>
+            ))}
+          </div>
+          <div className="hm-scene-preview">
+            <span>康康说</span>
+            <p>{scene.scene}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="hm-section hm-family-section">
+        <div>
+          <p className="hm-eyebrow text-white before:bg-[#d99b45]">子女价值</p>
+          <h2 className="mt-4 text-3xl font-black md:text-5xl">买给父母的，其实也是给自己的安心</h2>
+          <p className="mt-6 text-base leading-8">
+            不是监控父母，而是用陪伴、提醒和家庭消息，让关心更自然地抵达家里。
           </p>
         </div>
-        <div className="mt-10 overflow-hidden rounded-lg bg-slate-950 shadow-sm">
-          <video className="aspect-video w-full object-cover" autoPlay loop muted playsInline>
-            <source src="/video/banner-1.webm" type="video/webm" />
-            <source src="/video/banner.mp4" type="video/mp4" />
-          </video>
+        <div className="hm-family-points">
+          <span>少一点牵挂</span>
+          <span>多一点连接</span>
+          <span>更自然的陪伴入口</span>
+          <span>持续升级的家庭机器人</span>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
-      <div className="mx-auto max-w-7xl">
-        <div className="max-w-3xl">
-          <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-600">Care Features</p>
-          <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">围绕陪伴、提醒与家庭连接</h2>
+      <section className="hm-section hm-trust-section">
+        <div className="hm-section-heading">
+          <p className="hm-eyebrow">场景标准</p>
+          <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">我们做的不是一台设备，而是家庭机器人的长期入口</h2>
         </div>
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {kangkangFeatures.map((item, index) => (
-            <article key={item.title} className={`rounded-lg border border-slate-100 bg-slate-50 p-7 ${index % 2 === 1 ? 'lg:translate-y-8' : ''}`}>
-              <item.icon className="h-9 w-9 text-blue-600" />
-              <h3 className="mt-5 text-xl font-black text-slate-950">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
-            </article>
-          ))}
+        <div className="mx-auto max-w-7xl">
+          <div className="hm-trust-grid">
+            {kangkangStandards.map((item) => (
+              <article key={item.title}>
+                <h3 className="text-xl font-black text-[#111827]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#667085]">{item.desc}</p>
+              </article>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
-  </PageShell>
-);
+      </section>
+
+      <section className="hm-section hm-faq-section">
+        <div className="hm-section-heading">
+          <p className="hm-eyebrow">购买前</p>
+          <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">大家最关心这些问题</h2>
+        </div>
+        <div className="mx-auto max-w-7xl">
+          <div className="hm-faq-list">
+            {kangkangFaqs.map((item, index) => (
+              <details key={item.question} open={index === 0}>
+                <summary>{item.question}</summary>
+                <p className="mt-3">{item.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    </PageShell>
+  );
+};
 
 const AppProduct: React.FC = () => (
   <PageShell>

@@ -124,20 +124,20 @@ export const Home: React.FC = () => {
   }, [location]);
 
   return (
-    <div className="flex min-h-screen flex-col bg-white font-sans text-slate-900">
+    <div className="flex min-h-screen flex-col bg-[#fbfaf7] font-sans text-[#111827]">
       <Navbar />
       <main className="flex-grow">
         <Hero />
 
-        <section className="bg-white px-5 py-14 sm:px-8 md:py-20">
+        <section className="hm-section bg-[#fbfaf7]">
           <div className="mx-auto max-w-7xl">
             <div>
               <div className="mb-5 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
                 <div>
-                  <p className="text-sm font-black uppercase tracking-[0.24em] text-slate-500">Rolling Moments</p>
-                  <h2 className="mt-2 text-2xl font-black text-slate-950 md:text-4xl">活动影像持续滚动</h2>
+                  <p className="hm-eyebrow">Rolling Moments</p>
+                  <h2 className="hm-title mt-3 text-3xl font-black md:text-5xl">活动影像持续滚动</h2>
                 </div>
-                <Link to="/news" className="inline-flex items-center gap-2 text-sm font-black text-blue-700 transition hover:text-blue-900">
+                <Link to="/news" className="inline-flex items-center gap-2 text-sm font-black text-[#d94a38] transition hover:text-[#102033]">
                   查看更多动态
                   <ArrowRight className="h-4 w-4" />
                 </Link>
@@ -148,13 +148,13 @@ export const Home: React.FC = () => {
                     <Link
                       key={`${item.title}-${index}`}
                       to="/news"
-                      className="group relative h-[260px] w-[280px] flex-none overflow-hidden rounded-lg bg-slate-900 shadow-sm md:h-[320px] md:w-[420px]"
+                      className="group relative h-[260px] w-[280px] flex-none overflow-hidden rounded-[8px] bg-[#102033] shadow-[0_22px_70px_rgba(61,45,28,0.14)] md:h-[320px] md:w-[420px]"
                       aria-hidden={index >= rollingHighlights.length}
                     >
                       <img src={item.image} alt={item.title} className="h-full w-full object-cover opacity-90 transition duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent" />
                       <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                        <p className="text-xs font-black uppercase tracking-[0.18em] text-amber-200">{item.tag}</p>
+                        <p className="text-xs font-black uppercase tracking-normal text-[#d99b45]">{item.tag}</p>
                         <h3 className="mt-2 text-xl font-black">{item.title}</h3>
                       </div>
                     </Link>
@@ -165,44 +165,44 @@ export const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="bg-slate-50 px-5 py-16 sm:px-8 md:py-24">
+        <section className="hm-section bg-[#f8f4ed]">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.24em] text-emerald-600">Updates</p>
-                <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">精选资讯与公众号动态</h2>
+                <p className="hm-eyebrow">Updates</p>
+                <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">精选资讯与公众号动态</h2>
               </div>
-              <p className="text-base leading-8 text-slate-600">
+              <p className="text-base leading-8 text-[#667085]">
                 官网保留更适合首次访问者浏览的精选内容，公众号同步更多活动照片、产品动态和服务通知。
               </p>
             </div>
 
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {newsItems.map((item) => (
-                <article key={item.title} className="overflow-hidden rounded-lg bg-white shadow-sm ring-1 ring-slate-100">
-                  <div className="aspect-[4/3] bg-slate-100">
+                <article key={item.title} className="hm-card overflow-hidden transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(217,74,56,0.1)]">
+                  <div className="aspect-[4/3] bg-[#eef7f8]">
                     <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
                   </div>
                   <div className="p-6">
-                    <p className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700">
+                    <p className="inline-flex items-center gap-2 text-sm font-bold text-[#d94a38]">
                       <CalendarDays className="h-4 w-4" />
                       {item.tag}
                     </p>
-                    <h3 className="mt-3 text-xl font-black leading-7 text-slate-950">{item.title}</h3>
-                    <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
+                    <h3 className="mt-3 text-xl font-black leading-7 text-[#111827]">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-[#667085]">{item.desc}</p>
                   </div>
                 </article>
               ))}
             </div>
 
-            <div className="mt-10 grid gap-6 rounded-lg bg-white p-6 shadow-sm ring-1 ring-slate-100 lg:grid-cols-[auto_1fr_auto] lg:items-center">
-              <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="h-28 w-28 rounded-lg border border-slate-100 object-cover p-2" />
+            <div className="hm-card mt-10 grid gap-6 p-6 shadow-[0_18px_55px_rgba(33,28,23,0.08)] lg:grid-cols-[auto_1fr_auto] lg:items-center">
+              <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="h-28 w-28 rounded-[8px] border border-[rgba(17,24,39,0.1)] object-cover p-2" />
               <div>
-                <MessageCircle className="h-8 w-8 text-emerald-600" />
-                <h3 className="mt-3 text-2xl font-black text-slate-950">关注公众号，查看更完整的动态</h3>
-                <p className="mt-2 text-sm leading-7 text-slate-600">产品照片、活动报道、服务通知和下载入口会通过公众号持续同步。</p>
+                <MessageCircle className="h-8 w-8 text-[#14b8c8]" />
+                <h3 className="mt-3 text-2xl font-black text-[#111827]">关注公众号，查看更完整的动态</h3>
+                <p className="mt-2 text-sm leading-7 text-[#667085]">产品照片、活动报道、服务通知和下载入口会通过公众号持续同步。</p>
               </div>
-              <Link to="/news" className="inline-flex items-center justify-center gap-2 rounded-md bg-slate-950 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800">
+              <Link to="/news" className="hm-primary gap-2 px-6 text-sm">
                 查看精选资讯
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -210,49 +210,49 @@ export const Home: React.FC = () => {
           </div>
         </section>
 
-        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
+        <section className="hm-section bg-white">
           <div className="mx-auto max-w-7xl">
             <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
               <div>
-                <p className="text-sm font-black uppercase tracking-[0.24em] text-blue-600">Products</p>
-                <h2 className="mt-4 text-3xl font-black text-slate-950 md:text-5xl">从产品开始了解心忆</h2>
+                <p className="hm-eyebrow">Products</p>
+                <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">从产品开始了解心忆</h2>
               </div>
-              <p className="text-base leading-8 text-slate-600">
+              <p className="text-base leading-8 text-[#667085]">
                 心忆康康在父母身边，心忆同启 APP 在子女手机里。两者配合，让家庭关怀更容易开始，也更容易持续。
               </p>
             </div>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-3">
               {productEntrances.map((item) => (
-                <Link key={item.title} to={item.href} className="rounded-lg border border-slate-100 bg-slate-50 p-7 transition hover:border-blue-200 hover:bg-blue-50">
-                  <item.icon className="h-9 w-9 text-blue-600" />
-                  <h3 className="mt-5 text-2xl font-black text-slate-950">{item.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-slate-600">{item.desc}</p>
+                <Link key={item.title} to={item.href} className="hm-card p-7 transition hover:border-[#d94a38]/45 hover:shadow-[0_20px_60px_rgba(217,74,56,0.1)]">
+                  <item.icon className="h-9 w-9 text-[#14b8c8]" />
+                  <h3 className="mt-5 text-2xl font-black text-[#111827]">{item.title}</h3>
+                  <p className="mt-3 text-sm leading-7 text-[#667085]">{item.desc}</p>
                 </Link>
               ))}
             </div>
           </div>
         </section>
 
-        <section className="bg-white px-5 pb-16 sm:px-8 md:pb-24">
-          <div className="mx-auto grid max-w-7xl gap-8 rounded-lg bg-slate-950 p-8 text-white md:grid-cols-[1fr_auto] md:items-center md:p-12">
+        <section className="bg-white px-[clamp(20px,6vw,88px)] pb-[clamp(64px,8vw,112px)]">
+          <div className="mx-auto grid max-w-7xl gap-8 rounded-[8px] bg-[radial-gradient(circle_at_86%_24%,rgba(20,184,200,0.16),transparent_26%),linear-gradient(135deg,#102033,#17334a)] p-8 text-white md:grid-cols-[1fr_auto] md:items-center md:p-12">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.24em] text-amber-300">Contact</p>
+              <p className="hm-eyebrow text-white before:bg-[#d99b45]">Contact</p>
               <h2 className="mt-4 text-3xl font-black md:text-5xl">想进一步了解心忆？</h2>
               <div className="mt-6 grid gap-3 md:grid-cols-3">
                 {trustPoints.map((item) => (
                   <p key={item} className="flex items-start gap-3 text-sm leading-7 text-slate-200">
-                    <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-emerald-300" />
+                    <CheckCircle2 className="mt-1 h-5 w-5 flex-shrink-0 text-[#14b8c8]" />
                     {item}
                   </p>
                 ))}
               </div>
             </div>
             <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-              <Link to="/products" className="rounded-md bg-white px-6 py-3 text-center text-sm font-bold text-slate-950 transition hover:bg-slate-100">
+              <Link to="/products" className="rounded-[6px] bg-white px-6 py-3 text-center text-sm font-bold text-[#111827] transition hover:bg-[#eef7f8]">
                 查看产品
               </Link>
-              <Link to="/cooperation" className="rounded-md border border-white/40 px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-white hover:text-slate-950">
+              <Link to="/cooperation" className="rounded-[6px] border border-white/40 px-6 py-3 text-center text-sm font-bold text-white transition hover:bg-white hover:text-[#111827]">
                 商务咨询
               </Link>
             </div>
