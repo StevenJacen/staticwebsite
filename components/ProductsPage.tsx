@@ -203,6 +203,7 @@ const kangkangStandards = [
 const kangkangPlans = [
   {
     name: '守护版',
+    price: '7999',
     qrImage: '/image/kangkang/kangkang-mini-program-qr.jpg',
     qrAlt: '心忆康康小程序二维码',
     qrCaption: '扫码咨询守护版',
@@ -496,15 +497,16 @@ const KangkangProduct: React.FC = () => {
               <article key={plan.name} className={`hm-price-card ${plan.tag ? 'hm-price-card-highlighted' : ''}`}>
                 {plan.tag && <div className="hm-price-tag">{plan.tag}</div>}
                 <h3>{plan.name}</h3>
-                {plan.qrImage ? (
-                  <div className="hm-price-qr">
-                    <img src={plan.qrImage} alt={plan.qrAlt} />
-                    <p>{plan.qrCaption}</p>
-                  </div>
-                ) : (
+                {plan.price && (
                   <div className="hm-price">
                     {plan.price}
                     <span>元起</span>
+                  </div>
+                )}
+                {plan.qrImage && (
+                  <div className="hm-price-qr">
+                    <img src={plan.qrImage} alt={plan.qrAlt} />
+                    <p>{plan.qrCaption}</p>
                   </div>
                 )}
                 <p className="mt-5">{plan.desc}</p>
