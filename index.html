@@ -463,8 +463,9 @@
       }
       .hm-pricing-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: minmax(0, 640px);
         gap: 18px;
+        justify-content: center;
       }
       .hm-price-card {
         position: relative;
@@ -520,6 +521,33 @@
       }
       .hm-price-card-highlighted .hm-price {
         color: var(--warm);
+      }
+      .hm-price-qr {
+        display: inline-flex;
+        width: fit-content;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-top: 18px;
+        border-radius: var(--radius);
+        border: 1px solid rgba(17, 24, 39, 0.1);
+        background: #fff;
+        padding: 12px;
+        box-shadow: 0 14px 36px rgba(33, 28, 23, 0.08);
+      }
+      .hm-price-qr img {
+        display: block;
+        width: clamp(136px, 13vw, 168px);
+        aspect-ratio: 1;
+        border-radius: 6px;
+        object-fit: cover;
+      }
+      .hm-price-qr p {
+        margin: 0;
+        color: var(--panel);
+        font-size: 13px;
+        font-weight: 720;
+        line-height: 1.4;
       }
       .hm-price-card ul {
         display: grid;

@@ -202,18 +202,13 @@ const kangkangStandards = [
 
 const kangkangPlans = [
   {
-    name: '悦享版',
-    price: '6999',
-    desc: '适合想给老人增加陪伴、聊天、提醒和娱乐的家庭。',
-    features: ['主动陪伴', '自然对话', '家庭移动', '日常提醒'],
-    cta: '咨询悦享版',
-  },
-  {
     name: '守护版',
-    price: '7999',
+    qrImage: '/image/kangkang/kangkang-mini-program-qr.jpg',
+    qrAlt: '心忆康康小程序二维码',
+    qrCaption: '扫码咨询守护版',
     tag: '推荐独居 / 高龄家庭',
     desc: '更关注老人独居状态、子女远程安心的家庭。',
-    features: ['包含悦享版核心能力', '更完整的家庭状态关注', '更强的远程关心能力', '更多服务权益'],
+    features: ['主动陪伴与自然对话', '更完整的家庭状态关注', '更强的远程关心能力', '更多服务权益'],
     cta: '咨询守护版',
   },
 ];
@@ -233,7 +228,7 @@ const kangkangFaqs = [
   },
   {
     question: '现在有哪些版本和价格？',
-    answer: '当前产品以 6999 元起的标准版和 7999 元起的高配版为主，最终以实际配置、服务内容和销售说明为准。',
+    answer: '当前以守护版咨询为主，具体价格、配置和服务权益以小程序或工作人员的最终说明为准。',
   },
   {
     question: '摄像头和隐私会不会让父母有压力？',
@@ -492,7 +487,7 @@ const KangkangProduct: React.FC = () => {
           <p className="hm-eyebrow">版本价格</p>
           <h2 className="hm-title mt-4 text-3xl font-black md:text-4xl">选择适合家人的康康</h2>
           <p className="mt-5">
-            悦享版适合日常陪伴，守护版增加更安心的家庭守护能力。实际价格和服务权益以最终配置说明为准。
+            当前以守护版咨询为主，更适合关注老人独居状态、子女远程安心和家庭守护能力的家庭。实际价格和服务权益以最终配置说明为准。
           </p>
         </div>
         <div className="mx-auto max-w-7xl">
@@ -501,10 +496,17 @@ const KangkangProduct: React.FC = () => {
               <article key={plan.name} className={`hm-price-card ${plan.tag ? 'hm-price-card-highlighted' : ''}`}>
                 {plan.tag && <div className="hm-price-tag">{plan.tag}</div>}
                 <h3>{plan.name}</h3>
-                <div className="hm-price">
-                  {plan.price}
-                  <span>元起</span>
-                </div>
+                {plan.qrImage ? (
+                  <div className="hm-price-qr">
+                    <img src={plan.qrImage} alt={plan.qrAlt} />
+                    <p>{plan.qrCaption}</p>
+                  </div>
+                ) : (
+                  <div className="hm-price">
+                    {plan.price}
+                    <span>元起</span>
+                  </div>
+                )}
                 <p className="mt-5">{plan.desc}</p>
                 <ul>
                   {plan.features.map((feature) => (
