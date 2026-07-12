@@ -418,7 +418,7 @@ const KangkangProduct: React.FC = () => {
     <PageShell>
       <section className="relative overflow-hidden bg-[#39251f] px-[clamp(20px,6vw,88px)] py-[clamp(68px,8vw,108px)] text-white">
         <div className="absolute inset-0">
-          <img src="/image/v4/scene-1.jpg" alt="心忆康康在家庭客厅中" className="h-full w-full object-cover" />
+          <img src="/image/v4/kangkang-hero.jpg" alt="心忆康康产品家族" className="h-full w-full object-cover object-[center_60%]" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-r from-[#241815]/90 via-[#39251f]/68 to-transparent" />
         <div className="relative z-10 mx-auto max-w-7xl">

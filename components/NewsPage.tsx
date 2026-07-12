@@ -1,36 +1,45 @@
 import React, { useEffect } from 'react';
-import { CalendarDays, MessageCircle, Newspaper, Radio, Sparkles } from 'lucide-react';
+import { CalendarDays, MessageCircle } from 'lucide-react';
 import { Navbar } from './Navbar';
 import { Footer } from './Footer';
 
-const newsCards = [
+const newsItems = [
   {
-    tag: '展会曝光',
-    title: '心忆康康亮相上海老博会',
-    desc: '通过现场展示和观众互动，让更多家庭用户、合作方了解 AI 陪伴机器人在养老科技场景中的价值。',
-    date: '上海老博会',
     image: '/image/events/shanghai-demo.webp',
+    tag: '展会现场',
+    title: '观众现场了解康康机器人',
+    desc: '产品展示、现场讲解与互动体验共同构成更真实的产品印象。',
   },
   {
-    tag: '创新活动',
-    title: '参与亚布力创新大赛',
-    desc: '面向行业舞台介绍心忆科技的产品方向和家庭关怀价值，持续补充品牌与市场曝光。',
-    date: '创新大赛',
+    image: '/image/events/shanghai-users.webp',
+    tag: '用户互动',
+    title: '康康被更多家庭用户看见',
+    desc: '从展会体验到家庭咨询，心忆持续收集真实场景里的使用反馈。',
+  },
+  {
+    image: '/image/events/delegation-visit.webp',
+    tag: '商务参观',
+    title: '接待商业访团交流',
+    desc: '围绕产品落地、服务场景和合作方式，与合作伙伴展开更具体的沟通。',
+  },
+  {
+    image: '/image/events/ceibs-scene.webp',
+    tag: '场景体验',
+    title: '在交流现场演示产品互动',
+    desc: '康康不仅是展示品，也可以在实际交流中呈现陪伴与互动方式。',
+  },
+  {
     image: '/image/events/yabuli-group.webp',
+    tag: '创新活动',
+    title: '参与青年创新赛事',
+    desc: '通过公开活动展示团队思考，让品牌动态与产品方向持续沉淀。',
   },
   {
-    tag: '行业交流',
-    title: '中欧国际论坛活动交流',
-    desc: '论坛现场、产品展示和嘉宾交流素材将沉淀到官网精选资讯，同时通过公众号持续更新。',
-    date: '中欧国际论坛',
     image: '/image/events/ceibs-group.webp',
+    tag: '品牌露出',
+    title: '论坛活动中的产品合影',
+    desc: '用真实图片记录阶段性进展，官网沉淀精选内容，公众号同步更多动态。',
   },
-];
-
-const updateRules = [
-  '官网展示精选资讯，避免页面被过多日常消息淹没。',
-  '公众号承担更高频的内容更新和活动露出。',
-  '重要产品动态、合作进展和媒体信息再同步到官网。',
 ];
 
 export const NewsPage: React.FC = () => {
@@ -39,7 +48,7 @@ export const NewsPage: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white font-sans text-slate-900">
+    <div className="min-h-screen bg-white font-sans text-[#111827]">
       <Navbar />
       <main>
         <section className="hm-page-hero">
@@ -47,59 +56,49 @@ export const NewsPage: React.FC = () => {
             <div className="hm-page-hero-copy">
               <p className="hm-page-kicker">News</p>
               <h1 className="hm-page-title">精选资讯</h1>
-              <p className="hm-page-lead">
-                官网保留适合用户和合作方快速了解公司的精选内容，日常更新与活动曝光通过公众号同步，让信息维护更轻、更稳定。
-              </p>
+              <p className="hm-page-lead">在这里查看心忆的产品动态、活动现场和合作进展；更多照片、服务通知与日常更新通过公众号持续同步。</p>
             </div>
-            <div className="hm-page-card">
-              <MessageCircle className="h-9 w-9 text-blue-500" />
-              <h2 className="mt-5 text-2xl font-black">公众号同步</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-600">扫码关注，查看最新产品照片、活动动态和服务通知。</p>
-              <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="mt-5 h-24 w-24 rounded-[8px] border border-slate-100 object-cover p-2" />
+            <div className="hm-page-visual">
+              <img src="/image/events/ceibs-group.webp" alt="心忆科技活动现场" />
             </div>
           </div>
         </section>
 
-        <section className="bg-white px-5 py-16 sm:px-8 md:py-24">
+        <section className="hm-section bg-[#f8f4ed]">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-5 md:grid-cols-3">
-              {newsCards.map((item) => (
-                <article key={item.title} className="overflow-hidden rounded-lg border border-slate-100 bg-slate-50 transition hover:border-blue-200 hover:bg-blue-50">
-                  <div className="aspect-[4/3] bg-slate-100">
+            <div className="grid gap-8 lg:grid-cols-[0.75fr_1.25fr] lg:items-end">
+              <div>
+                <p className="hm-eyebrow">Updates</p>
+                <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">精选资讯与公众号动态</h2>
+              </div>
+              <p className="text-base leading-8 text-[#667085]">官网保留适合用户和合作方快速浏览的精选内容，公众号同步更多活动照片、产品动态和服务通知。</p>
+            </div>
+
+            <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+              {newsItems.map((item) => (
+                <article key={item.title} className="hm-card overflow-hidden transition hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(217,74,56,0.1)]">
+                  <div className="aspect-[4/3] bg-[#eef7f8]">
                     <img src={item.image} alt={item.title} className="h-full w-full object-cover" />
                   </div>
-                  <div className="p-7">
-                    <Newspaper className="h-8 w-8 text-blue-500" />
-                    <p className="mt-5 flex items-center gap-2 text-sm font-bold text-blue-600">
+                  <div className="p-6">
+                    <p className="inline-flex items-center gap-2 text-sm font-bold text-[#d94a38]">
                       <CalendarDays className="h-4 w-4" />
-                      {item.date}
+                      {item.tag}
                     </p>
-                    <p className="mt-4 text-sm font-bold text-slate-500">{item.tag}</p>
-                    <h2 className="mt-3 text-xl font-black text-slate-950">{item.title}</h2>
-                    <p className="mt-4 text-sm leading-7 text-slate-600">{item.desc}</p>
+                    <h2 className="mt-3 text-xl font-black leading-7 text-[#111827]">{item.title}</h2>
+                    <p className="mt-3 text-[15px] leading-7 text-[#667085]">{item.desc}</p>
                   </div>
                 </article>
               ))}
             </div>
-          </div>
-        </section>
 
-        <section className="bg-blue-50 px-5 py-16 sm:px-8 md:py-24">
-          <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:items-center">
-            <div>
-              <Radio className="h-10 w-10 text-blue-500" />
-              <h2 className="mt-5 text-3xl font-black text-slate-950 md:text-5xl">资讯维护方式</h2>
-              <p className="mt-5 text-base leading-8 text-slate-600">
-                静态官网不强行做高频动态流，先用公众号承接更新，再把重要内容沉淀为官网精选。
-              </p>
-            </div>
-            <div className="grid gap-4 md:grid-cols-3">
-              {updateRules.map((item) => (
-                <p key={item} className="rounded-2xl bg-white p-6 text-sm font-medium leading-7 text-slate-700 shadow-sm">
-                  <Sparkles className="mb-4 h-6 w-6 text-blue-500" />
-                  {item}
-                </p>
-              ))}
+            <div className="hm-card mt-10 grid gap-6 p-6 shadow-[0_18px_55px_rgba(33,28,23,0.08)] sm:grid-cols-[auto_1fr] sm:items-center">
+              <img src="/image/qrcode.jpg" alt="心忆科技公众号二维码" className="h-28 w-28 rounded-[8px] border border-[rgba(17,24,39,0.1)] object-cover p-2" />
+              <div>
+                <MessageCircle className="h-8 w-8 text-[#14b8c8]" />
+                <h2 className="mt-3 text-2xl font-black text-[#111827]">关注公众号，查看更完整的动态</h2>
+                <p className="mt-2 text-[15px] leading-7 text-[#667085]">产品照片、活动报道、服务通知和下载入口会通过公众号持续同步。</p>
+              </div>
             </div>
           </div>
         </section>
