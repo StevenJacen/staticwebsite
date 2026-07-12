@@ -8,7 +8,7 @@ const footerGroups = [
     links: [
       ['心忆康康', '/products/kangkang'],
       ['心忆同启 APP', '/products/app'],
-      ['未来产品预留', '/products/future'],
+      ['新产品尽请期待', '/products/future'],
     ],
   },
   {
@@ -35,18 +35,18 @@ export const Footer: React.FC = () => {
       <div className="mx-auto max-w-7xl px-[clamp(20px,6vw,88px)] py-14">
         <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr_0.8fr]">
           <div>
-            <img src="/image/brand-logo.svg" alt="HeartMemo 心忆科技" className="h-12 w-auto rounded-[6px] bg-white px-2 py-1" />
+            <img src="/image/v4/heartmemo-logo.png" alt="HeartMemo 心忆科技" className="h-14 w-auto object-contain object-left" />
             <p className="mt-6 max-w-xl text-sm leading-8 text-white/68">
               北京心忆科技有限公司专注 AI 陪伴与家庭连接产品。我们不追求替代亲情，只希望让子女的关心更及时、更稳定地抵达父母身边。
             </p>
             <div className="mt-6 space-y-3 text-sm text-white/68">
               <p className="flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#14b8c8]" />
-                北京市海淀区永捷南路 2 号院 2 号楼
+                北京市海淀区中关村 AI 北纬社区 D5A-301 室
               </p>
               <p className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#14b8c8]" />
-                17600222898 / 4001023698 / 18500190368
+                市场渠道：17600222898　客服渠道：4001023698　CEO：18500190368
               </p>
             </div>
           </div>
@@ -81,6 +81,10 @@ export const Footer: React.FC = () => {
 
         <div className="mt-12 border-t border-white/10 pt-6 text-xs text-white/40">
           <p>© 2026 Beijing HeartMemo Technology Co. Ltd. 产品功能与服务范围以实际上线版本、设备状态、网络状态和授权设置为准。</p>
+          <div className="mt-3 flex flex-wrap gap-x-5 gap-y-2">
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer" className="transition hover:text-white">ICP备案信息</a>
+            <a href="https://beian.mps.gov.cn/" target="_blank" rel="noreferrer" className="transition hover:text-white">公安备案信息</a>
+          </div>
         </div>
       </div>
     </footer>

@@ -22,7 +22,9 @@ const cooperationTypes = [
 ];
 
 export const CooperationPage: React.FC = () => {
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">
@@ -73,6 +75,9 @@ export const CooperationPage: React.FC = () => {
               ))}
             </div>
           </div>
+        </section>
+        <section className="hm-disclaimer">
+          康康用于日常陪伴、生活提醒、亲情消息和家庭关怀辅助，不替代家属照护、专业护理、医疗诊疗、急救服务或安防系统；健康、用药、复诊相关内容仅作为提醒和信息记录，不构成医疗建议。
         </section>
       </main>
       <Footer />

@@ -34,7 +34,9 @@ const updateRules = [
 ];
 
 export const NewsPage: React.FC = () => {
-  useEffect(() => window.scrollTo(0, 0), []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900">

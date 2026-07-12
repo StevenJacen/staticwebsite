@@ -4,6 +4,7 @@ const read = (path) => readFileSync(path, 'utf8');
 
 const files = {
   home: read('components/Home.tsx'),
+  hero: read('components/Hero.tsx'),
   navbar: read('components/Navbar.tsx'),
   products: read('components/ProductsPage.tsx'),
   support: read('components/SupportPage.tsx'),
@@ -13,17 +14,29 @@ const files = {
   about: read('components/AboutPage.tsx'),
   cooperation: read('components/CooperationPage.tsx'),
   footer: read('components/Footer.tsx'),
+  forum: read('components/ForumPage.tsx'),
 };
 
 const required = {
   home: [
-    '活动影像持续滚动',
+    '真实现场里的康康',
     'Rolling Moments',
+    '很多关心，不该只停在微信和电话里',
+    '早上该起床了，康康先去叫一声',
+    '晚上睡前，家人的一句话也能到家里',
     '精选资讯与公众号动态',
     '关注公众号，查看更完整的动态',
-    '从产品开始了解心忆',
+    '了解心忆',
+    '想知道康康适不适合你家？',
     '/image/events/shanghai-booth.webp',
     '/image/events/yabuli-stage.webp',
+  ],
+  hero: [
+    '给爸妈一个会回应的陪伴',
+    '了解康康',
+    '预约产品演示',
+    '查看版本价格',
+    '/image/v4/scene-1.jpg',
   ],
   navbar: [
     '首页',
@@ -31,17 +44,22 @@ const required = {
     '科技',
     '场景方案',
     '最新资讯',
+    '具身智能论坛社区',
     '关于我们',
     '商务合作',
     '<div className="flex flex-shrink-0 items-center"',
   ],
   products: [
     '用 AI 陪伴，把家人的关心留在身边',
-    '心忆康康：居家陪伴机器人',
-    '心忆同启 APP：装在手机里的家庭关怀助手',
-    '持续拓展的家庭关怀产品线',
+    '心忆康康：陪在父母身边的 AI 居家陪伴机器人',
+    '心忆康康：产品方案',
+    '主动找人主动跟随',
+    '心忆康康守护版',
+    "price: '7999'",
+    '心忆同启 APP：子女手机里的家庭关怀入口',
+    '新产品尽请期待',
     '陪在父母身边的 AI 生活伙伴',
-    '手机端的家庭关怀体验',
+    '把康康连接到家庭',
     '/products/kangkang',
     '/products/app',
     '/products/future',
@@ -62,19 +80,22 @@ const required = {
     '/image/events/ceibs-group.webp',
   ],
   technology: [
-    '让陪伴更自然',
-    '隐私优先',
-    '辅助判断',
+    '少一点技术名词，多一点家属放心',
+    '让父母更容易开口',
+    '家庭数据先授权再使用',
+    '测试中功能要标注清楚',
   ],
   solutions: [
-    '给不同家庭和机构的落地方式',
+    '让关心进入不同家庭的日常',
     '异地子女',
-    '社区康养',
+    '多个家人，共用一个关怀入口',
+    '联系机构合作',
   ],
   about: [
-    '让 AI 陪伴拥有温度',
-    '面向年轻家属',
     '北京心忆科技有限公司',
+    '创始人团队',
+    '科研团队',
+    '公司发展历程',
   ],
   cooperation: [
     '商务合作咨询',
@@ -82,9 +103,15 @@ const required = {
     '机构落地',
   ],
   footer: [
-    '北京市海淀区永捷南路 2 号院 2 号楼',
+    '北京市海淀区中关村 AI 北纬社区 D5A-301 室',
+    '市场渠道：17600222898',
     '公众号同步',
     '活动曝光',
+  ],
+  forum: [
+    '具身智能论坛社区',
+    '产品与场景',
+    '论坛活动',
   ],
 };
 

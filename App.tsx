@@ -9,6 +9,7 @@ import { ProductsPage } from './components/ProductsPage';
 import { SolutionsPage } from './components/SolutionsPage';
 import { SupportPage } from './components/SupportPage';
 import { CooperationPage } from './components/CooperationPage';
+import { ForumPage } from './components/ForumPage';
 
 const App: React.FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: React.FC = () => {
           <Route path="/cooperation" element={<CooperationPage />} />
           <Route path="/news" element={<NewsPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/forum" element={<ForumPage />} />
         </Routes>
       </Router>
     </LanguageProvider>

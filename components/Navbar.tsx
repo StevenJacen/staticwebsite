@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const productLinks = [
   { label: '心忆康康', href: '/products/kangkang' },
   { label: '心忆同启 APP', href: '/products/app' },
-  { label: '下一代产品预留', href: '/products/future' },
+  { label: '新产品尽请期待', href: '/products/future' },
 ];
 
 const navLinks = [
@@ -13,6 +13,7 @@ const navLinks = [
   { label: '科技', href: '/technology' },
   { label: '场景方案', href: '/solutions' },
   { label: '最新资讯', href: '/news' },
+  { label: '具身智能论坛社区', href: '/forum' },
 ];
 
 const aboutLinks = [
@@ -120,7 +121,7 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
-            {navLinks.slice(1, 4).map((link) => (
+            {navLinks.slice(1).map((link) => (
               <button
                 key={link.href}
                 onClick={() => goTo(link.href)}
@@ -166,17 +167,6 @@ export const Navbar: React.FC = () => {
               </div>
             </div>
 
-            {navLinks.slice(4).map((link) => (
-              <button
-                key={link.href}
-                onClick={() => goTo(link.href)}
-                className={`text-sm font-semibold tracking-normal transition-colors hover:text-[#111827] ${
-                  location.pathname === link.href ? 'text-[#111827]' : 'text-[#111827]/70'
-                }`}
-              >
-                {link.label}
-              </button>
-            ))}
           </div>
 
           <div className="ml-auto flex items-center gap-4">
@@ -220,7 +210,7 @@ export const Navbar: React.FC = () => {
                 {link.label}
               </button>
             ))}
-            {navLinks.slice(1, 4).map((link) => (
+            {navLinks.slice(1).map((link) => (
               <button
                 key={link.href}
                 onClick={() => goTo(link.href)}
@@ -240,15 +230,6 @@ export const Navbar: React.FC = () => {
                 key={`mobile-about-${link.href}`}
                 onClick={() => goTo(link.href)}
                 className="block w-full rounded-[6px] px-6 py-2 text-left text-sm font-bold text-[#667085] hover:bg-[#fff1e7] hover:text-[#d94a38]"
-              >
-                {link.label}
-              </button>
-            ))}
-            {navLinks.slice(4).map((link) => (
-              <button
-                key={`mobile-top-${link.href}`}
-                onClick={() => goTo(link.href)}
-                className="block w-full rounded-[6px] px-3 py-2 text-left text-sm font-bold text-[#667085] hover:bg-white hover:text-[#111827]"
               >
                 {link.label}
               </button>
