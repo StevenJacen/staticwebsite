@@ -10,6 +10,7 @@ import {
   Layers,
   Lock,
   MessageCircle,
+  Radio,
   ShieldCheck,
   Smartphone,
   Sparkles,
@@ -124,6 +125,12 @@ const kangkangFeatures = [
     label: '生活提醒',
     title: '把琐碎关心安排成日常',
     desc: '饮水、作息、用药时间、复诊等内容可作为生活事项提醒和信息记录，不构成医疗建议。',
+  },
+  {
+    icon: Radio,
+    label: '话题娱乐',
+    title: '有兴趣，有话聊，对生活保持好奇。',
+    desc: '让父母的生活方式多样化，查查天气、听听新闻、音乐和科普养生知识，让日常更有内容，也更有回应。',
   },
   {
     icon: MessageCircle,
