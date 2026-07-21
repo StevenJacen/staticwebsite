@@ -185,12 +185,11 @@ export const Home: React.FC = () => {
 
         <section className="hm-section bg-white">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-7 lg:grid-cols-[0.82fr_1.18fr] lg:items-end">
-              <div>
-                <p className="hm-eyebrow">Family Scenes</p>
-                <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">很多关心，不该只停在微信和电话里</h2>
-              </div>
-              <p className="text-base leading-8 text-[#667085]">康康进入家庭生活节奏，让问候、提醒和家人的消息，在需要的时候更容易到达父母身边。</p>
+            <div className="max-w-4xl">
+              <p className="hm-eyebrow">Family Scenes</p>
+              <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">
+                很多关心，不该只停在<span className="whitespace-nowrap">微信和电话里</span>
+              </h2>
             </div>
             <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
               {familyScenes.map((item) => (
@@ -207,22 +206,14 @@ export const Home: React.FC = () => {
                 </article>
               ))}
             </div>
-            <p className="mx-auto mt-10 max-w-4xl text-center text-base font-bold leading-8 text-[#17334a]">
-              康康不是放在家里的摆件，而是会进入生活节奏的陪伴机器人。家庭场景，才是它最能被理解的地方。
-            </p>
           </div>
         </section>
 
         <section className="hm-section bg-white">
           <div className="mx-auto max-w-7xl">
-            <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:items-end">
-              <div>
-                <p className="hm-eyebrow">Products</p>
-                <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">了解心忆</h2>
-              </div>
-              <p className="text-base leading-8 text-[#667085]">
-                心忆康康在父母身边，心忆同启 APP 在子女手机里。两者配合，让家庭关怀更容易开始，也更容易持续。
-              </p>
+            <div className="max-w-4xl">
+              <p className="hm-eyebrow">Products</p>
+              <h2 className="hm-title mt-4 text-3xl font-black md:text-5xl">了解心忆</h2>
             </div>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-3">

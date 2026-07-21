@@ -46,7 +46,7 @@ export const Footer: React.FC = () => {
               </p>
               <p className="flex items-start gap-2">
                 <Phone className="mt-0.5 h-4 w-4 flex-shrink-0 text-[#14b8c8]" />
-                市场渠道：17600222898　客服渠道：4001023698　CEO：18500190368
+                市场渠道：17600222898　客服渠道：4001023698
               </p>
             </div>
           </div>

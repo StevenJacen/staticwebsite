@@ -103,8 +103,7 @@ const zhTranslations: Translations = {
     addressValue: '北京市海淀区永捷南路 2 号院 2 号楼',
     phones: [
       { label: '联系电话', value: '17600222898' },
-      { label: '服务热线', value: '4001023698' },
-      { label: '公司 CEO', value: '18500190368' }
+      { label: '服务热线', value: '4001023698' }
     ]
   }
 };

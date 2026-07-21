@@ -15,13 +15,15 @@ const files = {
   cooperation: read('components/CooperationPage.tsx'),
   footer: read('components/Footer.tsx'),
   forum: read('components/ForumPage.tsx'),
+  language: read('components/LanguageContext.tsx'),
 };
 
 const required = {
   home: [
     '真实现场里的康康',
     'Rolling Moments',
-    '很多关心，不该只停在微信和电话里',
+    '很多关心，不该只停在',
+    '微信和电话里',
     '早上该起床了，康康先去叫一声',
     '晚上睡前，家人的一句话也能到家里',
     '了解心忆',
@@ -33,8 +35,12 @@ const required = {
     '给爸妈一个会回应的陪伴',
     '了解康康',
     '预约产品演示',
-    '查看版本价格',
-    '/image/v4/scene-1.jpg',
+    '/video/banner.webm',
+    '/video/banner.mp4',
+    '/video/banner-m.webm',
+    '/video/banner-m.mp4',
+    '#f6e2c8',
+    '#fff4e3',
   ],
   navbar: [
     '首页',
@@ -122,7 +128,14 @@ const required = {
 };
 
 const forbidden = {
-  home: ['康康的每一次亮相，都让关怀更具体', '精选资讯与公众号动态', '关注公众号，查看更完整的动态'],
+  home: [
+    '康康的每一次亮相，都让关怀更具体',
+    '精选资讯与公众号动态',
+    '关注公众号，查看更完整的动态',
+    '康康进入家庭生活节奏',
+    '康康不是放在家里的摆件',
+    '心忆康康在父母身边，心忆同启 APP 在子女手机里',
+  ],
   navbar: ['<button className="flex flex-shrink-0 items-center" onClick={goHome}', '服务与支持'],
   products: [
     'V1.0 基础必做能力',
@@ -134,7 +147,8 @@ const forbidden = {
     'APP 视频展示区',
     '用于承接后续',
   ],
-  footer: ['真实办公地址待补充'],
+  footer: ['真实办公地址待补充', 'CEO：', '18500190368'],
+  language: ['公司 CEO', '18500190368'],
 };
 
 const missing = Object.entries(required).flatMap(([key, phrases]) =>
