@@ -1,51 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export const Hero: React.FC = () => {
   return (
-    <section className="relative w-full overflow-hidden bg-[#f6e2c8]">
-      <div className="relative z-0 w-full">
-        <video className="hidden h-auto w-full contrast-[1.04] saturate-[1.08] md:block" autoPlay loop muted playsInline>
-          <source src="/video/banner.webm" type="video/webm" />
-          <source src="/video/banner.mp4" type="video/mp4" />
-        </video>
-
-        <video className="block h-auto w-full contrast-[1.04] saturate-[1.08] md:hidden" autoPlay loop muted playsInline>
+    <section className="relative h-[clamp(520px,37.5vw,760px)] w-full overflow-hidden bg-[#f6e2c8]">
+      <div
+        className="absolute inset-y-0 right-0 w-[min(58vw,980px)] min-w-[600px] overflow-hidden max-md:-right-[46vw] max-md:w-[142vw] max-md:min-w-0"
+        style={{
+          WebkitMaskImage:
+            'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 12%, rgba(0,0,0,0.45) 30%, #000 54%)',
+          maskImage:
+            'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 12%, rgba(0,0,0,0.45) 30%, #000 54%)',
+        }}
+      >
+        <video
+          className="h-full w-full object-cover object-right brightness-[1.03] contrast-[1.09] saturate-[1.16]"
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+        >
           <source src="/video/banner-m.webm" type="video/webm" />
           <source src="/video/banner-m.mp4" type="video/mp4" />
         </video>
-
-        <div className="absolute inset-0 bg-[#fff4e3]/14" />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              'radial-gradient(circle at 18% 8%, rgba(255,255,246,0.34), transparent 24%), linear-gradient(90deg, rgba(255,244,227,0.16) 0%, rgba(246,226,200,0.12) 54%, rgba(226,184,144,0.08) 100%)',
-          }}
-        />
-        <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[#fff4e3]/80 to-transparent" />
       </div>
 
-      <div className="pointer-events-none absolute inset-0 z-10 flex items-end">
-        <div className="mx-auto w-full max-w-[1440px] px-[clamp(20px,6vw,88px)] pb-[clamp(32px,7vw,88px)]">
-          <div className="pointer-events-auto max-w-2xl">
-            <p className="hm-eyebrow">心忆康康 AI 居家陪伴机器人</p>
-            <h1 className="hm-title mt-4 text-[clamp(34px,5vw,60px)] font-black leading-[1.12]">
-              给爸妈一个会回应的陪伴
-            </h1>
-            <p className="mt-5 max-w-xl text-base leading-[1.75] text-[#667085] md:text-lg">
-              康康放在父母家，把主动问候、生活提醒和家人消息带到日常里。不替代家人照护，只让关心更容易抵达。
-            </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <Link to="/products/kangkang" className="hm-primary px-6">
-                了解康康
-              </Link>
-              <Link to="/cooperation" className="hm-secondary bg-white/85 px-6 backdrop-blur">
-                预约产品演示
-              </Link>
-            </div>
-          </div>
-        </div>
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,#f6e2c8_0%,rgba(246,226,200,0.78)_31%,rgba(246,226,200,0.12)_62%,rgba(246,226,200,0)_86%)]" />
+
+      <div className="relative z-10 flex h-full items-center justify-center px-[clamp(20px,6vw,88px)] text-center">
+        <h1 className="hm-title max-w-5xl text-[clamp(40px,5.1vw,78px)] font-black leading-[1.08] text-[#6b4428]">
+          让每个人都有爱与陪伴
+        </h1>
       </div>
     </section>
   );

@@ -32,15 +32,11 @@ const required = {
     '/image/events/yabuli-stage.webp',
   ],
   hero: [
-    '给爸妈一个会回应的陪伴',
-    '了解康康',
-    '预约产品演示',
-    '/video/banner.webm',
-    '/video/banner.mp4',
+    '让每个人都有爱与陪伴',
     '/video/banner-m.webm',
     '/video/banner-m.mp4',
     '#f6e2c8',
-    '#fff4e3',
+    'object-right',
   ],
   navbar: [
     '首页',
@@ -128,6 +124,16 @@ const required = {
 };
 
 const forbidden = {
+  hero: [
+    '心忆康康 AI 居家陪伴机器人',
+    '给爸妈一个会回应的陪伴',
+    '康康放在父母家',
+    '了解康康',
+    '预约产品演示',
+    '/video/banner.webm',
+    '/video/banner.mp4',
+    'Link',
+  ],
   home: [
     '康康的每一次亮相，都让关怀更具体',
     '精选资讯与公众号动态',
