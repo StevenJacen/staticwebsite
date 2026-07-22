@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 const read = (path) => readFileSync(path, 'utf8');
 
 const files = {
+  index: read('index.html'),
   home: read('components/Home.tsx'),
   hero: read('components/Hero.tsx'),
   navbar: read('components/Navbar.tsx'),
@@ -36,8 +37,12 @@ const required = {
     '/video/banner-m.webm',
     '/video/banner-m.mp4',
     '#f6e2c8',
+    'h-[calc(100dvh-72px)]',
+    'justify-start',
+    'text-left',
     'object-right',
   ],
+  index: ['<title>心忆科技-居家陪伴机器人专家</title>'],
   navbar: [
     '首页',
     '产品',
@@ -132,6 +137,9 @@ const forbidden = {
     '预约产品演示',
     '/video/banner.webm',
     '/video/banner.mp4',
+    'h-[clamp(520px,37.5vw,760px)]',
+    'justify-center',
+    'text-center',
     'Link',
   ],
   home: [
