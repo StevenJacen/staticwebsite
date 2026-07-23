@@ -34,8 +34,12 @@ const required = {
   ],
   hero: [
     '让每个人都有爱与陪伴',
-    '/video/banner-m.webm',
-    '/video/banner-m.mp4',
+    '/video/banner.webm',
+    '/video/banner.mp4',
+    'lg:block',
+    'lg:hidden',
+    'top-[54%]',
+    'h-full w-full object-cover object-center',
     '#f6e2c8',
     'h-[calc(100dvh-72px)]',
     'justify-start',
@@ -137,12 +141,15 @@ const forbidden = {
     '康康放在父母家',
     '了解康康',
     '预约产品演示',
-    '/video/banner.webm',
-    '/video/banner.mp4',
     'h-[clamp(520px,37.5vw,760px)]',
     'justify-center',
     'text-center',
     'absolute inset-0 bg-[linear-gradient(90deg,#f6e2c8_0%',
+    'max-md:-right-[46vw]',
+    'max-md:w-[142vw]',
+    'md:block',
+    'md:hidden',
+    'h-full w-auto max-w-none',
     'Link',
   ],
   home: [
@@ -186,6 +193,11 @@ const forbiddenHits = Object.entries(forbidden).flatMap(([key, phrases]) =>
     .map((phrase) => `${key}: ${phrase}`),
 );
 
+const responsiveHeroSourceCounts = {
+  '/video/banner.webm': files.hero.split('/video/banner.webm').length - 1,
+  '/video/banner.mp4': files.hero.split('/video/banner.mp4').length - 1,
+};
+
 if (missing.length > 0) {
   console.error(`Missing required conversion content:\n- ${missing.join('\n- ')}`);
   process.exit(1);
@@ -193,6 +205,13 @@ if (missing.length > 0) {
 
 if (forbiddenHits.length > 0) {
   console.error(`Found public-site wording/structure that should be removed:\n- ${forbiddenHits.join('\n- ')}`);
+  process.exit(1);
+}
+
+if (Object.values(responsiveHeroSourceCounts).some((count) => count !== 2)) {
+  console.error(
+    `Desktop-framed banner sources must serve both desktop and mobile video elements:\n${JSON.stringify(responsiveHeroSourceCounts, null, 2)}`,
+  );
   process.exit(1);
 }
 

@@ -4,7 +4,7 @@ export const Hero: React.FC = () => {
   return (
     <section className="relative h-[calc(100dvh-72px)] w-full overflow-hidden bg-[#f6e2c8]">
       <div
-        className="absolute inset-y-0 right-0 w-[min(58vw,980px)] min-w-[600px] overflow-hidden max-md:-right-[46vw] max-md:w-[142vw] max-md:min-w-0"
+        className="absolute inset-y-0 right-0 hidden w-[min(58vw,980px)] min-w-[600px] overflow-hidden lg:block"
         style={{
           WebkitMaskImage:
             'linear-gradient(90deg, transparent 0%, rgba(0,0,0,0.08) 12%, rgba(0,0,0,0.45) 30%, #000 54%)',
@@ -20,8 +20,30 @@ export const Hero: React.FC = () => {
           playsInline
           aria-hidden="true"
         >
-          <source src="/video/banner-m.webm" type="video/webm" />
-          <source src="/video/banner-m.mp4" type="video/mp4" />
+          <source src="/video/banner.webm" type="video/webm" />
+          <source src="/video/banner.mp4" type="video/mp4" />
+        </video>
+      </div>
+
+      <div
+        className="absolute inset-x-0 bottom-0 top-[54%] overflow-hidden lg:hidden"
+        style={{
+          WebkitMaskImage:
+            'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.18) 16%, #000 42%)',
+          maskImage:
+            'linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.18) 16%, #000 42%)',
+        }}
+      >
+        <video
+          className="h-full w-full object-cover object-center brightness-[1.03] contrast-[1.09] saturate-[1.16]"
+          autoPlay
+          loop
+          muted
+          playsInline
+          aria-hidden="true"
+        >
+          <source src="/video/banner.webm" type="video/webm" />
+          <source src="/video/banner.mp4" type="video/mp4" />
         </video>
       </div>
 
