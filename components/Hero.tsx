@@ -25,9 +25,7 @@ export const Hero: React.FC = () => {
         </video>
       </div>
 
-      <div className="absolute inset-0 bg-[linear-gradient(90deg,#f6e2c8_0%,rgba(246,226,200,0.78)_31%,rgba(246,226,200,0.12)_62%,rgba(246,226,200,0)_86%)]" />
-
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] items-center justify-start px-[clamp(20px,6vw,88px)] text-left">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-[1440px] -translate-y-[clamp(28px,4vh,56px)] items-center justify-start px-[clamp(20px,6vw,88px)] text-left">
         <h1 className="hm-title max-w-[760px] text-[clamp(40px,5vw,76px)] font-black leading-[1.08] text-[#6b4428]">
           让每个人都有爱与陪伴
         </h1>

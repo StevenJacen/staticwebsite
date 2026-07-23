@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { ChevronDown, Globe, Menu, X } from 'lucide-react';
+import { ChevronDown, Menu, X } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const productLinks = [
@@ -170,11 +170,6 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="ml-auto flex items-center gap-4">
-            <button className="flex min-h-11 items-center rounded-[6px] border border-[rgba(17,24,39,0.14)] px-3 text-[#667085] transition-colors hover:text-[#111827]" aria-label="Language">
-              <Globe className="h-5 w-5" />
-              <span className="ml-1 text-xs font-bold uppercase">EN</span>
-            </button>
-
             <button
               onClick={() => setIsOpen((value) => !value)}
               className="rounded-[6px] p-2 text-[#111827] focus:outline-none xl:hidden"

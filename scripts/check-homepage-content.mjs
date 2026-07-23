@@ -40,6 +40,8 @@ const required = {
     'h-[calc(100dvh-72px)]',
     'justify-start',
     'text-left',
+    '-translate-y-[clamp(28px,4vh,56px)]',
+    'WebkitMaskImage',
     'object-right',
   ],
   index: ['<title>心忆科技-居家陪伴机器人专家</title>'],
@@ -140,6 +142,7 @@ const forbidden = {
     'h-[clamp(520px,37.5vw,760px)]',
     'justify-center',
     'text-center',
+    'absolute inset-0 bg-[linear-gradient(90deg,#f6e2c8_0%',
     'Link',
   ],
   home: [
@@ -150,7 +153,13 @@ const forbidden = {
     '康康不是放在家里的摆件',
     '心忆康康在父母身边，心忆同启 APP 在子女手机里',
   ],
-  navbar: ['<button className="flex flex-shrink-0 items-center" onClick={goHome}', '服务与支持'],
+  navbar: [
+    '<button className="flex flex-shrink-0 items-center" onClick={goHome}',
+    '服务与支持',
+    'Globe',
+    'aria-label="Language"',
+    '<span className="ml-1 text-xs font-bold uppercase">EN</span>',
+  ],
   products: [
     'V1.0 基础必做能力',
     '基础必做能力',
